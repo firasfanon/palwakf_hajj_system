@@ -1,0 +1,35 @@
+enum Permission {
+  // Platform
+  manageUsers,
+  manageSystems,
+  manageSite,
+  manageHome,
+  viewReports,
+
+  // Service Systems
+  manageZakat,
+  managePrayerTimes,
+  manageQuran,
+
+  // Generic CRUD
+  read,
+  create,
+  update,
+  delete,
+
+  // Map/GIS
+  manageMapLayers,
+  manageLandsCrud,
+
+  // Nosok
+  manageNosok,
+  manageNosokSeasons,
+  manageNosokPrograms,
+  manageNosokCompanies,
+  manageNosokApplications,
+  manageNosokComplaints,
+  manageNosokContent,
+  publishNosokResults,
+  viewNosokReports,
+  trackNosokApplication,
+}

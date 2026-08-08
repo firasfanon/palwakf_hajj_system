@@ -1,0 +1,9 @@
+lib/features/nosok_system/system_navigation.dart
+lib/features/nosok_system/presentation/pages/public/nosok_public_home_page.dart
+lib/features/nosok_system/presentation/pages/public/nosok_requirements_page.dart
+lib/features/nosok_system/presentation/widgets/pwf_sis_nosok_components.dart
+docs/BASELINE_CHANGELOG_NOSOK_UI_MEGA_BATCH_V23_1.md
+docs/ERROR_RECORD_NOSOK_UI_MEGA_BATCH_V23_1.md
+docs/SESSION_HANDOFF_NOSOK_UI_MEGA_BATCH_V23_1.md
+docs/NEXT_SESSION_PROMPT_NOSOK_UI_MEGA_BATCH_V23_1.md
+docs/UAT_MATRIX_NOSOK_UI_MEGA_BATCH_V23_1.md

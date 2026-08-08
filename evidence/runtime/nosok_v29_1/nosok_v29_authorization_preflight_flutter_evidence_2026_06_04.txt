@@ -1,0 +1,36 @@
+Nosok v29.1 — Authorization Preflight + Flutter Runtime Evidence
+Date: 2026-06-04
+
+SQL READ-ONLY PREFLIGHT RESULT
+------------------------------
+section: 01_schema_presence
+payload: {"core_present":true,"waqf_present":true,"nosok_present":false,"public_present":true,"awqaf_system_present":true,"billing_system_present":true,"platform_access_present":true}
+
+section: 02_public_base_table_gate
+payload: {"decision":"PUBLIC_BASE_TABLE_CREATION_BLOCKED_EXISTING_ONLY","public_base_table_count":9,"new_public_base_table_creation_allowed":false}
+
+section: 03_candidate_conflicts
+payload: []
+
+section: 04_final_gate
+payload: {"decision":"NOSOK_V29_AUTHORIZATION_PREFLIGHT_READ_ONLY_COMPLETED","read_only":true,"ddl_executed_by_this_script":false,"dml_executed_by_this_script":false,"create_table_public_authorized":false,"waqf_assets_mutation_authorized":false,"create_schema_nosok_authorized_by_this_script":false,"owner_authorization_required_for_guarded_apply":true}
+
+LOCAL FLUTTER RETEST RESULT
+---------------------------
+flutter clean: passed
+flutter pub get: passed; 20 packages have newer versions incompatible with dependency constraints.
+dart format .: passed; 250 files formatted; 9 changed.
+flutter analyze: No issues found! (ran in 23.4s)
+flutter run -d chrome: passed; Debug service listening; Supabase init completed.
+
+DECISION
+--------
+NOSOK_V29_AUTHORIZATION_PREFLIGHT_ACCEPTED_FLUTTER_RUNTIME_CLEAN_STAGING_DDL_STILL_NOT_AUTHORIZED
+
+NOTES
+-----
+- nosok schema remains absent/not created.
+- public base table creation remains blocked.
+- guarded apply remains blocked until explicit owner_authorization_id and staging backup confirmation.
+- no DDL/DML was executed.
+- no waqf/waqf_assets/awqaf_system mutation.

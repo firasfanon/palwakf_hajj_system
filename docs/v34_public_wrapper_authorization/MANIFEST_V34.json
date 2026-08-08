@@ -1,0 +1,30 @@
+{
+  "package": "nosok_platform_integration_patch_v34_public_wrapper_rpc_authorization_uat_under_platform",
+  "decision": "V34_PUBLIC_WRAPPER_RPC_AUTHORIZATION_PREPARED_APPLY_NOT_EXECUTED_REPOSITORY_BINDING_BLOCKED",
+  "changed_files": [
+    "evidence/nosok_v34_public_wrapper_authorization/v33_sql_negative_uat_result_input.txt",
+    "lib/features/nosok_system/domain/models/nosok_v34_wrapper_authorization_models.dart",
+    "lib/features/nosok_system/application/nosok_v34_wrapper_authorization_controller.dart",
+    "lib/features/nosok_system/presentation/pages/admin/nosok_admin_v34_public_wrapper_rpc_authorization_page.dart",
+    "lib/features/nosok_system/presentation/pages/admin/nosok_admin_v34_browser_role_negative_uat_evidence_intake_page.dart",
+    "lib/features/nosok_system/presentation/pages/admin/nosok_admin_v34_repository_binding_authorization_gate_page.dart",
+    "sql/32_nosok_v34_public_wrapper_rpc_authorization_read_only.sql",
+    "sql/guarded_not_applied/nosok_v34/00_READ_ME_V34_OPERATOR_ONLY.md",
+    "sql/guarded_not_applied/nosok_v34/01_public_wrapper_rpc_surface_OPERATOR_ONLY_NOT_RUN.sql",
+    "sql/guarded_not_applied/nosok_v34/02_post_apply_wrapper_rpc_negative_uat_READ_ONLY.sql",
+    "sql/guarded_not_applied/nosok_v34/03_public_wrapper_rpc_rollback_DRAFT_NOT_RUN.sql",
+    "docs/v34_public_wrapper_authorization/NOSOK_V34_PUBLIC_WRAPPER_RPC_STAGING_APPLY_AUTHORIZATION.md",
+    "docs/v34_public_wrapper_authorization/NOSOK_V34_BROWSER_ROLE_NEGATIVE_UAT_CHECKLIST.md",
+    "docs/v34_public_wrapper_authorization/NOSOK_V34_REPOSITORY_BINDING_GATE.md",
+    "docs/v34_public_wrapper_authorization/V34_DECISION.md",
+    "docs/v34_public_wrapper_authorization/NEXT_PROMPT_NOSOK_V35.md",
+    "lib/features/nosok_system/system_routes.dart",
+    "lib/features/nosok_system/system_permissions.dart",
+    "lib/features/nosok_system/system_navigation.dart",
+    "lib/features/nosok_system/presentation/routes/nosok_routes.dart",
+    "CHANGED_FILES_NOSOK_V34.txt"
+  ],
+  "production_approved": false,
+  "public_base_tables_created": false,
+  "waqf_assets_mutation": false
+}

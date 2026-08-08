@@ -1,0 +1,11 @@
+{
+  "name": "نسك — معاينة تشغيلية",
+  "short_name": "نسك",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#0B3D91",
+  "description": "Nosok semi-independent system preview under PalWakf.",
+  "orientation": "portrait-primary",
+  "prefer_related_applications": false
+}

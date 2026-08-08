@@ -1,0 +1,22 @@
+Modified:
+- lib/features/nosok_system/presentation/pages/admin/nosok_admin_v25_production_candidate_decision_page.dart
+- lib/features/nosok_system/system_routes.dart
+- lib/features/nosok_system/system_permissions.dart
+- lib/features/nosok_system/system_navigation.dart
+- lib/features/nosok_system/presentation/routes/nosok_routes.dart
+
+Added:
+- lib/features/nosok_system/domain/models/nosok_v26_result_models.dart
+- lib/features/nosok_system/application/nosok_v26_result_controller.dart
+- lib/features/nosok_system/presentation/pages/admin/nosok_admin_v26_evidence_result_intake_page.dart
+- lib/features/nosok_system/presentation/pages/admin/nosok_admin_v26_full_merge_apply_result_page.dart
+- lib/features/nosok_system/presentation/pages/admin/nosok_admin_v26_production_candidate_redecision_page.dart
+- sql/24_nosok_v26_read_only_evidence_result_redecision_uat.sql
+- evidence/runtime/nosok_v26/local_flutter_analyze_chrome_startup_log_2026_05_19.txt
+- docs/BASELINE_CHANGELOG_NOSOK_V26.md
+- docs/SESSION_HANDOFF_NOSOK_V26.md
+- docs/ERROR_RECORD_NOSOK_V26.md
+- docs/UAT_MATRIX_NOSOK_V26.md
+- docs/NEXT_SESSION_PROMPT_NOSOK_V26.md
+- docs/ROUTES_SUMMARY_NOSOK_V26.md
+- docs/PALWAKF_PLATFORM_COMPREHENSIVE_GUIDE_NOSOK_APPENDIX_V26.md

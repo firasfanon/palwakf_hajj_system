@@ -1,0 +1,9 @@
+User-supplied result summary for v30 intake:
+- SQL v29 authorization preflight: read_only=true.
+- nosok_present=false.
+- candidate_conflicts=[].
+- create_table_public_authorized=false.
+- owner_authorization_required_for_guarded_apply=true.
+- flutter analyze: No issues found.
+- flutter run -d chrome: started successfully, Debug Service available.
+- Supabase init completed.

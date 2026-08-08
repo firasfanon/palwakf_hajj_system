@@ -1,0 +1,401 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows
+
+PS C:\Users\DELL\StudioProjects\nosok> flutter clean
+Deleting build...                                                  426ms
+Deleting .dart_tool...                                             265ms
+Deleting .flutter-plugins-dependencies...                            0ms
+PS C:\Users\DELL\StudioProjects\nosok> flutter pub get
+Resolving dependencies... (3.4s)
+Downloading packages... (2.2s)
+  app_links 7.0.0 (7.1.1 available)
+  code_assets 1.0.0 (1.2.1 available)
+  file_picker 8.3.7 (11.0.2 available)
+  flutter_dotenv 5.2.1 (6.0.1 available)
+  flutter_lints 4.0.0 (6.0.0 available)
+  flutter_riverpod 2.6.1 (3.3.1 available)
+  go_router 14.8.1 (17.2.3 available)
+  hooks 1.0.3 (2.0.1 available)
+  lints 4.0.0 (6.1.0 available)
+  matcher 0.12.19 (0.12.20 available)
+> meta 1.18.0 (was 1.17.0) (1.18.3 available)
+  mime 1.0.6 (2.0.0 available)
+  native_toolchain_c 0.17.6 (0.19.1 available)
+  objective_c 9.3.0 (9.4.1 available)
+  riverpod 2.6.1 (3.2.1 available)
+  shared_preferences_android 2.4.23 (2.4.25 available)
+> test_api 0.7.11 (was 0.7.10) (0.7.12 available)
+  url_launcher_android 6.3.29 (6.3.30 available)
+  vector_math 2.2.0 (2.3.0 available)
+  win32 5.15.0 (6.3.0 available)
+Changed 2 dependencies!
+20 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+PS C:\Users\DELL\StudioProjects\nosok> dart format .
+Formatted lib\features\nosok_system\application\nosok_supabase_connection_diagnostics_controller.dart
+Formatted lib\features\nosok_system\application\nosok_v27_schema_gate_controller.dart
+Formatted lib\features\nosok_system\domain\models\nosok_v27_schema_gate_models.dart
+Formatted lib\features\nosok_system\infrastructure\nosok_runtime_environment.dart
+Formatted lib\features\nosok_system\presentation\pages\admin\nosok_admin_v27_existing_object_reconciliation_page.dart
+Formatted lib\features\nosok_system\presentation\pages\admin\nosok_admin_v27_owner_schema_diff_plan_page.dart
+Formatted lib\features\nosok_system\presentation\pages\admin\nosok_admin_v27_safe_sql_execution_gate_page.dart
+Formatted lib\features\nosok_system\presentation\pages\admin\nosok_admin_v27_schema_census_result_page.dart
+Formatted lib\features\nosok_system\presentation\routes\nosok_routes.dart
+Formatted lib\features\nosok_system\system_navigation.dart
+Formatted lib\features\nosok_system\system_permissions.dart
+Formatted lib\features\nosok_system\system_routes.dart
+Formatted lib\main.dart
+Formatted 239 files (13 changed) in 1.31 seconds.
+PS C:\Users\DELL\StudioProjects\nosok> flutter analyze
+Analyzing nosok...                                                      
+
+  error - The getter 'adminHomepageSections' isn't defined for the type 'NosokSystemRoutes'. Try importing the library that defines
+         'adminHomepageSections', correcting the name to the name of an existing getter, or defining a getter or field named 'adminHomepageSections'
+         - lib\features\nosok_system\application\access\nosok_access_profile.dart:125:43 - undefined_getter
+  error - The getter 'manageNosokHomepageSections' isn't defined for the type 'NosokPermissionKeys'. Try importing the library that defines
+         'manageNosokHomepageSections', correcting the name to the name of an existing getter, or defining a getter or field named
+         'manageNosokHomepageSections' - lib\features\nosok_system\application\access\nosok_access_profile.dart:127:29 - undefined_getter
+  error - The getter 'adminDynamicPages' isn't defined for the type 'NosokSystemRoutes'. Try importing the library that defines 'adminDynamicPages',
+         correcting the name to the name of an existing getter, or defining a getter or field named 'adminDynamicPages' -
+         lib\features\nosok_system\application\access\nosok_access_profile.dart:131:43 - undefined_getter
+  error - The getter 'manageNosokDynamicPages' isn't defined for the type 'NosokPermissionKeys'. Try importing the library that defines
+         'manageNosokDynamicPages', correcting the name to the name of an existing getter, or defining a getter or field named
+         'manageNosokDynamicPages' - lib\features\nosok_system\application\access\nosok_access_profile.dart:133:29 - undefined_getter
+  error - The getter 'adminUnitScopeAccess' isn't defined for the type 'NosokSystemRoutes'. Try importing the library that defines
+         'adminUnitScopeAccess', correcting the name to the name of an existing getter, or defining a getter or field named 'adminUnitScopeAccess' -
+         lib\features\nosok_system\application\access\nosok_access_profile.dart:137:43 - undefined_getter
+  error - The getter 'manageNosokUnitScopeAccess' isn't defined for the type 'NosokPermissionKeys'. Try importing the library that defines
+         'manageNosokUnitScopeAccess', correcting the name to the name of an existing getter, or defining a getter or field named
+         'manageNosokUnitScopeAccess' - lib\features\nosok_system\application\access\nosok_access_profile.dart:139:29 - undefined_getter
+  error - The getter 'adminRegistrationGovernance' isn't defined for the type 'NosokSystemRoutes'. Try importing the library that defines
+         'adminRegistrationGovernance', correcting the name to the name of an existing getter, or defining a getter or field named
+         'adminRegistrationGovernance' - lib\features\nosok_system\application\access\nosok_access_profile.dart:143:43 - undefined_getter
+  error - The getter 'manageNosokRegistrationGovernance' isn't defined for the type 'NosokPermissionKeys'. Try importing the library that defines
+         'manageNosokRegistrationGovernance', correcting the name to the name of an existing getter, or defining a getter or field named
+         'manageNosokRegistrationGovernance' - lib\features\nosok_system\application\access\nosok_access_profile.dart:145:29 - undefined_getter
+  error - The getter 'adminLegalCompliance' isn't defined for the type 'NosokSystemRoutes'. Try importing the library that defines
+         'adminLegalCompliance', correcting the name to the name of an existing getter, or defining a getter or field named 'adminLegalCompliance' -
+         lib\features\nosok_system\application\access\nosok_access_profile.dart:149:43 - undefined_getter
+  error - The getter 'manageNosokLegalCompliance' isn't defined for the type 'NosokPermissionKeys'. Try importing the library that defines
+         'manageNosokLegalCompliance', correcting the name to the name of an existing getter, or defining a getter or field named
+         'manageNosokLegalCompliance' - lib\features\nosok_system\application\access\nosok_access_profile.dart:151:29 - undefined_getter
+  error - The getter 'viewNosokLotteryAudit' isn't defined for the type 'NosokPermissionKeys'. Try importing the library that defines
+         'viewNosokLotteryAudit', correcting the name to the name of an existing getter, or defining a getter or field named 'viewNosokLotteryAudit'
+         - lib\features\nosok_system\application\access\nosok_access_profile.dart:152:29 - undefined_getter
+  error - The getter 'adminLegalAlgorithmSimulation' isn't defined for the type 'NosokSystemRoutes'. Try importing the library that defines
+         'adminLegalAlgorithmSimulation', correcting the name to the name of an existing getter, or defining a getter or field named
+         'adminLegalAlgorithmSimulation' - lib\features\nosok_system\application\access\nosok_access_profile.dart:155:43 - undefined_getter
+  error - The getter 'manageNosokLegalCompliance' isn't defined for the type 'NosokPermissionKeys'. Try importing the library that defines
+         'manageNosokLegalCompliance', correcting the name to the name of an existing getter, or defining a getter or field named
+         'manageNosokLegalCompliance' - lib\features\nosok_system\application\access\nosok_access_profile.dart:157:29 - undefined_getter
+  error - The getter 'executeNosokLotteryDraw' isn't defined for the type 'NosokPermissionKeys'. Try importing the library that defines
+         'executeNosokLotteryDraw', correcting the name to the name of an existing getter, or defining a getter or field named
+         'executeNosokLotteryDraw' - lib\features\nosok_system\application\access\nosok_access_profile.dart:158:29 - undefined_getter
+  error - The getter 'adminCompanyWorkspaceClosure' isn't defined for the type 'NosokSystemRoutes'. Try importing the library that defines
+         'adminCompanyWorkspaceClosure', correcting the name to the name of an existing getter, or defining a getter or field named
+         'adminCompanyWorkspaceClosure' - lib\features\nosok_system\application\access\nosok_access_profile.dart:161:43 - undefined_getter
+  error - The getter 'adminPublicResponsiveUat' isn't defined for the type 'NosokSystemRoutes'. Try importing the library that defines
+         'adminPublicResponsiveUat', correcting the name to the name of an existing getter, or defining a getter or field named
+         'adminPublicResponsiveUat' - lib\features\nosok_system\application\access\nosok_access_profile.dart:164:43 - undefined_getter
+  error - The getter 'adminStandaloneSupabaseDevelopment' isn't defined for the type 'NosokSystemRoutes'. Try importing the library that defines
+         'adminStandaloneSupabaseDevelopment', correcting the name to the name of an existing getter, or defining a getter or field named
+         'adminStandaloneSupabaseDevelopment' - lib\features\nosok_system\application\access\nosok_access_profile.dart:170:43 - undefined_getter
+  error - The getter 'adminV38IStandaloneSupabaseDevelopment' isn't defined for the type 'NosokSystemRoutes'. Try importing the library that defines
+         'adminV38IStandaloneSupabaseDevelopment', correcting the name to the name of an existing getter, or defining a getter or field named
+         'adminV38IStandaloneSupabaseDevelopment' - lib\features\nosok_system\application\access\nosok_access_profile.dart:172:31 - undefined_getter
+  error - The getter 'manageNosokStandaloneSupabaseDevelopment' isn't defined for the type 'NosokPermissionKeys'. Try importing the library that
+         defines 'manageNosokStandaloneSupabaseDevelopment', correcting the name to the name of an existing getter, or defining a getter or field
+         named 'manageNosokStandaloneSupabaseDevelopment' - lib\features\nosok_system\application\access\nosok_access_profile.dart:174:29 -
+         undefined_getter
+  error - The getter 'manageNosokSupabaseBindingDiscovery' isn't defined for the type 'NosokPermissionKeys'. Try importing the library that defines
+         'manageNosokSupabaseBindingDiscovery', correcting the name to the name of an existing getter, or defining a getter or field named
+         'manageNosokSupabaseBindingDiscovery' - lib\features\nosok_system\application\access\nosok_access_profile.dart:175:29 - undefined_getter
+  error - The getter 'adminSupabaseBindingDiscovery' isn't defined for the type 'NosokSystemRoutes'. Try importing the library that defines
+         'adminSupabaseBindingDiscovery', correcting the name to the name of an existing getter, or defining a getter or field named
+         'adminSupabaseBindingDiscovery' - lib\features\nosok_system\application\access\nosok_access_profile.dart:178:43 - undefined_getter
+  error - The getter 'adminV38HSupabaseBinding' isn't defined for the type 'NosokSystemRoutes'. Try importing the library that defines
+         'adminV38HSupabaseBinding', correcting the name to the name of an existing getter, or defining a getter or field named
+         'adminV38HSupabaseBinding' - lib\features\nosok_system\application\access\nosok_access_profile.dart:179:43 - undefined_getter
+  error - The getter 'manageNosokSupabaseBindingDiscovery' isn't defined for the type 'NosokPermissionKeys'. Try importing the library that defines
+         'manageNosokSupabaseBindingDiscovery', correcting the name to the name of an existing getter, or defining a getter or field named
+         'manageNosokSupabaseBindingDiscovery' - lib\features\nosok_system\application\access\nosok_access_profile.dart:181:29 - undefined_getter
+  error - The getter 'adminPlatformSchemaBindings' isn't defined for the type 'NosokSystemRoutes'. Try importing the library that defines
+         'adminPlatformSchemaBindings', correcting the name to the name of an existing getter, or defining a getter or field named
+         'adminPlatformSchemaBindings' - lib\features\nosok_system\application\access\nosok_access_profile.dart:185:43 - undefined_getter
+  error - The getter 'adminV38GPlatformSchemaBinding' isn't defined for the type 'NosokSystemRoutes'. Try importing the library that defines
+         'adminV38GPlatformSchemaBinding', correcting the name to the name of an existing getter, or defining a getter or field named
+         'adminV38GPlatformSchemaBinding' - lib\features\nosok_system\application\access\nosok_access_profile.dart:186:43 - undefined_getter
+  error - The getter 'manageNosokPlatformSchemaBindings' isn't defined for the type 'NosokPermissionKeys'. Try importing the library that defines
+         'manageNosokPlatformSchemaBindings', correcting the name to the name of an existing getter, or defining a getter or field named
+         'manageNosokPlatformSchemaBindings' - lib\features\nosok_system\application\access\nosok_access_profile.dart:188:29 - undefined_getter
+  error - Invalid constant value - lib\features\nosok_system\application\nosok_v38f_prejoin_operational_controller.dart:151:16 - invalid_constant
+  error - The getter 'lotteryResults' isn't defined for the type 'NosokSystemRoutes'. Try importing the library that defines 'lotteryResults',
+         correcting the name to the name of an existing getter, or defining a getter or field named 'lotteryResults' -
+         lib\features\nosok_system\application\nosok_v38f_prejoin_operational_controller.dart:151:34 - undefined_getter
+  error - The getter 'adminHomepageSections' isn't defined for the type 'NosokSystemRoutes'. Try importing the library that defines
+         'adminHomepageSections', correcting the name to the name of an existing getter, or defining a getter or field named 'adminHomepageSections'
+         - lib\features\nosok_system\presentation\pages\admin\nosok_admin_dashboard_page.dart:126:54 - undefined_getter
+  error - The getter 'adminUnitScopeAccess' isn't defined for the type 'NosokSystemRoutes'. Try importing the library that defines
+         'adminUnitScopeAccess', correcting the name to the name of an existing getter, or defining a getter or field named 'adminUnitScopeAccess' -
+         lib\features\nosok_system\presentation\pages\admin\nosok_admin_dashboard_page.dart:133:54 - undefined_getter
+  error - The getter 'adminRegistrationGovernance' isn't defined for the type 'NosokSystemRoutes'. Try importing the library that defines
+         'adminRegistrationGovernance', correcting the name to the name of an existing getter, or defining a getter or field named
+         'adminRegistrationGovernance' - lib\features\nosok_system\presentation\pages\admin\nosok_admin_dashboard_page.dart:140:47 -
+         undefined_getter
+  error - The getter 'legalRegulation' isn't defined for the type 'NosokSystemRoutes'. Try importing the library that defines 'legalRegulation',
+         correcting the name to the name of an existing getter, or defining a getter or field named 'legalRegulation' -
+         lib\features\nosok_system\presentation\pages\admin\nosok_admin_legal_compliance_page.dart:81:63 - undefined_getter
+  error - The getter 'adminRegistrationGovernance' isn't defined for the type 'NosokSystemRoutes'. Try importing the library that defines
+         'adminRegistrationGovernance', correcting the name to the name of an existing getter, or defining a getter or field named
+         'adminRegistrationGovernance' - lib\features\nosok_system\presentation\pages\admin\nosok_admin_legal_compliance_page.dart:87:50 -
+         undefined_getter
+  error - The getter 'adminHomepageSections' isn't defined for the type 'NosokSystemRoutes'. Try importing the library that defines
+         'adminHomepageSections', correcting the name to the name of an existing getter, or defining a getter or field named 'adminHomepageSections'
+         - lib\features\nosok_system\presentation\pages\admin\nosok_admin_v38c_admin_tools_prejoin_page.dart:93:52 - undefined_getter
+  error - The getter 'adminUnitScopeAccess' isn't defined for the type 'NosokSystemRoutes'. Try importing the library that defines
+         'adminUnitScopeAccess', correcting the name to the name of an existing getter, or defining a getter or field named 'adminUnitScopeAccess' -
+         lib\features\nosok_system\presentation\pages\admin\nosok_admin_v38c_admin_tools_prejoin_page.dart:102:52 - undefined_getter
+  error - The getter 'adminRegistrationGovernance' isn't defined for the type 'NosokSystemRoutes'. Try importing the library that defines
+         'adminRegistrationGovernance', correcting the name to the name of an existing getter, or defining a getter or field named
+         'adminRegistrationGovernance' - lib\features\nosok_system\presentation\pages\admin\nosok_admin_v38c_admin_tools_prejoin_page.dart:111:52 -
+         undefined_getter
+  error - The getter 'adminDynamicPages' isn't defined for the type 'NosokSystemRoutes'. Try importing the library that defines 'adminDynamicPages',
+         correcting the name to the name of an existing getter, or defining a getter or field named 'adminDynamicPages' -
+         lib\features\nosok_system\presentation\pages\admin\nosok_admin_v38d_dynamic_pages_prejoin_page.dart:83:52 - undefined_getter
+  error - The getter 'adminHomepageSections' isn't defined for the type 'NosokSystemRoutes'. Try importing the library that defines
+         'adminHomepageSections', correcting the name to the name of an existing getter, or defining a getter or field named 'adminHomepageSections'
+         - lib\features\nosok_system\presentation\pages\admin\nosok_admin_v38d_dynamic_pages_prejoin_page.dart:92:52 - undefined_getter
+  error - The getter 'adminUnitScopeAccess' isn't defined for the type 'NosokSystemRoutes'. Try importing the library that defines
+         'adminUnitScopeAccess', correcting the name to the name of an existing getter, or defining a getter or field named 'adminUnitScopeAccess' -
+         lib\features\nosok_system\presentation\pages\admin\nosok_admin_v38d_dynamic_pages_prejoin_page.dart:101:52 - undefined_getter
+  error - The getter 'legalRegulation' isn't defined for the type 'NosokSystemRoutes'. Try importing the library that defines 'legalRegulation',
+         correcting the name to the name of an existing getter, or defining a getter or field named 'legalRegulation' -
+         lib\features\nosok_system\presentation\pages\admin\nosok_admin_v38e_legal_lottery_alignment_page.dart:91:52 - undefined_getter
+  error - The getter 'adminLegalCompliance' isn't defined for the type 'NosokSystemRoutes'. Try importing the library that defines
+         'adminLegalCompliance', correcting the name to the name of an existing getter, or defining a getter or field named 'adminLegalCompliance' -
+         lib\features\nosok_system\presentation\pages\admin\nosok_admin_v38e_legal_lottery_alignment_page.dart:100:52 - undefined_getter
+  error - The getter 'adminRegistrationGovernance' isn't defined for the type 'NosokSystemRoutes'. Try importing the library that defines
+         'adminRegistrationGovernance', correcting the name to the name of an existing getter, or defining a getter or field named
+         'adminRegistrationGovernance' -
+         lib\features\nosok_system\presentation\pages\admin\nosok_admin_v38e_legal_lottery_alignment_page.dart:109:52 - undefined_getter
+  error - The getter 'adminLegalAlgorithmSimulation' isn't defined for the type 'NosokSystemRoutes'. Try importing the library that defines
+         'adminLegalAlgorithmSimulation', correcting the name to the name of an existing getter, or defining a getter or field named
+         'adminLegalAlgorithmSimulation' -
+         lib\features\nosok_system\presentation\pages\admin\nosok_admin_v38f_prejoin_operational_closure_page.dart:89:45 - undefined_getter
+  error - The getter 'adminCompanyWorkspaceClosure' isn't defined for the type 'NosokSystemRoutes'. Try importing the library that defines
+         'adminCompanyWorkspaceClosure', correcting the name to the name of an existing getter, or defining a getter or field named
+         'adminCompanyWorkspaceClosure' -
+         lib\features\nosok_system\presentation\pages\admin\nosok_admin_v38f_prejoin_operational_closure_page.dart:98:45 - undefined_getter
+  error - The getter 'adminPublicResponsiveUat' isn't defined for the type 'NosokSystemRoutes'. Try importing the library that defines
+         'adminPublicResponsiveUat', correcting the name to the name of an existing getter, or defining a getter or field named
+         'adminPublicResponsiveUat' -
+         lib\features\nosok_system\presentation\pages\admin\nosok_admin_v38f_prejoin_operational_closure_page.dart:107:52 - undefined_getter
+  error - The getter 'contact' isn't defined for the type 'NosokSystemRoutes'. Try importing the library that defines 'contact', correcting the name
+         to the name of an existing getter, or defining a getter or field named 'contact' -
+         lib\features\nosok_system\presentation\pages\public\nosok_companies_page.dart:47:61 - undefined_getter
+  error - The getter 'companyLogin' isn't defined for the type 'NosokSystemRoutes'. Try importing the library that defines 'companyLogin',
+         correcting the name to the name of an existing getter, or defining a getter or field named 'companyLogin' -
+         lib\features\nosok_system\presentation\pages\public\nosok_companies_page.dart:51:61 - undefined_getter
+  error - The getter 'contact' isn't defined for the type 'NosokSystemRoutes'. Try importing the library that defines 'contact', correcting the name
+         to the name of an existing getter, or defining a getter or field named 'contact' -
+         lib\features\nosok_system\presentation\pages\public\nosok_company_portal_page.dart:30:59 - undefined_getter
+  error - The getter 'contact' isn't defined for the type 'NosokSystemRoutes'. Try importing the library that defines 'contact', correcting the name
+         to the name of an existing getter, or defining a getter or field named 'contact' -
+         lib\features\nosok_system\presentation\pages\public\nosok_complaints_page.dart:25:61 - undefined_getter
+  error - The getter 'contact' isn't defined for the type 'NosokSystemRoutes'. Try importing the library that defines 'contact', correcting the name
+         to the name of an existing getter, or defining a getter or field named 'contact' -
+         lib\features\nosok_system\presentation\pages\public\nosok_faq_page.dart:25:61 - undefined_getter
+  error - The getter 'lotteryResults' isn't defined for the type 'NosokSystemRoutes'. Try importing the library that defines 'lotteryResults',
+         correcting the name to the name of an existing getter, or defining a getter or field named 'lotteryResults' -
+         lib\features\nosok_system\presentation\pages\public\nosok_public_home_page.dart:163:59 - undefined_getter
+  error - The getter 'waitingList' isn't defined for the type 'NosokSystemRoutes'. Try importing the library that defines 'waitingList', correcting
+         the name to the name of an existing getter, or defining a getter or field named 'waitingList' -
+         lib\features\nosok_system\presentation\pages\public\nosok_public_home_page.dart:202:61 - undefined_getter
+  error - The getter 'objections' isn't defined for the type 'NosokSystemRoutes'. Try importing the library that defines 'objections', correcting
+         the name to the name of an existing getter, or defining a getter or field named 'objections' -
+         lib\features\nosok_system\presentation\pages\public\nosok_public_home_page.dart:208:61 - undefined_getter
+  error - The getter 'contact' isn't defined for the type 'NosokSystemRoutes'. Try importing the library that defines 'contact', correcting the name
+         to the name of an existing getter, or defining a getter or field named 'contact' -
+         lib\features\nosok_system\presentation\pages\public\nosok_public_home_page.dart:220:61 - undefined_getter
+  error - The getter 'companyLogin' isn't defined for the type 'NosokSystemRoutes'. Try importing the library that defines 'companyLogin',
+         correcting the name to the name of an existing getter, or defining a getter or field named 'companyLogin' -
+         lib\features\nosok_system\presentation\pages\public\nosok_public_home_page.dart:271:61 - undefined_getter
+  error - The getter 'lotteryResults' isn't defined for the type 'NosokSystemRoutes'. Try importing the library that defines 'lotteryResults',
+         correcting the name to the name of an existing getter, or defining a getter or field named 'lotteryResults' -
+         lib\features\nosok_system\presentation\widgets\nosok_public_system_shell.dart:182:38 - undefined_getter
+  error - The getter 'lotteryResults' isn't defined for the type 'NosokSystemRoutes'. Try importing the library that defines 'lotteryResults',
+         correcting the name to the name of an existing getter, or defining a getter or field named 'lotteryResults' -
+         lib\features\nosok_system\presentation\widgets\nosok_public_system_shell.dart:185:50 - undefined_getter
+  error - The getter 'contact' isn't defined for the type 'NosokSystemRoutes'. Try importing the library that defines 'contact', correcting the name
+         to the name of an existing getter, or defining a getter or field named 'contact' -
+         lib\features\nosok_system\presentation\widgets\nosok_public_system_shell.dart:192:38 - undefined_getter
+  error - The getter 'contact' isn't defined for the type 'NosokSystemRoutes'. Try importing the library that defines 'contact', correcting the name
+         to the name of an existing getter, or defining a getter or field named 'contact' -
+         lib\features\nosok_system\presentation\widgets\nosok_public_system_shell.dart:195:50 - undefined_getter
+  error - Arguments of a constant creation must be constant expressions. Try making the argument a valid constant, or use 'new' to call the
+         constructor - lib\features\nosok_system\presentation\widgets\nosok_public_system_shell.dart:288:46 - const_with_non_constant_argument
+  error - The getter 'waitingList' isn't defined for the type 'NosokSystemRoutes'. Try importing the library that defines 'waitingList', correcting
+         the name to the name of an existing getter, or defining a getter or field named 'waitingList' -
+         lib\features\nosok_system\presentation\widgets\nosok_public_system_shell.dart:288:64 - undefined_getter
+  error - Arguments of a constant creation must be constant expressions. Try making the argument a valid constant, or use 'new' to call the
+         constructor - lib\features\nosok_system\presentation\widgets\nosok_public_system_shell.dart:291:25 - const_with_non_constant_argument
+  error - The getter 'objections' isn't defined for the type 'NosokSystemRoutes'. Try importing the library that defines 'objections', correcting
+         the name to the name of an existing getter, or defining a getter or field named 'objections' -
+         lib\features\nosok_system\presentation\widgets\nosok_public_system_shell.dart:291:43 - undefined_getter
+  error - Arguments of a constant creation must be constant expressions. Try making the argument a valid constant, or use 'new' to call the
+         constructor - lib\features\nosok_system\presentation\widgets\nosok_public_system_shell.dart:292:45 - const_with_non_constant_argument
+  error - The getter 'companyLogin' isn't defined for the type 'NosokSystemRoutes'. Try importing the library that defines 'companyLogin',
+         correcting the name to the name of an existing getter, or defining a getter or field named 'companyLogin' -
+         lib\features\nosok_system\presentation\widgets\nosok_public_system_shell.dart:292:63 - undefined_getter
+  error - Arguments of a constant creation must be constant expressions. Try making the argument a valid constant, or use 'new' to call the
+         constructor - lib\features\nosok_system\presentation\widgets\nosok_public_system_shell.dart:298:46 - const_with_non_constant_argument
+  error - The getter 'legalRegulation' isn't defined for the type 'NosokSystemRoutes'. Try importing the library that defines 'legalRegulation',
+         correcting the name to the name of an existing getter, or defining a getter or field named 'legalRegulation' -
+         lib\features\nosok_system\presentation\widgets\nosok_public_system_shell.dart:298:64 - undefined_getter
+
+67 issues found. (ran in 54.2s)
+PS C:\Users\DELL\StudioProjects\nosok> flutter run -d chrome
+Launching lib\main.dart on Chrome in debug mode...
+lib/features/nosok_system/application/access/nosok_access_profile.dart:125:43: Error: Member not found: 'adminHomepageSections'.
+    if (path.startsWith(NosokSystemRoutes.adminHomepageSections)) {
+                                          ^^^^^^^^^^^^^^^^^^^^^
+lib/features/nosok_system/application/access/nosok_access_profile.dart:127:29: Error: Member not found: 'manageNosokHomepageSections'.
+        NosokPermissionKeys.manageNosokHomepageSections,
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/features/nosok_system/application/access/nosok_access_profile.dart:131:43: Error: Member not found: 'adminDynamicPages'.
+    if (path.startsWith(NosokSystemRoutes.adminDynamicPages)) {
+                                          ^^^^^^^^^^^^^^^^^
+lib/features/nosok_system/application/access/nosok_access_profile.dart:133:29: Error: Member not found: 'manageNosokDynamicPages'.
+        NosokPermissionKeys.manageNosokDynamicPages,
+                            ^^^^^^^^^^^^^^^^^^^^^^^
+lib/features/nosok_system/application/access/nosok_access_profile.dart:137:43: Error: Member not found: 'adminUnitScopeAccess'.
+    if (path.startsWith(NosokSystemRoutes.adminUnitScopeAccess)) {
+                                          ^^^^^^^^^^^^^^^^^^^^
+lib/features/nosok_system/application/access/nosok_access_profile.dart:139:29: Error: Member not found: 'manageNosokUnitScopeAccess'.
+        NosokPermissionKeys.manageNosokUnitScopeAccess,
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/features/nosok_system/application/access/nosok_access_profile.dart:143:43: Error: Member not found: 'adminRegistrationGovernance'.
+    if (path.startsWith(NosokSystemRoutes.adminRegistrationGovernance)) {
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/features/nosok_system/application/access/nosok_access_profile.dart:145:29: Error: Member not found: 'manageNosokRegistrationGovernance'.
+        NosokPermissionKeys.manageNosokRegistrationGovernance,
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/features/nosok_system/application/access/nosok_access_profile.dart:149:43: Error: Member not found: 'adminLegalCompliance'.
+    if (path.startsWith(NosokSystemRoutes.adminLegalCompliance)) {
+                                          ^^^^^^^^^^^^^^^^^^^^
+lib/features/nosok_system/application/access/nosok_access_profile.dart:152:29: Error: Member not found: 'viewNosokLotteryAudit'.
+        NosokPermissionKeys.viewNosokLotteryAudit
+                            ^^^^^^^^^^^^^^^^^^^^^
+lib/features/nosok_system/application/access/nosok_access_profile.dart:151:29: Error: Member not found: 'manageNosokLegalCompliance'.
+        NosokPermissionKeys.manageNosokLegalCompliance,
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/features/nosok_system/application/access/nosok_access_profile.dart:155:43: Error: Member not found: 'adminLegalAlgorithmSimulation'.
+    if (path.startsWith(NosokSystemRoutes.adminLegalAlgorithmSimulation)) {
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/features/nosok_system/application/access/nosok_access_profile.dart:158:29: Error: Member not found: 'executeNosokLotteryDraw'.
+        NosokPermissionKeys.executeNosokLotteryDraw
+                            ^^^^^^^^^^^^^^^^^^^^^^^
+lib/features/nosok_system/application/access/nosok_access_profile.dart:157:29: Error: Member not found: 'manageNosokLegalCompliance'.
+        NosokPermissionKeys.manageNosokLegalCompliance,
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/features/nosok_system/application/access/nosok_access_profile.dart:161:43: Error: Member not found: 'adminCompanyWorkspaceClosure'.
+    if (path.startsWith(NosokSystemRoutes.adminCompanyWorkspaceClosure)) {
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/features/nosok_system/application/access/nosok_access_profile.dart:164:43: Error: Member not found: 'adminPublicResponsiveUat'.
+    if (path.startsWith(NosokSystemRoutes.adminPublicResponsiveUat)) {
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^
+lib/features/nosok_system/application/access/nosok_access_profile.dart:170:43: Error: Member not found: 'adminStandaloneSupabaseDevelopment'.
+    if (path.startsWith(NosokSystemRoutes.adminStandaloneSupabaseDevelopment) ||
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/features/nosok_system/application/access/nosok_access_profile.dart:172:31: Error: Member not found: 'adminV38IStandaloneSupabaseDevelopment'.
+            NosokSystemRoutes.adminV38IStandaloneSupabaseDevelopment)) {
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/features/nosok_system/application/access/nosok_access_profile.dart:175:29: Error: Member not found: 'manageNosokSupabaseBindingDiscovery'.
+        NosokPermissionKeys.manageNosokSupabaseBindingDiscovery,
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/features/nosok_system/application/access/nosok_access_profile.dart:174:29: Error: Member not found: 'manageNosokStandaloneSupabaseDevelopment'.
+        NosokPermissionKeys.manageNosokStandaloneSupabaseDevelopment,
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/features/nosok_system/application/access/nosok_access_profile.dart:178:43: Error: Member not found: 'adminSupabaseBindingDiscovery'.
+    if (path.startsWith(NosokSystemRoutes.adminSupabaseBindingDiscovery) ||
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/features/nosok_system/application/access/nosok_access_profile.dart:179:43: Error: Member not found: 'adminV38HSupabaseBinding'.
+        path.startsWith(NosokSystemRoutes.adminV38HSupabaseBinding)) {
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^
+lib/features/nosok_system/application/access/nosok_access_profile.dart:181:29: Error: Member not found: 'manageNosokSupabaseBindingDiscovery'.
+        NosokPermissionKeys.manageNosokSupabaseBindingDiscovery,
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/features/nosok_system/application/access/nosok_access_profile.dart:185:43: Error: Member not found: 'adminPlatformSchemaBindings'.
+    if (path.startsWith(NosokSystemRoutes.adminPlatformSchemaBindings) ||
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/features/nosok_system/application/access/nosok_access_profile.dart:186:43: Error: Member not found: 'adminV38GPlatformSchemaBinding'.
+        path.startsWith(NosokSystemRoutes.adminV38GPlatformSchemaBinding)) {
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/features/nosok_system/application/access/nosok_access_profile.dart:188:29: Error: Member not found: 'manageNosokPlatformSchemaBindings'.
+        NosokPermissionKeys.manageNosokPlatformSchemaBindings,
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/features/nosok_system/presentation/pages/admin/nosok_admin_dashboard_page.dart:126:54: Error: Member not found: 'adminHomepageSections'.
+                        context.go(NosokSystemRoutes.adminHomepageSections)),
+                                                     ^^^^^^^^^^^^^^^^^^^^^
+lib/features/nosok_system/presentation/pages/admin/nosok_admin_dashboard_page.dart:133:54: Error: Member not found: 'adminUnitScopeAccess'.
+                        context.go(NosokSystemRoutes.adminUnitScopeAccess)),
+                                                     ^^^^^^^^^^^^^^^^^^^^
+lib/features/nosok_system/presentation/pages/admin/nosok_admin_dashboard_page.dart:140:47: Error: Member not found: 'adminRegistrationGovernance'.
+                        .go(NosokSystemRoutes.adminRegistrationGovernance)),
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/features/nosok_system/presentation/pages/public/nosok_companies_page.dart:47:61: Error: Member not found: 'contact'.
+              onPressed: () => context.go(NosokSystemRoutes.contact),
+                                                            ^^^^^^^
+lib/features/nosok_system/presentation/pages/public/nosok_companies_page.dart:51:61: Error: Member not found: 'companyLogin'.
+              onPressed: () => context.go(NosokSystemRoutes.companyLogin),
+                                                            ^^^^^^^^^^^^
+lib/features/nosok_system/presentation/pages/public/nosok_complaints_page.dart:25:61: Error: Member not found: 'contact'.
+              onPressed: () => context.go(NosokSystemRoutes.contact),
+                                                            ^^^^^^^
+lib/features/nosok_system/presentation/pages/public/nosok_faq_page.dart:25:61: Error: Member not found: 'contact'.
+              onPressed: () => context.go(NosokSystemRoutes.contact),
+                                                            ^^^^^^^
+lib/features/nosok_system/presentation/pages/public/nosok_public_home_page.dart:163:59: Error: Member not found: 'lotteryResults'.
+            onPressed: () => context.go(NosokSystemRoutes.lotteryResults),
+                                                          ^^^^^^^^^^^^^^
+lib/features/nosok_system/presentation/pages/public/nosok_public_home_page.dart:202:61: Error: Member not found: 'waitingList'.
+              onPressed: () => context.go(NosokSystemRoutes.waitingList)),
+                                                            ^^^^^^^^^^^
+lib/features/nosok_system/presentation/pages/public/nosok_public_home_page.dart:208:61: Error: Member not found: 'objections'.
+              onPressed: () => context.go(NosokSystemRoutes.objections)),
+                                                            ^^^^^^^^^^
+lib/features/nosok_system/presentation/pages/public/nosok_public_home_page.dart:220:61: Error: Member not found: 'contact'.
+              onPressed: () => context.go(NosokSystemRoutes.contact)),
+                                                            ^^^^^^^
+lib/features/nosok_system/presentation/pages/public/nosok_public_home_page.dart:271:61: Error: Member not found: 'companyLogin'.
+              onPressed: () => context.go(NosokSystemRoutes.companyLogin)),
+                                                            ^^^^^^^^^^^^
+lib/features/nosok_system/presentation/widgets/nosok_public_system_shell.dart:182:38: Error: Member not found: 'lotteryResults'.
+            route: NosokSystemRoutes.lotteryResults,
+                                     ^^^^^^^^^^^^^^
+lib/features/nosok_system/presentation/widgets/nosok_public_system_shell.dart:185:50: Error: Member not found: 'lotteryResults'.
+            selected: isActive(NosokSystemRoutes.lotteryResults)),
+                                                 ^^^^^^^^^^^^^^
+lib/features/nosok_system/presentation/widgets/nosok_public_system_shell.dart:192:38: Error: Member not found: 'contact'.
+            route: NosokSystemRoutes.contact,
+                                     ^^^^^^^
+lib/features/nosok_system/presentation/widgets/nosok_public_system_shell.dart:195:50: Error: Member not found: 'contact'.
+            selected: isActive(NosokSystemRoutes.contact) ||
+                                                 ^^^^^^^
+lib/features/nosok_system/presentation/widgets/nosok_public_system_shell.dart:288:64: Error: Member not found: 'waitingList'.
+      const _MenuRouteItem('قائمة الانتظار', NosokSystemRoutes.waitingList,
+                                                               ^^^^^^^^^^^
+lib/features/nosok_system/presentation/widgets/nosok_public_system_shell.dart:291:43: Error: Member not found: 'objections'.
+          'الاعتراضات', NosokSystemRoutes.objections, Icons.gavel_outlined),
+                                          ^^^^^^^^^^
+lib/features/nosok_system/presentation/widgets/nosok_public_system_shell.dart:292:63: Error: Member not found: 'companyLogin'.
+      const _MenuRouteItem('بوابة الشركات', NosokSystemRoutes.companyLogin,
+                                                              ^^^^^^^^^^^^
+lib/features/nosok_system/presentation/widgets/nosok_public_system_shell.dart:298:64: Error: Member not found: 'legalRegulation'.
+      const _MenuRouteItem('القانون المنظم', NosokSystemRoutes.legalRegulation,
+                                                               ^^^^^^^^^^^^^^^
+Waiting for connection from debug service on Chrome...             43.4s
+Failed to compile application.
+PS C:\Users\DELL\StudioProjects\nosok> 

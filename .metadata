@@ -1,0 +1,18 @@
+# This file tracks properties of this Flutter project.
+# Used by Flutter tool for web platform detection in standalone preview host.
+
+version:
+  revision: unknown
+  channel: stable
+
+project_type: app
+
+migration:
+  platforms:
+    - platform: web
+      create_revision: unknown
+      base_revision: unknown
+
+  unmanaged_files:
+    - 'lib/main.dart'
+    - 'ios/Runner.xcodeproj/project.pbxproj'

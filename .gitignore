@@ -1,0 +1,44 @@
+﻿# Secrets / environment
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*credentials*
+*secret*
+service-account*.json
+
+# Flutter / Dart generated
+.dart_tool/
+.packages
+.pub/
+.pub-cache/
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+
+# IDE / local machine
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
+
+# Android signing/local
+android/local.properties
+android/key.properties
+*.jks
+*.keystore
+
+# Archives / local delivery bundles
+*.zip
+*.7z
+*.rar
+
+# Logs
+*.log
+
+# Supabase local runtime
+supabase/.branches/
+supabase/.temp/
+supabase/.cache/

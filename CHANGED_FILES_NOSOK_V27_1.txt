@@ -1,0 +1,9 @@
+lib/features/nosok_system/system_routes.dart
+lib/features/nosok_system/system_permissions.dart
+lib/features/nosok_system/presentation/routes/nosok_routes.dart
+docs/BASELINE_CHANGELOG_NOSOK_V27_1_COMPILE_ALIGNMENT_HOTFIX.md
+docs/ERROR_RECORD_NOSOK_V27_1_COMPILE_ALIGNMENT_HOTFIX.md
+docs/SESSION_HANDOFF_NOSOK_V27_1_COMPILE_ALIGNMENT_HOTFIX.md
+docs/UAT_MATRIX_NOSOK_V27_1_COMPILE_ALIGNMENT_HOTFIX.md
+docs/NEXT_SESSION_PROMPT_NOSOK_V27_1_COMPILE_ALIGNMENT_HOTFIX.md
+CHANGED_FILES_NOSOK_V27_1.txt

@@ -1,0 +1,228 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows
+
+PS C:\Users\DELL\StudioProjects\nosok> flutter clean
+Deleting build...                                                   11ms
+Deleting .dart_tool...                                              70ms
+Deleting .flutter-plugins-dependencies...                            2ms
+PS C:\Users\DELL\StudioProjects\nosok> flutter pub get
+Resolving dependencies... 
+Downloading packages... 
+  code_assets 1.0.0 (1.1.0 available)
+  file_picker 8.3.7 (11.0.2 available)
+  flutter_lints 4.0.0 (6.0.0 available)
+  flutter_riverpod 2.6.1 (3.3.1 available)
+  go_router 14.8.1 (17.2.3 available)
+  hooks 1.0.3 (2.0.0 available)
+  lints 4.0.0 (6.1.0 available)
+  matcher 0.12.19 (0.12.20 available)
+  meta 1.17.0 (1.18.2 available)
+  mime 1.0.6 (2.0.0 available)
+  native_toolchain_c 0.17.6 (0.19.0 available)
+  riverpod 2.6.1 (3.2.1 available)
+  test_api 0.7.10 (0.7.12 available)
+  vector_math 2.2.0 (2.3.0 available)
+  win32 5.15.0 (6.2.0 available)
+Got dependencies!
+15 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+PS C:\Users\DELL\StudioProjects\nosok> dart format .
+Formatted lib\features\nosok_system\application\access\nosok_access_profile.dart
+Formatted lib\features\nosok_system\application\nosok_application_documents_controller.dart
+Formatted lib\features\nosok_system\application\nosok_application_lifecycle_controller.dart
+Formatted lib\features\nosok_system\application\nosok_application_payments_controller.dart
+Formatted lib\features\nosok_system\application\nosok_applications_controller.dart
+Formatted lib\features\nosok_system\application\nosok_billing_adapters_controller.dart
+Formatted lib\features\nosok_system\application\nosok_citizen_followup_controller.dart
+Formatted lib\features\nosok_system\application\nosok_companies_controller.dart
+Formatted lib\features\nosok_system\application\nosok_followup_inbox_controller.dart
+Formatted lib\features\nosok_system\application\nosok_notification_dispatch_controller.dart
+Formatted lib\features\nosok_system\application\nosok_notification_provider_uat_controller.dart
+Formatted lib\features\nosok_system\application\nosok_notifications_controller.dart
+Formatted lib\features\nosok_system\application\nosok_operations_controller.dart
+Formatted lib\features\nosok_system\application\nosok_payment_bridge_controller.dart
+Formatted lib\features\nosok_system\application\nosok_programs_controller.dart
+Formatted lib\features\nosok_system\application\nosok_readiness_evidence_controller.dart
+Formatted lib\features\nosok_system\application\nosok_role_uat_evidence_controller.dart
+Formatted lib\features\nosok_system\application\nosok_season_command_controller.dart
+Formatted lib\features\nosok_system\application\nosok_service_desk_controller.dart
+Formatted lib\features\nosok_system\application\nosok_tracking_privacy_controller.dart
+Formatted lib\features\nosok_system\application\nosok_unit_queue_controller.dart
+Formatted lib\features\nosok_system\application\nosok_unit_scopes_controller.dart
+Formatted lib\features\nosok_system\application\nosok_v24_uat_controller.dart
+Formatted lib\features\nosok_system\application\nosok_v25_candidate_controller.dart
+Formatted lib\features\nosok_system\application\nosok_workbench_controller.dart
+Formatted lib\features\nosok_system\application\services\nosok_file_upload_service.dart
+Formatted lib\features\nosok_system\data\repositories\nosok_in_memory_repository.dart
+Formatted lib\features\nosok_system\data\repositories\nosok_repository.dart
+Formatted lib\features\nosok_system\data\repositories\nosok_supabase_repository.dart
+Formatted lib\features\nosok_system\domain\models\nosok_application.dart
+Formatted lib\features\nosok_system\domain\models\nosok_application_lifecycle_transition.dart
+Formatted lib\features\nosok_system\domain\models\nosok_application_payment.dart
+Formatted lib\features\nosok_system\domain\models\nosok_application_review.dart
+Formatted lib\features\nosok_system\domain\models\nosok_billing_provider_adapter.dart
+Formatted lib\features\nosok_system\domain\models\nosok_citizen_followup_action.dart
+Formatted lib\features\nosok_system\domain\models\nosok_company.dart
+Formatted lib\features\nosok_system\domain\models\nosok_followup_inbox_item.dart
+Formatted lib\features\nosok_system\domain\models\nosok_notification_provider_adapter_uat.dart
+Formatted lib\features\nosok_system\domain\models\nosok_public_tracking_privacy_check.dart
+Formatted lib\features\nosok_system\domain\models\nosok_unit_application_queue_item.dart
+Formatted lib\features\nosok_system\domain\models\nosok_v24_uat_models.dart
+Formatted lib\features\nosok_system\domain\models\nosok_v25_candidate_models.dart
+Formatted lib\features\nosok_system\domain\models\nosok_workflow_bucket.dart
+Formatted lib\features\nosok_system\presentation\pages\admin\nosok_admin_application_details_page.dart
+Formatted lib\features\nosok_system\presentation\pages\admin\nosok_admin_application_lifecycle_page.dart
+Formatted lib\features\nosok_system\presentation\pages\admin\nosok_admin_application_operations_page.dart
+Formatted lib\features\nosok_system\presentation\pages\admin\nosok_admin_applications_page.dart
+Formatted lib\features\nosok_system\presentation\pages\admin\nosok_admin_billing_adapters_page.dart
+Formatted lib\features\nosok_system\presentation\pages\admin\nosok_admin_browser_role_evidence_page.dart
+Formatted lib\features\nosok_system\presentation\pages\admin\nosok_admin_companies_page.dart
+Formatted lib\features\nosok_system\presentation\pages\admin\nosok_admin_complaints_page.dart
+Formatted lib\features\nosok_system\presentation\pages\admin\nosok_admin_content_page.dart
+Formatted lib\features\nosok_system\presentation\pages\admin\nosok_admin_crud_helpers.dart
+Formatted lib\features\nosok_system\presentation\pages\admin\nosok_admin_dashboard_page.dart
+Formatted lib\features\nosok_system\presentation\pages\admin\nosok_admin_followup_inbox_page.dart
+Formatted lib\features\nosok_system\presentation\pages\admin\nosok_admin_health_page.dart
+Formatted lib\features\nosok_system\presentation\pages\admin\nosok_admin_notification_dispatch_page.dart
+Formatted lib\features\nosok_system\presentation\pages\admin\nosok_admin_notification_provider_uat_page.dart
+Formatted lib\features\nosok_system\presentation\pages\admin\nosok_admin_notifications_page.dart
+Formatted lib\features\nosok_system\presentation\pages\admin\nosok_admin_operations_page.dart
+Formatted lib\features\nosok_system\presentation\pages\admin\nosok_admin_payment_bridge_page.dart
+Formatted lib\features\nosok_system\presentation\pages\admin\nosok_admin_platform_integration_readiness_page.dart
+Formatted lib\features\nosok_system\presentation\pages\admin\nosok_admin_production_gate_decision_page.dart
+Formatted lib\features\nosok_system\presentation\pages\admin\nosok_admin_production_uat_closure_page.dart
+Formatted lib\features\nosok_system\presentation\pages\admin\nosok_admin_programs_page.dart
+Formatted lib\features\nosok_system\presentation\pages\admin\nosok_admin_rbac_provider_override_page.dart
+Formatted lib\features\nosok_system\presentation\pages\admin\nosok_admin_readiness_evidence_page.dart
+Formatted lib\features\nosok_system\presentation\pages\admin\nosok_admin_real_platform_merge_page.dart
+Formatted lib\features\nosok_system\presentation\pages\admin\nosok_admin_remaining_work_page.dart
+Formatted lib\features\nosok_system\presentation\pages\admin\nosok_admin_reports_page.dart
+Formatted lib\features\nosok_system\presentation\pages\admin\nosok_admin_role_uat_page.dart
+Formatted lib\features\nosok_system\presentation\pages\admin\nosok_admin_season_command_page.dart
+Formatted lib\features\nosok_system\presentation\pages\admin\nosok_admin_seasons_page.dart
+Formatted lib\features\nosok_system\presentation\pages\admin\nosok_admin_service_desk_page.dart
+Formatted lib\features\nosok_system\presentation\pages\admin\nosok_admin_settings_page.dart
+Formatted lib\features\nosok_system\presentation\pages\admin\nosok_admin_sidebar_page.dart
+Formatted lib\features\nosok_system\presentation\pages\admin\nosok_admin_sql_uat_intake_page.dart
+Formatted lib\features\nosok_system\presentation\pages\admin\nosok_admin_tracking_privacy_page.dart
+Formatted lib\features\nosok_system\presentation\pages\admin\nosok_admin_unit_page.dart
+Formatted lib\features\nosok_system\presentation\pages\admin\nosok_admin_unit_queues_page.dart
+Formatted lib\features\nosok_system\presentation\pages\admin\nosok_admin_units_page.dart
+Formatted lib\features\nosok_system\presentation\pages\admin\nosok_admin_v24_merge_readiness_closure_page.dart
+Formatted lib\features\nosok_system\presentation\pages\admin\nosok_admin_v24_production_redecision_page.dart
+Formatted lib\features\nosok_system\presentation\pages\admin\nosok_admin_v24_responsive_uat_page.dart
+Formatted lib\features\nosok_system\presentation\pages\admin\nosok_admin_v24_supabase_runtime_uat_page.dart
+Formatted lib\features\nosok_system\presentation\pages\admin\nosok_admin_v24_uat_evidence_page.dart
+Formatted lib\features\nosok_system\presentation\pages\admin\nosok_admin_v25_evidence_intake_page.dart
+Formatted lib\features\nosok_system\presentation\pages\admin\nosok_admin_v25_full_merge_application_result_page.dart
+Formatted lib\features\nosok_system\presentation\pages\admin\nosok_admin_v25_production_candidate_decision_page.dart
+Formatted lib\features\nosok_system\presentation\pages\admin\nosok_admin_visual_governance_page.dart
+Formatted lib\features\nosok_system\presentation\pages\admin\nosok_admin_workflow_workbench_page.dart
+Formatted lib\features\nosok_system\presentation\pages\admin\nosok_internal_campaigns_page.dart
+Formatted lib\features\nosok_system\presentation\pages\admin\nosok_internal_documents_page.dart
+Formatted lib\features\nosok_system\presentation\pages\admin\nosok_internal_groups_page.dart
+Formatted lib\features\nosok_system\presentation\pages\admin\nosok_internal_messages_page.dart
+Formatted lib\features\nosok_system\presentation\pages\admin\nosok_internal_requests_page.dart
+Formatted lib\features\nosok_system\presentation\pages\admin\nosok_internal_review_page.dart
+Formatted lib\features\nosok_system\presentation\pages\public\nosok_application_status_page.dart
+Formatted lib\features\nosok_system\presentation\pages\public\nosok_apply_page.dart
+Formatted lib\features\nosok_system\presentation\pages\public\nosok_citizen_followup_page.dart
+Formatted lib\features\nosok_system\presentation\pages\public\nosok_citizen_journey_page.dart
+Formatted lib\features\nosok_system\presentation\pages\public\nosok_companies_page.dart
+Formatted lib\features\nosok_system\presentation\pages\public\nosok_complaints_page.dart
+Formatted lib\features\nosok_system\presentation\pages\public\nosok_faq_page.dart
+Formatted lib\features\nosok_system\presentation\pages\public\nosok_hajj_page.dart
+Formatted lib\features\nosok_system\presentation\pages\public\nosok_public_home_page.dart
+Formatted lib\features\nosok_system\presentation\pages\public\nosok_public_unit_page.dart
+Formatted lib\features\nosok_system\presentation\pages\public\nosok_requirements_page.dart
+Formatted lib\features\nosok_system\presentation\pages\public\nosok_service_guide_page.dart
+Formatted lib\features\nosok_system\presentation\pages\public\nosok_umrah_page.dart
+Formatted lib\features\nosok_system\presentation\routes\nosok_routes.dart
+Formatted lib\features\nosok_system\presentation\widgets\nosok_access_gate.dart
+Formatted lib\features\nosok_system\presentation\widgets\nosok_admin_system_shell.dart
+Formatted lib\features\nosok_system\presentation\widgets\nosok_public_system_shell.dart
+Formatted lib\features\nosok_system\presentation\widgets\nosok_section_card.dart
+Formatted lib\features\nosok_system\presentation\widgets\pwf_sis_nosok_components.dart
+Formatted lib\features\nosok_system\system_navigation.dart
+Formatted lib\features\nosok_system\system_permissions.dart
+Formatted lib\features\nosok_system\system_routes.dart
+Formatted lib\features\nosok_system\system_visual_context.dart
+Formatted lib\main.dart
+Formatted platform_finalization_proposals\lib\app\routing\route_groups\system_routes_group.dart
+Formatted platform_finalization_proposals\lib\core\access\user_dashboard_contract.dart
+Formatted platform_finalization_proposals\lib\presentation\widgets\admin\admin_panel_registry.dart
+Formatted platform_merge_patch\lib\app\routing\app_routes.dart
+Formatted platform_merge_patch\lib\app\routing\go_router_config.dart
+Formatted platform_merge_patch\lib\app\routing\route_groups\admin_routes_group.dart
+Formatted platform_merge_patch\lib\app\routing\route_groups\public_routes_group.dart
+Formatted platform_real_merge_pack\lib\core\access\nosok_access_profile_override.dart
+Formatted 165 files (129 changed) in 0.69 seconds.
+PS C:\Users\DELL\StudioProjects\nosok> flutter analyze
+Resolving dependencies... 
+Downloading packages... 
+  code_assets 1.0.0 (1.1.0 available)
+  file_picker 8.3.7 (11.0.2 available)
+  flutter_lints 4.0.0 (6.0.0 available)
+  flutter_riverpod 2.6.1 (3.3.1 available)
+  go_router 14.8.1 (17.2.3 available)
+  hooks 1.0.3 (2.0.0 available)
+  lints 4.0.0 (6.1.0 available)
+  matcher 0.12.19 (0.12.20 available)
+  meta 1.17.0 (1.18.2 available)
+  mime 1.0.6 (2.0.0 available)
+  native_toolchain_c 0.17.6 (0.19.0 available)
+  riverpod 2.6.1 (3.2.1 available)
+  test_api 0.7.10 (0.7.12 available)
+  vector_math 2.2.0 (2.3.0 available)
+  win32 5.15.0 (6.2.0 available)
+Got dependencies!
+15 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+Analyzing nosok...                                                      
+
+warning - The declaration '_V25EvidenceSectionPanel' isn't referenced -
+       lib\features\nosok_system\presentation\pages\admin\nosok_admin_v25_production_candidate_decision_page.dart:112:7 - unused_element
+
+1 issue found. (ran in 15.9s)
+PS C:\Users\DELL\StudioProjects\nosok> flutter run -d chrome
+Resolving dependencies... 
+Downloading packages... 
+  code_assets 1.0.0 (1.1.0 available)
+  file_picker 8.3.7 (11.0.2 available)
+  flutter_lints 4.0.0 (6.0.0 available)
+  flutter_riverpod 2.6.1 (3.3.1 available)
+  go_router 14.8.1 (17.2.3 available)
+  hooks 1.0.3 (2.0.0 available)
+  lints 4.0.0 (6.1.0 available)
+  matcher 0.12.19 (0.12.20 available)
+  meta 1.17.0 (1.18.2 available)
+  mime 1.0.6 (2.0.0 available)
+  native_toolchain_c 0.17.6 (0.19.0 available)
+  riverpod 2.6.1 (3.2.1 available)
+  test_api 0.7.10 (0.7.12 available)
+  vector_math 2.2.0 (2.3.0 available)
+  win32 5.15.0 (6.2.0 available)
+Got dependencies!
+15 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+Launching lib\main.dart on Chrome in debug mode...
+Waiting for connection from debug service on Chrome...             35.4s
+
+Flutter run key commands.
+r Hot reload. 
+R Hot restart.
+h List all available interactive commands.
+d Detach (terminate "flutter run" but leave application running).
+c Clear the screen
+q Quit (terminate the application on the device).
+
+Debug service listening on ws://127.0.0.1:52539/umUK88VhehY=/ws
+A Dart VM Service on Chrome is available at: http://127.0.0.1:52539/umUK88VhehY=
+The Flutter DevTools debugger and profiler on Chrome is available at:
+http://127.0.0.1:52539/umUK88VhehY=/devtools/?uri=ws://127.0.0.1:52539/umUK88VhehY=/ws
+Starting application from main method in: org-dartlang-app:/web_entrypoint.dart.
+Found an existing <meta name="viewport"> tag. Flutter Web uses its own viewport configuration for better compatibility with Flutter. This tag will
+be replaced.
+

@@ -1,0 +1,16 @@
+lib/features/nosok_system/presentation/pages/admin/nosok_admin_v29_merge_readiness_page.dart
+lib/features/nosok_system/domain/models/nosok_v30_merge_pack_contract.dart
+lib/features/nosok_system/application/nosok_v30_merge_pack_controller.dart
+lib/features/nosok_system/presentation/pages/admin/nosok_admin_v30_palwakf_merge_application_page.dart
+lib/features/nosok_system/system_routes.dart
+lib/features/nosok_system/presentation/routes/nosok_routes.dart
+lib/features/nosok_system/system_navigation.dart
+lib/features/nosok_system/system_manifest.dart
+docs/BASELINE_CHANGELOG_NOSOK_V30_PALWAKF_MERGE_APPLICATION.md
+docs/SESSION_HANDOFF_NOSOK_V30_PALWAKF_MERGE_APPLICATION.md
+docs/UAT_MATRIX_NOSOK_V30_PALWAKF_MERGE_APPLICATION.md
+docs/ERROR_RECORD_NOSOK_V30_PALWAKF_MERGE_APPLICATION.md
+docs/ROUTES_SUMMARY_NOSOK_V30.md
+docs/NEXT_SESSION_PROMPT_NOSOK_V30.md
+platform_v30_merge_application_pack/README_APPLY_TO_PALWAKF_V30.md
+sql/32_nosok_v30_schema_creation_preparation_readiness.sql

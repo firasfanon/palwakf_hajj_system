@@ -1,0 +1,17 @@
+lib/features/nosok_system/presentation/pages/admin/nosok_admin_browser_role_evidence_page.dart
+lib/features/nosok_system/presentation/pages/admin/nosok_admin_production_gate_decision_page.dart
+lib/features/nosok_system/presentation/pages/admin/nosok_admin_remaining_work_page.dart
+lib/features/nosok_system/presentation/routes/nosok_routes.dart
+lib/features/nosok_system/system_routes.dart
+lib/features/nosok_system/system_navigation.dart
+lib/features/nosok_system/system_permissions.dart
+sql/20_nosok_v22_full_merge_role_evidence_gate_decision.sql
+platform_real_merge_pack/FULL_PALWAKF_APPLY_RUNBOOK_V22.md
+platform_real_merge_pack/MERGE_EVIDENCE_MATRIX_V22.md
+platform_real_merge_pack/sql/04_nosok_v22_apply_evidence.sql
+docs/BASELINE_CHANGELOG_NOSOK_V22.md
+docs/ERROR_RECORD_NOSOK_V22.md
+docs/SESSION_HANDOFF_NOSOK_V22.md
+docs/PALWAKF_PLATFORM_COMPREHENSIVE_GUIDE_NOSOK_APPENDIX_V22.md
+docs/NOSOK_V22_REMAINING_WORK_REGISTER.md
+PATCH_SUMMARY.md

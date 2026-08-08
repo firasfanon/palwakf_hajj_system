@@ -1,0 +1,43 @@
+schema,role_hint,base_tables,views,sequences,materialized_views
+assistant,other owner schema,34,0,0,0
+auth,other owner schema,23,0,1,0
+awqaf_system,awqaf system owner schema,32,2,0,0
+billing_system,other owner schema,4,0,0,0
+cases,other owner schema,5,0,2,0
+cms,other owner schema,5,4,1,0
+complaints,other owner schema,4,0,0,0
+core,sovereign/reference data candidate,37,22,7,0
+cron,other owner schema,2,0,2,0
+extensions,other owner schema,1,4,0,0
+facilities_module,other owner schema,2,0,2,0
+gis,other owner schema,27,9,8,0
+gis_ref,other owner schema,3,0,3,0
+gis_waqf,other owner schema,5,0,5,0
+graphql,other owner schema,0,0,0,0
+graphql_public,other owner schema,0,0,0,0
+hist,other owner schema,29,21,18,0
+hist_raw,other owner schema,4,0,4,0
+legacy_quarantine,other owner schema,2,0,1,0
+media_center,other owner schema,20,2,6,0
+ministry_profile,other owner schema,3,0,0,0
+mustakshif_staging,other owner schema,11,1,0,0
+ontology,other owner schema,1,1,1,0
+platform,other owner schema,31,1,2,0
+platform_access,other owner schema,9,0,1,0
+platform_content,other owner schema,6,0,0,0
+platform_experience,other owner schema,11,0,2,0
+platform_navigation,other owner schema,6,0,1,0
+platform_notifications,other owner schema,1,0,1,0
+platform_reporting,other owner schema,1,0,1,0
+platform_services,other owner schema,8,0,4,0
+public,compatibility RPC/view surface only,9,159,1,0
+realtime,other owner schema,3,0,1,0
+religious_affairs,other owner schema,3,0,2,0
+site_content,other owner schema,1,0,0,0
+storage,other owner schema,8,0,0,0
+supabase_migrations,other owner schema,1,0,0,0
+tasks,other owner schema,7,0,0,0
+topology,other owner schema,11,33,5,0
+vault,other owner schema,1,1,0,0
+waqf,waqf assets sovereign/operational registry,37,2,6,0
+zakat,other owner schema,2,0,1,0

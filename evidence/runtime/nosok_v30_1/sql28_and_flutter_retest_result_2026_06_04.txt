@@ -1,0 +1,26 @@
+NOSOK V30.1 USER-SUPPLIED RESULT INTAKE
+Date: 2026-06-04
+
+SQL read-only output:
+| section                         | payload |
+| ------------------------------- | ------- |
+| 01_schema_presence              | {"decision":"NOSOK_V30_APPLY_RESULT_INTAKE_READ_ONLY","core_present":true,"waqf_present":true,"nosok_present":false,"public_present":true,"awqaf_system_present":true,"billing_system_present":true,"platform_access_present":true} |
+| 02_expected_nosok_object_status | [{"object":"application_documents","schema":"nosok","present_as_base_table":false},{"object":"applications","schema":"nosok","present_as_base_table":false},{"object":"audit_events","schema":"nosok","present_as_base_table":false},{"object":"campaigns","schema":"nosok","present_as_base_table":false},{"object":"eligibility_rules","schema":"nosok","present_as_base_table":false},{"object":"lgu_quotas","schema":"nosok","present_as_base_table":false},{"object":"quota_rules","schema":"nosok","present_as_base_table":false},{"object":"workflow_events","schema":"nosok","present_as_base_table":false}] |
+| 03_public_base_table_guard      | {"decision":"PUBLIC_BASE_TABLE_CREATION_BLOCKED_EXISTING_ONLY","public_base_table_creation_allowed":false,"new_public_nosok_base_tables_detected":false} |
+| 04_rls_status_if_any            | [] |
+| 05_final_gate                   | {"decision":"NOSOK_SCHEMA_NOT_DETECTED_APPLY_RESULT_PENDING","read_only":true,"production_approved":false,"ddl_executed_by_this_script":false,"dml_executed_by_this_script":false,"create_table_public_authorized":false,"waqf_assets_mutation_authorized":false,"controlled_apply_result_required":true} |
+
+Flutter/Chrome retest:
+- flutter clean: passed.
+- flutter pub get: passed.
+- dart format .: formatted 255 files, 9 changed.
+- flutter analyze: No issues found! (ran in 3.6s).
+- flutter run -d chrome: launched successfully; debug service available; Supabase init completed.
+
+Decision:
+- V30_READ_ONLY_APPLY_RESULT_INTAKE_ACCEPTED_APPLY_STILL_PENDING.
+- Nosok owner schema not detected.
+- Expected nosok owner tables are not present yet.
+- Public base table creation remains blocked.
+- No DDL/DML was executed by the read-only script.
+- Production remains not approved.

@@ -1,0 +1,1924 @@
+{
+  "01_schema_summary": [
+    {
+      "views": 0,
+      "schema": "assistant",
+      "role_hint": "other owner schema",
+      "sequences": 0,
+      "base_tables": 34,
+      "materialized_views": 0
+    },
+    {
+      "views": 0,
+      "schema": "auth",
+      "role_hint": "other owner schema",
+      "sequences": 1,
+      "base_tables": 23,
+      "materialized_views": 0
+    },
+    {
+      "views": 2,
+      "schema": "awqaf_system",
+      "role_hint": "awqaf system owner schema",
+      "sequences": 0,
+      "base_tables": 32,
+      "materialized_views": 0
+    },
+    {
+      "views": 0,
+      "schema": "billing_system",
+      "role_hint": "other owner schema",
+      "sequences": 0,
+      "base_tables": 4,
+      "materialized_views": 0
+    },
+    {
+      "views": 0,
+      "schema": "cases",
+      "role_hint": "other owner schema",
+      "sequences": 2,
+      "base_tables": 5,
+      "materialized_views": 0
+    },
+    {
+      "views": 4,
+      "schema": "cms",
+      "role_hint": "other owner schema",
+      "sequences": 1,
+      "base_tables": 5,
+      "materialized_views": 0
+    },
+    {
+      "views": 0,
+      "schema": "complaints",
+      "role_hint": "other owner schema",
+      "sequences": 0,
+      "base_tables": 4,
+      "materialized_views": 0
+    },
+    {
+      "views": 22,
+      "schema": "core",
+      "role_hint": "sovereign/reference data candidate",
+      "sequences": 7,
+      "base_tables": 37,
+      "materialized_views": 0
+    },
+    {
+      "views": 0,
+      "schema": "cron",
+      "role_hint": "other owner schema",
+      "sequences": 2,
+      "base_tables": 2,
+      "materialized_views": 0
+    },
+    {
+      "views": 4,
+      "schema": "extensions",
+      "role_hint": "other owner schema",
+      "sequences": 0,
+      "base_tables": 1,
+      "materialized_views": 0
+    },
+    {
+      "views": 0,
+      "schema": "facilities_module",
+      "role_hint": "other owner schema",
+      "sequences": 2,
+      "base_tables": 2,
+      "materialized_views": 0
+    },
+    {
+      "views": 9,
+      "schema": "gis",
+      "role_hint": "other owner schema",
+      "sequences": 8,
+      "base_tables": 27,
+      "materialized_views": 0
+    },
+    {
+      "views": 0,
+      "schema": "gis_ref",
+      "role_hint": "other owner schema",
+      "sequences": 3,
+      "base_tables": 3,
+      "materialized_views": 0
+    },
+    {
+      "views": 0,
+      "schema": "gis_waqf",
+      "role_hint": "other owner schema",
+      "sequences": 5,
+      "base_tables": 5,
+      "materialized_views": 0
+    },
+    {
+      "views": 0,
+      "schema": "graphql",
+      "role_hint": "other owner schema",
+      "sequences": 0,
+      "base_tables": 0,
+      "materialized_views": 0
+    },
+    {
+      "views": 0,
+      "schema": "graphql_public",
+      "role_hint": "other owner schema",
+      "sequences": 0,
+      "base_tables": 0,
+      "materialized_views": 0
+    },
+    {
+      "views": 21,
+      "schema": "hist",
+      "role_hint": "other owner schema",
+      "sequences": 18,
+      "base_tables": 29,
+      "materialized_views": 0
+    },
+    {
+      "views": 0,
+      "schema": "hist_raw",
+      "role_hint": "other owner schema",
+      "sequences": 4,
+      "base_tables": 4,
+      "materialized_views": 0
+    },
+    {
+      "views": 0,
+      "schema": "legacy_quarantine",
+      "role_hint": "other owner schema",
+      "sequences": 1,
+      "base_tables": 2,
+      "materialized_views": 0
+    },
+    {
+      "views": 2,
+      "schema": "media_center",
+      "role_hint": "other owner schema",
+      "sequences": 6,
+      "base_tables": 20,
+      "materialized_views": 0
+    },
+    {
+      "views": 0,
+      "schema": "ministry_profile",
+      "role_hint": "other owner schema",
+      "sequences": 0,
+      "base_tables": 3,
+      "materialized_views": 0
+    },
+    {
+      "views": 1,
+      "schema": "mustakshif_staging",
+      "role_hint": "other owner schema",
+      "sequences": 0,
+      "base_tables": 11,
+      "materialized_views": 0
+    },
+    {
+      "views": 1,
+      "schema": "ontology",
+      "role_hint": "other owner schema",
+      "sequences": 1,
+      "base_tables": 1,
+      "materialized_views": 0
+    },
+    {
+      "views": 1,
+      "schema": "platform",
+      "role_hint": "other owner schema",
+      "sequences": 2,
+      "base_tables": 31,
+      "materialized_views": 0
+    },
+    {
+      "views": 0,
+      "schema": "platform_access",
+      "role_hint": "other owner schema",
+      "sequences": 1,
+      "base_tables": 9,
+      "materialized_views": 0
+    },
+    {
+      "views": 0,
+      "schema": "platform_content",
+      "role_hint": "other owner schema",
+      "sequences": 0,
+      "base_tables": 6,
+      "materialized_views": 0
+    },
+    {
+      "views": 0,
+      "schema": "platform_experience",
+      "role_hint": "other owner schema",
+      "sequences": 2,
+      "base_tables": 11,
+      "materialized_views": 0
+    },
+    {
+      "views": 0,
+      "schema": "platform_navigation",
+      "role_hint": "other owner schema",
+      "sequences": 1,
+      "base_tables": 6,
+      "materialized_views": 0
+    },
+    {
+      "views": 0,
+      "schema": "platform_notifications",
+      "role_hint": "other owner schema",
+      "sequences": 1,
+      "base_tables": 1,
+      "materialized_views": 0
+    },
+    {
+      "views": 0,
+      "schema": "platform_reporting",
+      "role_hint": "other owner schema",
+      "sequences": 1,
+      "base_tables": 1,
+      "materialized_views": 0
+    },
+    {
+      "views": 0,
+      "schema": "platform_services",
+      "role_hint": "other owner schema",
+      "sequences": 4,
+      "base_tables": 8,
+      "materialized_views": 0
+    },
+    {
+      "views": 159,
+      "schema": "public",
+      "role_hint": "compatibility RPC/view surface only",
+      "sequences": 1,
+      "base_tables": 9,
+      "materialized_views": 0
+    },
+    {
+      "views": 0,
+      "schema": "realtime",
+      "role_hint": "other owner schema",
+      "sequences": 1,
+      "base_tables": 3,
+      "materialized_views": 0
+    },
+    {
+      "views": 0,
+      "schema": "religious_affairs",
+      "role_hint": "other owner schema",
+      "sequences": 2,
+      "base_tables": 3,
+      "materialized_views": 0
+    },
+    {
+      "views": 0,
+      "schema": "site_content",
+      "role_hint": "other owner schema",
+      "sequences": 0,
+      "base_tables": 1,
+      "materialized_views": 0
+    },
+    {
+      "views": 0,
+      "schema": "storage",
+      "role_hint": "other owner schema",
+      "sequences": 0,
+      "base_tables": 8,
+      "materialized_views": 0
+    },
+    {
+      "views": 0,
+      "schema": "supabase_migrations",
+      "role_hint": "other owner schema",
+      "sequences": 0,
+      "base_tables": 1,
+      "materialized_views": 0
+    },
+    {
+      "views": 0,
+      "schema": "tasks",
+      "role_hint": "other owner schema",
+      "sequences": 0,
+      "base_tables": 7,
+      "materialized_views": 0
+    },
+    {
+      "views": 33,
+      "schema": "topology",
+      "role_hint": "other owner schema",
+      "sequences": 5,
+      "base_tables": 11,
+      "materialized_views": 0
+    },
+    {
+      "views": 1,
+      "schema": "vault",
+      "role_hint": "other owner schema",
+      "sequences": 0,
+      "base_tables": 1,
+      "materialized_views": 0
+    },
+    {
+      "views": 2,
+      "schema": "waqf",
+      "role_hint": "waqf assets sovereign/operational registry",
+      "sequences": 6,
+      "base_tables": 37,
+      "materialized_views": 0
+    },
+    {
+      "views": 0,
+      "schema": "zakat",
+      "role_hint": "other owner schema",
+      "sequences": 1,
+      "base_tables": 2,
+      "materialized_views": 0
+    }
+  ],
+  "02_critical_schema_presence": {
+    "decision": "GLOBAL_SCHEMA_LIGHT_CENSUS_READ_ONLY",
+    "core_present": true,
+    "waqf_present": true,
+    "public_present": true,
+    "awqaf_system_present": true
+  },
+  "03_public_base_table_summary": {
+    "decision": "PUBLIC_HAS_BASE_TABLES_EXISTING_ONLY_DO_NOT_ADD_NEW_PUBLIC_TABLES",
+    "public_base_table_count": 9,
+    "sample_public_base_tables": [
+      "assistant_conversations",
+      "assistant_messages",
+      "chatbot_conversations",
+      "chatbot_intents",
+      "chatbot_messages",
+      "chatbot_retention_policies",
+      "locations",
+      "org_units_cache",
+      "pwf_org_units_cache"
+    ],
+    "new_public_base_table_creation_allowed": false
+  },
+  "04_awqaf_relevant_objects": [
+    {
+      "object": "awqaf_system_unit_pages",
+      "reason": "unit_scope_related",
+      "schema": "awqaf_system",
+      "object_type": "base_table"
+    },
+    {
+      "object": "user_unit_scopes",
+      "reason": "unit_scope_related",
+      "schema": "awqaf_system",
+      "object_type": "base_table"
+    },
+    {
+      "object": "waqf_asset_review_queue",
+      "reason": "waqf_asset_related",
+      "schema": "awqaf_system",
+      "object_type": "view"
+    },
+    {
+      "object": "waqf_asset_source_records",
+      "reason": "waqf_asset_related",
+      "schema": "awqaf_system",
+      "object_type": "view"
+    },
+    {
+      "object": "waqf_assets_14l3a_final_preflight_decisions",
+      "reason": "waqf_asset_related",
+      "schema": "awqaf_system",
+      "object_type": "base_table"
+    },
+    {
+      "object": "waqf_assets_14l3c_authorization_criteria_reviews",
+      "reason": "waqf_asset_related",
+      "schema": "awqaf_system",
+      "object_type": "base_table"
+    },
+    {
+      "object": "waqf_assets_14l3c_final_preflight_decisions",
+      "reason": "waqf_asset_related",
+      "schema": "awqaf_system",
+      "object_type": "base_table"
+    },
+    {
+      "object": "waqf_assets_14l3e_final_preflight_decisions",
+      "reason": "waqf_asset_related",
+      "schema": "awqaf_system",
+      "object_type": "base_table"
+    },
+    {
+      "object": "waqf_assets_14l3e_human_token_protocol_events",
+      "reason": "waqf_asset_related",
+      "schema": "awqaf_system",
+      "object_type": "base_table"
+    },
+    {
+      "object": "waqf_assets_14l3h_external_backup_confirmations",
+      "reason": "waqf_asset_related",
+      "schema": "awqaf_system",
+      "object_type": "base_table"
+    },
+    {
+      "object": "waqf_assets_14l3i_internal_safety_envelopes",
+      "reason": "waqf_asset_related",
+      "schema": "awqaf_system",
+      "object_type": "base_table"
+    },
+    {
+      "object": "waqf_assets_14l4a_keep_reverse_decisions",
+      "reason": "waqf_asset_related",
+      "schema": "awqaf_system",
+      "object_type": "base_table"
+    },
+    {
+      "object": "waqf_assets_14l_mapping_reviews",
+      "reason": "waqf_asset_related",
+      "schema": "awqaf_system",
+      "object_type": "base_table"
+    },
+    {
+      "object": "waqf_assets_14l_negative_rls_evidence",
+      "reason": "waqf_asset_related",
+      "schema": "awqaf_system",
+      "object_type": "base_table"
+    },
+    {
+      "object": "waqf_assets_14l_required_column_mapping_repairs",
+      "reason": "waqf_asset_related",
+      "schema": "awqaf_system",
+      "object_type": "base_table"
+    },
+    {
+      "object": "waqf_assets_14l_reversal_registry",
+      "reason": "waqf_asset_related",
+      "schema": "awqaf_system",
+      "object_type": "base_table"
+    },
+    {
+      "object": "waqf_assets_14l_write_audit_events",
+      "reason": "waqf_asset_related",
+      "schema": "awqaf_system",
+      "object_type": "base_table"
+    },
+    {
+      "object": "waqf_assets_14l_write_authorization_tokens",
+      "reason": "waqf_asset_related",
+      "schema": "awqaf_system",
+      "object_type": "base_table"
+    },
+    {
+      "object": "waqf_assets_apply_gate_events",
+      "reason": "waqf_asset_related",
+      "schema": "awqaf_system",
+      "object_type": "base_table"
+    },
+    {
+      "object": "waqf_assets_approval_events",
+      "reason": "waqf_asset_related",
+      "schema": "awqaf_system",
+      "object_type": "base_table"
+    },
+    {
+      "object": "waqf_assets_development_queue",
+      "reason": "waqf_asset_related",
+      "schema": "awqaf_system",
+      "object_type": "base_table"
+    },
+    {
+      "object": "awqaf_community_document_evidence_links",
+      "reason": "unit_scope_related",
+      "schema": "core",
+      "object_type": "base_table"
+    },
+    {
+      "object": "community_waqf_crud_audit",
+      "reason": "unit_scope_related",
+      "schema": "core",
+      "object_type": "base_table"
+    },
+    {
+      "object": "community_waqf_evidence",
+      "reason": "unit_scope_related",
+      "schema": "core",
+      "object_type": "base_table"
+    },
+    {
+      "object": "community_waqf_evidence_documents",
+      "reason": "unit_scope_related",
+      "schema": "core",
+      "object_type": "base_table"
+    },
+    {
+      "object": "community_waqf_portion_documents",
+      "reason": "unit_scope_related",
+      "schema": "core",
+      "object_type": "base_table"
+    },
+    {
+      "object": "community_waqf_portions",
+      "reason": "unit_scope_related",
+      "schema": "core",
+      "object_type": "base_table"
+    },
+    {
+      "object": "core_communities",
+      "reason": "unit_scope_related",
+      "schema": "core",
+      "object_type": "base_table"
+    },
+    {
+      "object": "core_communities_names",
+      "reason": "unit_scope_related",
+      "schema": "core",
+      "object_type": "base_table"
+    },
+    {
+      "object": "core_governorates",
+      "reason": "governorate_reference_related",
+      "schema": "core",
+      "object_type": "base_table"
+    },
+    {
+      "object": "core_governorates_names",
+      "reason": "governorate_reference_related",
+      "schema": "core",
+      "object_type": "base_table"
+    },
+    {
+      "object": "core_lgus",
+      "reason": "lgu_reference_related",
+      "schema": "core",
+      "object_type": "base_table"
+    },
+    {
+      "object": "core_lgus_names",
+      "reason": "lgu_reference_related",
+      "schema": "core",
+      "object_type": "base_table"
+    },
+    {
+      "object": "governorate_code_map",
+      "reason": "governorate_reference_related",
+      "schema": "core",
+      "object_type": "base_table"
+    },
+    {
+      "object": "governorates",
+      "reason": "governorate_reference_related",
+      "schema": "core",
+      "object_type": "base_table"
+    },
+    {
+      "object": "org_unit_profiles",
+      "reason": "unit_scope_related",
+      "schema": "core",
+      "object_type": "base_table"
+    },
+    {
+      "object": "org_units",
+      "reason": "unit_scope_related",
+      "schema": "core",
+      "object_type": "base_table"
+    },
+    {
+      "object": "org_units_cache",
+      "reason": "unit_scope_related",
+      "schema": "core",
+      "object_type": "base_table"
+    },
+    {
+      "object": "pwf_org_units_cache",
+      "reason": "unit_scope_related",
+      "schema": "core",
+      "object_type": "base_table"
+    },
+    {
+      "object": "stg_community_waqf_excel_raw",
+      "reason": "unit_scope_related",
+      "schema": "core",
+      "object_type": "base_table"
+    },
+    {
+      "object": "stg_community_waqf_excel_raw_v2",
+      "reason": "unit_scope_related",
+      "schema": "core",
+      "object_type": "base_table"
+    },
+    {
+      "object": "stg_community_waqf_legacy_import",
+      "reason": "unit_scope_related",
+      "schema": "core",
+      "object_type": "base_table"
+    },
+    {
+      "object": "v_communities",
+      "reason": "unit_scope_related",
+      "schema": "core",
+      "object_type": "view"
+    },
+    {
+      "object": "v_community_waqf_evidence_audit",
+      "reason": "unit_scope_related",
+      "schema": "core",
+      "object_type": "view"
+    },
+    {
+      "object": "v_community_waqf_evidence_crud_review",
+      "reason": "unit_scope_related",
+      "schema": "core",
+      "object_type": "view"
+    },
+    {
+      "object": "v_community_waqf_evidence_duplicate_audit",
+      "reason": "unit_scope_related",
+      "schema": "core",
+      "object_type": "view"
+    },
+    {
+      "object": "v_community_waqf_excel_authoritative_superseded",
+      "reason": "unit_scope_related",
+      "schema": "core",
+      "object_type": "view"
+    },
+    {
+      "object": "v_community_waqf_portions_crud_review",
+      "reason": "unit_scope_related",
+      "schema": "core",
+      "object_type": "view"
+    },
+    {
+      "object": "v_community_waqf_portions_summary",
+      "reason": "unit_scope_related",
+      "schema": "core",
+      "object_type": "view"
+    },
+    {
+      "object": "v_geo_audit_communities_missing_wakf_status",
+      "reason": "unit_scope_related",
+      "schema": "core",
+      "object_type": "view"
+    },
+    {
+      "object": "v_geo_audit_communities_wakf_status_conflicts",
+      "reason": "unit_scope_related",
+      "schema": "core",
+      "object_type": "view"
+    },
+    {
+      "object": "v_geo_audit_communities_wakf_status_lineage_candidates",
+      "reason": "unit_scope_related",
+      "schema": "core",
+      "object_type": "view"
+    },
+    {
+      "object": "v_geo_reconciliation_audit_communities",
+      "reason": "unit_scope_related",
+      "schema": "core",
+      "object_type": "view"
+    },
+    {
+      "object": "v_geo_reconciliation_audit_governorates",
+      "reason": "governorate_reference_related",
+      "schema": "core",
+      "object_type": "view"
+    },
+    {
+      "object": "v_geo_reconciliation_audit_lgus",
+      "reason": "lgu_reference_related",
+      "schema": "core",
+      "object_type": "view"
+    },
+    {
+      "object": "v_governorates",
+      "reason": "governorate_reference_related",
+      "schema": "core",
+      "object_type": "view"
+    },
+    {
+      "object": "v_home_units",
+      "reason": "unit_scope_related",
+      "schema": "core",
+      "object_type": "view"
+    },
+    {
+      "object": "v_lgus",
+      "reason": "lgu_reference_related",
+      "schema": "core",
+      "object_type": "view"
+    },
+    {
+      "object": "v_lgus_inherited_waqf_lineage",
+      "reason": "lgu_reference_related",
+      "schema": "core",
+      "object_type": "view"
+    },
+    {
+      "object": "v_org_units",
+      "reason": "unit_scope_related",
+      "schema": "core",
+      "object_type": "view"
+    },
+    {
+      "object": "v_stg_community_waqf_unprocessed",
+      "reason": "unit_scope_related",
+      "schema": "core",
+      "object_type": "view"
+    },
+    {
+      "object": "v_unit_profile",
+      "reason": "unit_scope_related",
+      "schema": "core",
+      "object_type": "view"
+    },
+    {
+      "object": "assettypes",
+      "reason": "asset_related",
+      "schema": "public",
+      "object_type": "view"
+    },
+    {
+      "object": "awqaf_community_document_evidence_links",
+      "reason": "unit_scope_related",
+      "schema": "public",
+      "object_type": "view"
+    },
+    {
+      "object": "awqaf_system_unit_pages",
+      "reason": "unit_scope_related",
+      "schema": "public",
+      "object_type": "view"
+    },
+    {
+      "object": "governorates",
+      "reason": "governorate_reference_related",
+      "schema": "public",
+      "object_type": "view"
+    },
+    {
+      "object": "historical_admin_units",
+      "reason": "unit_scope_related",
+      "schema": "public",
+      "object_type": "view"
+    },
+    {
+      "object": "org_unit_profiles",
+      "reason": "unit_scope_related",
+      "schema": "public",
+      "object_type": "view"
+    },
+    {
+      "object": "org_units",
+      "reason": "unit_scope_related",
+      "schema": "public",
+      "object_type": "view"
+    },
+    {
+      "object": "org_units_cache",
+      "reason": "unit_scope_related",
+      "schema": "public",
+      "object_type": "base_table"
+    },
+    {
+      "object": "pwf_org_units_cache",
+      "reason": "unit_scope_related",
+      "schema": "public",
+      "object_type": "base_table"
+    },
+    {
+      "object": "user_scope_assignment_units",
+      "reason": "unit_scope_related",
+      "schema": "public",
+      "object_type": "view"
+    },
+    {
+      "object": "v_admin_home_units",
+      "reason": "unit_scope_related",
+      "schema": "public",
+      "object_type": "view"
+    },
+    {
+      "object": "v_core_org_units_cache_compat_v1",
+      "reason": "unit_scope_related",
+      "schema": "public",
+      "object_type": "view"
+    },
+    {
+      "object": "v_core_pwf_org_units_cache_compat_v1",
+      "reason": "unit_scope_related",
+      "schema": "public",
+      "object_type": "view"
+    },
+    {
+      "object": "v_mustakshif_communities_enriched_v1",
+      "reason": "unit_scope_related",
+      "schema": "public",
+      "object_type": "view"
+    },
+    {
+      "object": "v_public_waqf_assets",
+      "reason": "waqf_asset_related",
+      "schema": "public",
+      "object_type": "view"
+    },
+    {
+      "object": "v_waqf_community_lineage_report",
+      "reason": "unit_scope_related",
+      "schema": "public",
+      "object_type": "view"
+    },
+    {
+      "object": "v_waqf_community_period_context",
+      "reason": "unit_scope_related",
+      "schema": "public",
+      "object_type": "view"
+    },
+    {
+      "object": "vw_awqaf_community_document_evidence_links",
+      "reason": "unit_scope_related",
+      "schema": "public",
+      "object_type": "view"
+    },
+    {
+      "object": "waqf_community_lineage",
+      "reason": "unit_scope_related",
+      "schema": "public",
+      "object_type": "view"
+    },
+    {
+      "object": "assettypes",
+      "reason": "asset_related",
+      "schema": "waqf",
+      "object_type": "base_table"
+    },
+    {
+      "object": "v_waqf_assets",
+      "reason": "waqf_asset_related",
+      "schema": "waqf",
+      "object_type": "view"
+    },
+    {
+      "object": "v_waqf_assets_raw",
+      "reason": "waqf_asset_related",
+      "schema": "waqf",
+      "object_type": "view"
+    },
+    {
+      "object": "waqf_asset_beneficiaries",
+      "reason": "waqf_asset_related",
+      "schema": "waqf",
+      "object_type": "base_table"
+    },
+    {
+      "object": "waqf_asset_cross_system_bindings",
+      "reason": "waqf_asset_related",
+      "schema": "waqf",
+      "object_type": "base_table"
+    },
+    {
+      "object": "waqf_asset_deed_documents",
+      "reason": "waqf_asset_related",
+      "schema": "waqf",
+      "object_type": "base_table"
+    },
+    {
+      "object": "waqf_asset_documents",
+      "reason": "waqf_asset_related",
+      "schema": "waqf",
+      "object_type": "base_table"
+    },
+    {
+      "object": "waqf_asset_duplicate_candidates",
+      "reason": "waqf_asset_related",
+      "schema": "waqf",
+      "object_type": "base_table"
+    },
+    {
+      "object": "waqf_asset_endowers",
+      "reason": "waqf_asset_related",
+      "schema": "waqf",
+      "object_type": "base_table"
+    },
+    {
+      "object": "waqf_asset_field_visits",
+      "reason": "waqf_asset_related",
+      "schema": "waqf",
+      "object_type": "base_table"
+    },
+    {
+      "object": "waqf_asset_geometries",
+      "reason": "waqf_asset_related",
+      "schema": "waqf",
+      "object_type": "base_table"
+    },
+    {
+      "object": "waqf_asset_intake_rejections",
+      "reason": "waqf_asset_related",
+      "schema": "waqf",
+      "object_type": "base_table"
+    },
+    {
+      "object": "waqf_asset_normalization_dictionary",
+      "reason": "waqf_asset_related",
+      "schema": "waqf",
+      "object_type": "base_table"
+    },
+    {
+      "object": "waqf_asset_notes",
+      "reason": "waqf_asset_related",
+      "schema": "waqf",
+      "object_type": "base_table"
+    },
+    {
+      "object": "waqf_asset_parcel_links",
+      "reason": "waqf_asset_related",
+      "schema": "waqf",
+      "object_type": "base_table"
+    },
+    {
+      "object": "waqf_asset_rbac_assignments",
+      "reason": "waqf_asset_related",
+      "schema": "waqf",
+      "object_type": "base_table"
+    },
+    {
+      "object": "waqf_asset_rbac_permissions",
+      "reason": "waqf_asset_related",
+      "schema": "waqf",
+      "object_type": "base_table"
+    },
+    {
+      "object": "waqf_asset_registry_batches",
+      "reason": "waqf_asset_related",
+      "schema": "waqf",
+      "object_type": "base_table"
+    },
+    {
+      "object": "waqf_asset_relationships",
+      "reason": "waqf_asset_related",
+      "schema": "waqf",
+      "object_type": "base_table"
+    }
+  ],
+  "05_existing_awqaf_read_surfaces": {
+    "rpcs": [
+      {
+        "rpc": "rpc_waqf_asset_cross_system_bindings_v1",
+        "schema": "public",
+        "present": true,
+        "security_definer": true
+      },
+      {
+        "rpc": "rpc_waqf_asset_lifecycle_operational_v1",
+        "schema": "public",
+        "present": true,
+        "security_definer": true
+      },
+      {
+        "rpc": "rpc_waqf_asset_review_queue_v1",
+        "schema": "public",
+        "present": true,
+        "security_definer": true
+      },
+      {
+        "rpc": "rpc_waqf_asset_source_records_v1",
+        "schema": "public",
+        "present": true,
+        "security_definer": true
+      },
+      {
+        "rpc": "rpc_waqf_assets_runtime_auth_gate_v1",
+        "schema": "public",
+        "present": true,
+        "security_definer": true
+      },
+      {
+        "rpc": "rpc_waqf_assets_search_v1",
+        "schema": "public",
+        "present": true,
+        "security_definer": true
+      }
+    ],
+    "tables_or_views": [
+      {
+        "kind": "view",
+        "object": "waqf_asset_review_queue",
+        "schema": "awqaf_system",
+        "present": true
+      },
+      {
+        "kind": "view",
+        "object": "waqf_asset_source_records",
+        "schema": "awqaf_system",
+        "present": true
+      },
+      {
+        "kind": "base_table",
+        "object": "waqf_asset_source_records",
+        "schema": "waqf",
+        "present": true
+      },
+      {
+        "kind": "base_table",
+        "object": "waqf_assets",
+        "schema": "waqf",
+        "present": true
+      }
+    ]
+  },
+  "06_core_reference_candidates": [
+    {
+      "object": "awqaf_community_document_evidence_links",
+      "reason": "unit/reference",
+      "object_type": "base_table"
+    },
+    {
+      "object": "community_waqf_crud_audit",
+      "reason": "unit/reference",
+      "object_type": "base_table"
+    },
+    {
+      "object": "community_waqf_evidence",
+      "reason": "unit/reference",
+      "object_type": "base_table"
+    },
+    {
+      "object": "community_waqf_evidence_documents",
+      "reason": "unit/reference",
+      "object_type": "base_table"
+    },
+    {
+      "object": "community_waqf_portion_documents",
+      "reason": "unit/reference",
+      "object_type": "base_table"
+    },
+    {
+      "object": "community_waqf_portions",
+      "reason": "unit/reference",
+      "object_type": "base_table"
+    },
+    {
+      "object": "core_communities",
+      "reason": "unit/reference",
+      "object_type": "base_table"
+    },
+    {
+      "object": "core_communities_names",
+      "reason": "unit/reference",
+      "object_type": "base_table"
+    },
+    {
+      "object": "core_governorates",
+      "reason": "governorate/reference",
+      "object_type": "base_table"
+    },
+    {
+      "object": "core_governorates_names",
+      "reason": "governorate/reference",
+      "object_type": "base_table"
+    },
+    {
+      "object": "core_lgus",
+      "reason": "lgu/reference",
+      "object_type": "base_table"
+    },
+    {
+      "object": "core_lgus_names",
+      "reason": "lgu/reference",
+      "object_type": "base_table"
+    },
+    {
+      "object": "governorate_code_map",
+      "reason": "governorate/reference",
+      "object_type": "base_table"
+    },
+    {
+      "object": "governorates",
+      "reason": "governorate/reference",
+      "object_type": "base_table"
+    },
+    {
+      "object": "org_unit_profiles",
+      "reason": "org unit/reference",
+      "object_type": "base_table"
+    },
+    {
+      "object": "org_units",
+      "reason": "org unit/reference",
+      "object_type": "base_table"
+    },
+    {
+      "object": "org_units_cache",
+      "reason": "org unit/reference",
+      "object_type": "base_table"
+    },
+    {
+      "object": "pwf_org_units_cache",
+      "reason": "org unit/reference",
+      "object_type": "base_table"
+    },
+    {
+      "object": "stg_community_waqf_excel_raw",
+      "reason": "unit/reference",
+      "object_type": "base_table"
+    },
+    {
+      "object": "stg_community_waqf_excel_raw_v2",
+      "reason": "unit/reference",
+      "object_type": "base_table"
+    },
+    {
+      "object": "stg_community_waqf_legacy_import",
+      "reason": "unit/reference",
+      "object_type": "base_table"
+    },
+    {
+      "object": "v_communities",
+      "reason": "unit/reference",
+      "object_type": "view"
+    },
+    {
+      "object": "v_community_waqf_evidence_audit",
+      "reason": "unit/reference",
+      "object_type": "view"
+    },
+    {
+      "object": "v_community_waqf_evidence_crud_review",
+      "reason": "unit/reference",
+      "object_type": "view"
+    },
+    {
+      "object": "v_community_waqf_evidence_duplicate_audit",
+      "reason": "unit/reference",
+      "object_type": "view"
+    },
+    {
+      "object": "v_community_waqf_excel_authoritative_superseded",
+      "reason": "unit/reference",
+      "object_type": "view"
+    },
+    {
+      "object": "v_community_waqf_portions_crud_review",
+      "reason": "unit/reference",
+      "object_type": "view"
+    },
+    {
+      "object": "v_community_waqf_portions_summary",
+      "reason": "unit/reference",
+      "object_type": "view"
+    },
+    {
+      "object": "v_geo_audit_communities_missing_wakf_status",
+      "reason": "unit/reference",
+      "object_type": "view"
+    },
+    {
+      "object": "v_geo_audit_communities_wakf_status_conflicts",
+      "reason": "unit/reference",
+      "object_type": "view"
+    },
+    {
+      "object": "v_geo_audit_communities_wakf_status_lineage_candidates",
+      "reason": "unit/reference",
+      "object_type": "view"
+    },
+    {
+      "object": "v_geo_reconciliation_audit_communities",
+      "reason": "unit/reference",
+      "object_type": "view"
+    },
+    {
+      "object": "v_geo_reconciliation_audit_governorates",
+      "reason": "governorate/reference",
+      "object_type": "view"
+    },
+    {
+      "object": "v_geo_reconciliation_audit_lgus",
+      "reason": "lgu/reference",
+      "object_type": "view"
+    },
+    {
+      "object": "v_governorates",
+      "reason": "governorate/reference",
+      "object_type": "view"
+    },
+    {
+      "object": "v_home_units",
+      "reason": "unit/reference",
+      "object_type": "view"
+    },
+    {
+      "object": "v_lgus",
+      "reason": "lgu/reference",
+      "object_type": "view"
+    },
+    {
+      "object": "v_lgus_inherited_waqf_lineage",
+      "reason": "lgu/reference",
+      "object_type": "view"
+    },
+    {
+      "object": "v_org_units",
+      "reason": "org unit/reference",
+      "object_type": "view"
+    },
+    {
+      "object": "v_stg_community_waqf_unprocessed",
+      "reason": "unit/reference",
+      "object_type": "view"
+    },
+    {
+      "object": "v_unit_profile",
+      "reason": "unit/reference",
+      "object_type": "view"
+    }
+  ],
+  "07_duplicate_relevant_names": [
+    {
+      "object": "assettypes",
+      "schemas": [
+        "public",
+        "waqf"
+      ],
+      "schema_count": 2
+    },
+    {
+      "object": "awqaf_community_document_evidence_links",
+      "schemas": [
+        "core",
+        "public"
+      ],
+      "schema_count": 2
+    },
+    {
+      "object": "awqaf_reference_waqf_links",
+      "schemas": [
+        "public",
+        "waqf"
+      ],
+      "schema_count": 2
+    },
+    {
+      "object": "awqaf_system_unit_pages",
+      "schemas": [
+        "awqaf_system",
+        "public"
+      ],
+      "schema_count": 2
+    },
+    {
+      "object": "historical_admin_units",
+      "schemas": [
+        "hist",
+        "public"
+      ],
+      "schema_count": 2
+    },
+    {
+      "object": "org_unit_profiles",
+      "schemas": [
+        "core",
+        "public"
+      ],
+      "schema_count": 2
+    },
+    {
+      "object": "org_units",
+      "schemas": [
+        "core",
+        "public"
+      ],
+      "schema_count": 2
+    },
+    {
+      "object": "org_units_cache",
+      "schemas": [
+        "core",
+        "public"
+      ],
+      "schema_count": 2
+    },
+    {
+      "object": "pwf_org_units_cache",
+      "schemas": [
+        "core",
+        "public"
+      ],
+      "schema_count": 2
+    },
+    {
+      "object": "user_scope_assignment_units",
+      "schemas": [
+        "platform_access",
+        "public"
+      ],
+      "schema_count": 2
+    },
+    {
+      "object": "waqf_asset_source_records",
+      "schemas": [
+        "awqaf_system",
+        "waqf"
+      ],
+      "schema_count": 2
+    },
+    {
+      "object": "waqf_community_lineage",
+      "schemas": [
+        "public",
+        "topology"
+      ],
+      "schema_count": 2
+    },
+    {
+      "object": "waqf_lands",
+      "schemas": [
+        "public",
+        "waqf"
+      ],
+      "schema_count": 2
+    }
+  ],
+  "08_light_foreign_key_summary": [
+    {
+      "source": "awqaf_system.awqaf_system_unit_pages.unit_id",
+      "target": "core.org_units.id",
+      "references_core": true,
+      "references_waqf": false,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "awqaf_system.user_unit_scopes.role_key",
+      "target": "awqaf_system.access_roles.role_key",
+      "references_core": false,
+      "references_waqf": false,
+      "references_awqaf_system": true
+    },
+    {
+      "source": "awqaf_system.waqf_assets_approval_events.queue_id",
+      "target": "awqaf_system.waqf_assets_development_queue.id",
+      "references_core": false,
+      "references_waqf": false,
+      "references_awqaf_system": true
+    },
+    {
+      "source": "cases.cases.waqf_land_id",
+      "target": "waqf.waqf_lands.id",
+      "references_core": false,
+      "references_waqf": true,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "cms.unit_activities.unit_id",
+      "target": "core.org_units.id",
+      "references_core": true,
+      "references_waqf": false,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "cms.unit_documents.unit_id",
+      "target": "core.org_units.id",
+      "references_core": true,
+      "references_waqf": false,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "cms.unit_news.unit_id",
+      "target": "core.org_units.id",
+      "references_core": true,
+      "references_waqf": false,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "cms.unit_services.unit_id",
+      "target": "core.org_units.id",
+      "references_core": true,
+      "references_waqf": false,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "complaints.pwf_complaint_attachments.unit_id",
+      "target": "core.org_units.id",
+      "references_core": true,
+      "references_waqf": false,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "complaints.pwf_complaint_updates.unit_id",
+      "target": "core.org_units.id",
+      "references_core": true,
+      "references_waqf": false,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "complaints.pwf_complaints.unit_id",
+      "target": "core.org_units.id",
+      "references_core": true,
+      "references_waqf": false,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "complaints.pwf_complaints_retention_policies.unit_id",
+      "target": "core.org_units.id",
+      "references_core": true,
+      "references_waqf": false,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "core.community_waqf_evidence.community_no",
+      "target": "core.core_communities.community_no",
+      "references_core": true,
+      "references_waqf": false,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "core.community_waqf_evidence.lgu_no",
+      "target": "core.core_lgus.lgus_no",
+      "references_core": true,
+      "references_waqf": false,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "core.community_waqf_evidence.portion_id",
+      "target": "core.community_waqf_portions.id",
+      "references_core": true,
+      "references_waqf": false,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "core.community_waqf_evidence_documents.evidence_id",
+      "target": "core.community_waqf_evidence.id",
+      "references_core": true,
+      "references_waqf": false,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "core.community_waqf_portion_documents.portion_id",
+      "target": "core.community_waqf_portions.id",
+      "references_core": true,
+      "references_waqf": false,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "core.community_waqf_portions.community_no",
+      "target": "core.core_communities.community_no",
+      "references_core": true,
+      "references_waqf": false,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "core.core_communities.governorate_no",
+      "target": "core.core_governorates.governorate_no",
+      "references_core": true,
+      "references_waqf": false,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "core.core_lgus.community_no",
+      "target": "core.core_communities.community_no",
+      "references_core": true,
+      "references_waqf": false,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "core.org_unit_profiles.unit_id",
+      "target": "core.org_units.id",
+      "references_core": true,
+      "references_waqf": false,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "core.org_units.governorate_id",
+      "target": "core.core_governorates.id",
+      "references_core": true,
+      "references_waqf": false,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "core.org_units.parent_id",
+      "target": "core.org_units.id",
+      "references_core": true,
+      "references_waqf": false,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "hist.land_admin_history.land_id",
+      "target": "waqf.waqf_lands.id",
+      "references_core": false,
+      "references_waqf": true,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "legacy_quarantine.intelligentrecommendations.asset_id",
+      "target": "waqf.waqf_lands.id",
+      "references_core": false,
+      "references_waqf": true,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "media_center.activities.unit_id",
+      "target": "core.org_units.id",
+      "references_core": true,
+      "references_waqf": false,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "media_center.announcements.unit_id",
+      "target": "core.org_units.id",
+      "references_core": true,
+      "references_waqf": false,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "media_center.media_gallery_items.unit_id",
+      "target": "core.org_units.id",
+      "references_core": true,
+      "references_waqf": false,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "media_center.news_articles.unit_id",
+      "target": "core.org_units.id",
+      "references_core": true,
+      "references_waqf": false,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "media_center.social_notices.unit_id",
+      "target": "core.org_units.id",
+      "references_core": true,
+      "references_waqf": false,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "ministry_profile.former_ministers.unit_id",
+      "target": "core.org_units.id",
+      "references_core": true,
+      "references_waqf": false,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "ministry_profile.pwf_former_ministers.unit_id",
+      "target": "core.org_units.id",
+      "references_core": true,
+      "references_waqf": false,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "platform_access.admin_users.unit_id",
+      "target": "core.org_units.id",
+      "references_core": true,
+      "references_waqf": false,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "platform_access.user_scope_assignment_units.unit_id",
+      "target": "core.org_units.id",
+      "references_core": true,
+      "references_waqf": false,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "platform_access.user_scope_assignments.unit_id",
+      "target": "core.org_units.id",
+      "references_core": true,
+      "references_waqf": false,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "platform_content.site_pages.unit_id",
+      "target": "core.org_units.id",
+      "references_core": true,
+      "references_waqf": false,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "platform_experience.breaking_news.unit_id",
+      "target": "core.org_units.id",
+      "references_core": true,
+      "references_waqf": false,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "platform_experience.footer_settings.unit_id",
+      "target": "core.org_units.id",
+      "references_core": true,
+      "references_waqf": false,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "platform_experience.header_settings.unit_id",
+      "target": "core.org_units.id",
+      "references_core": true,
+      "references_waqf": false,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "platform_experience.hero_slides.unit_id",
+      "target": "core.org_units.id",
+      "references_core": true,
+      "references_waqf": false,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "platform_experience.homepage_sections.unit_id",
+      "target": "core.org_units.id",
+      "references_core": true,
+      "references_waqf": false,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "platform_services.appointments.related_waqf_id",
+      "target": "waqf.waqf_lands.id",
+      "references_core": false,
+      "references_waqf": true,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "platform_services.servicepoints.asset_id",
+      "target": "waqf.waqf_lands.id",
+      "references_core": false,
+      "references_waqf": true,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "public.chatbot_conversations.unit_id",
+      "target": "core.org_units.id",
+      "references_core": true,
+      "references_waqf": false,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "public.chatbot_messages.unit_id",
+      "target": "core.org_units.id",
+      "references_core": true,
+      "references_waqf": false,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "public.chatbot_retention_policies.unit_id",
+      "target": "core.org_units.id",
+      "references_core": true,
+      "references_waqf": false,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "tasks.tasks.waqf_land_id",
+      "target": "waqf.waqf_lands.id",
+      "references_core": false,
+      "references_waqf": true,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "waqf.endowment_supervision_assignments.org_unit_id",
+      "target": "core.org_units.id",
+      "references_core": true,
+      "references_waqf": false,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "waqf.endowment_supervision_assignments.scope_org_unit_id",
+      "target": "core.org_units.id",
+      "references_core": true,
+      "references_waqf": false,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "waqf.waqf_asset_beneficiaries.endowment_id",
+      "target": "waqf.endowment_names.id",
+      "references_core": false,
+      "references_waqf": true,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "waqf.waqf_asset_cross_system_bindings.waqf_asset_id",
+      "target": "waqf.waqf_assets.id",
+      "references_core": false,
+      "references_waqf": true,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "waqf.waqf_asset_deed_documents.endowment_id",
+      "target": "waqf.endowment_names.id",
+      "references_core": false,
+      "references_waqf": true,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "waqf.waqf_asset_documents.waqf_asset_id",
+      "target": "waqf.waqf_assets.id",
+      "references_core": false,
+      "references_waqf": true,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "waqf.waqf_asset_duplicate_candidates.matched_source_record_id",
+      "target": "waqf.waqf_asset_source_records.id",
+      "references_core": false,
+      "references_waqf": true,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "waqf.waqf_asset_duplicate_candidates.possible_waqf_asset_id",
+      "target": "waqf.waqf_assets.id",
+      "references_core": false,
+      "references_waqf": true,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "waqf.waqf_asset_duplicate_candidates.source_record_id",
+      "target": "waqf.waqf_asset_source_records.id",
+      "references_core": false,
+      "references_waqf": true,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "waqf.waqf_asset_endowers.endower_id",
+      "target": "waqf.endowers.id",
+      "references_core": false,
+      "references_waqf": true,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "waqf.waqf_asset_endowers.endowment_id",
+      "target": "waqf.endowment_names.id",
+      "references_core": false,
+      "references_waqf": true,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "waqf.waqf_asset_field_visits.waqf_asset_id",
+      "target": "waqf.waqf_assets.id",
+      "references_core": false,
+      "references_waqf": true,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "waqf.waqf_asset_geometries.waqf_asset_id",
+      "target": "waqf.waqf_assets.id",
+      "references_core": false,
+      "references_waqf": true,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "waqf.waqf_asset_intake_rejections.source_batch_id",
+      "target": "waqf.waqf_asset_registry_batches.id",
+      "references_core": false,
+      "references_waqf": true,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "waqf.waqf_asset_notes.waqf_asset_id",
+      "target": "waqf.waqf_assets.id",
+      "references_core": false,
+      "references_waqf": true,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "waqf.waqf_asset_parcel_links.waqf_asset_id",
+      "target": "waqf.waqf_assets.id",
+      "references_core": false,
+      "references_waqf": true,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "waqf.waqf_asset_rbac_assignments.permission_code",
+      "target": "waqf.waqf_asset_rbac_permissions.permission_code",
+      "references_core": false,
+      "references_waqf": true,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "waqf.waqf_asset_relationships.source_waqf_asset_id",
+      "target": "waqf.waqf_assets.id",
+      "references_core": false,
+      "references_waqf": true,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "waqf.waqf_asset_relationships.target_waqf_asset_id",
+      "target": "waqf.waqf_assets.id",
+      "references_core": false,
+      "references_waqf": true,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "waqf.waqf_asset_review_events.waqf_asset_id",
+      "target": "waqf.waqf_assets.id",
+      "references_core": false,
+      "references_waqf": true,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "waqf.waqf_asset_source_parcel_match_candidates.source_batch_id",
+      "target": "waqf.waqf_asset_registry_batches.id",
+      "references_core": false,
+      "references_waqf": true,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "waqf.waqf_asset_source_parcel_match_candidates.source_record_id",
+      "target": "waqf.waqf_asset_source_records.id",
+      "references_core": false,
+      "references_waqf": true,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "waqf.waqf_asset_source_records.candidate_waqf_asset_id",
+      "target": "waqf.waqf_assets.id",
+      "references_core": false,
+      "references_waqf": true,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "waqf.waqf_asset_source_records.source_batch_id",
+      "target": "waqf.waqf_asset_registry_batches.id",
+      "references_core": false,
+      "references_waqf": true,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "waqf.waqf_asset_status_history.waqf_asset_id",
+      "target": "waqf.waqf_assets.id",
+      "references_core": false,
+      "references_waqf": true,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "waqf.waqf_asset_supervision_assignments.endowment_id",
+      "target": "waqf.endowment_names.id",
+      "references_core": false,
+      "references_waqf": true,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "waqf.waqf_asset_supervision_assignments.org_unit_id",
+      "target": "core.org_units.id",
+      "references_core": true,
+      "references_waqf": false,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "waqf.waqf_asset_supervision_assignments.scope_org_unit_id",
+      "target": "core.org_units.id",
+      "references_core": true,
+      "references_waqf": false,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "waqf.waqf_asset_supervision_assignments.supervisor_id",
+      "target": "waqf.endowment_supervisors.id",
+      "references_core": false,
+      "references_waqf": true,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "waqf.waqf_assets.primary_geometry_id",
+      "target": "waqf.waqf_asset_geometries.id",
+      "references_core": false,
+      "references_waqf": true,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "waqf.waqf_assets.primary_settlement_parcel_link_id",
+      "target": "waqf.waqf_asset_parcel_links.id",
+      "references_core": false,
+      "references_waqf": true,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "waqf.waqf_assets.source_batch_id",
+      "target": "waqf.waqf_asset_registry_batches.id",
+      "references_core": false,
+      "references_waqf": true,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "waqf.waqf_lands.governorate",
+      "target": "core.governorates.code",
+      "references_core": true,
+      "references_waqf": false,
+      "references_awqaf_system": false
+    },
+    {
+      "source": "zakat.zakat_donation_requests.unit_id",
+      "target": "core.org_units.id",
+      "references_core": true,
+      "references_waqf": false,
+      "references_awqaf_system": false
+    }
+  ],
+  "09_final_gate": {
+    "decision": "LIGHT_GLOBAL_SCHEMA_CENSUS_COMPLETED_READ_ONLY",
+    "read_only": true,
+    "write_review_apply_authorized": false,
+    "waqf_assets_mutation_authorized": false,
+    "public_base_table_creation_allowed": false,
+    "core_is_sovereign_reference_priority": true,
+    "new_table_build_allowed_before_owner_review": false,
+    "public_allowed_only_for_views_or_rpc_wrappers": true,
+    "use_existing_core_objects_before_building_duplicates": true
+  }
+}

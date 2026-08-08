@@ -1,0 +1,10 @@
+lib/features/nosok_system/presentation/pages/admin/nosok_admin_v27b_operational_depth_page.dart
+lib/features/nosok_system/presentation/pages/public/nosok_company_portal_page.dart
+lib/features/nosok_system/presentation/routes/nosok_routes.dart
+lib/features/nosok_system/system_routes.dart
+docs/BASELINE_CHANGELOG_NOSOK_V27B_OPERATIONAL_DEPTH.md
+docs/SESSION_HANDOFF_NOSOK_V27B_OPERATIONAL_DEPTH.md
+docs/UAT_MATRIX_NOSOK_V27B_OPERATIONAL_DEPTH.md
+docs/ERROR_RECORD_NOSOK_V27B_OPERATIONAL_DEPTH.md
+docs/ROUTES_SUMMARY_NOSOK_V27B_OPERATIONAL_DEPTH.md
+docs/NEXT_SESSION_PROMPT_NOSOK_V27B_OPERATIONAL_DEPTH.md

@@ -1,0 +1,121 @@
+{
+  "01_schema_presence": {
+    "decision": "NOSOK_V31_AUTHORIZATION_APPLY_CERTIFICATION_READ_ONLY",
+    "core_present": true,
+    "waqf_present": true,
+    "nosok_present": true,
+    "public_present": true,
+    "awqaf_system_present": true,
+    "billing_system_present": true,
+    "platform_access_present": true
+  },
+  "02_expected_object_status": [
+    {
+      "schema_name": "nosok",
+      "object_name": "application_documents",
+      "present_as_base_table": true
+    },
+    {
+      "schema_name": "nosok",
+      "object_name": "applications",
+      "present_as_base_table": true
+    },
+    {
+      "schema_name": "nosok",
+      "object_name": "audit_events",
+      "present_as_base_table": true
+    },
+    {
+      "schema_name": "nosok",
+      "object_name": "campaigns",
+      "present_as_base_table": true
+    },
+    {
+      "schema_name": "nosok",
+      "object_name": "eligibility_rules",
+      "present_as_base_table": true
+    },
+    {
+      "schema_name": "nosok",
+      "object_name": "lgu_quotas",
+      "present_as_base_table": true
+    },
+    {
+      "schema_name": "nosok",
+      "object_name": "quota_rules",
+      "present_as_base_table": true
+    },
+    {
+      "schema_name": "nosok",
+      "object_name": "workflow_events",
+      "present_as_base_table": true
+    }
+  ],
+  "03_rls_status_if_any": [
+    {
+      "schema_name": "nosok",
+      "table_name": "application_documents",
+      "rls_enabled": true,
+      "force_rls": false
+    },
+    {
+      "schema_name": "nosok",
+      "table_name": "applications",
+      "rls_enabled": true,
+      "force_rls": false
+    },
+    {
+      "schema_name": "nosok",
+      "table_name": "audit_events",
+      "rls_enabled": true,
+      "force_rls": false
+    },
+    {
+      "schema_name": "nosok",
+      "table_name": "campaigns",
+      "rls_enabled": true,
+      "force_rls": false
+    },
+    {
+      "schema_name": "nosok",
+      "table_name": "eligibility_rules",
+      "rls_enabled": true,
+      "force_rls": false
+    },
+    {
+      "schema_name": "nosok",
+      "table_name": "lgu_quotas",
+      "rls_enabled": true,
+      "force_rls": false
+    },
+    {
+      "schema_name": "nosok",
+      "table_name": "quota_rules",
+      "rls_enabled": true,
+      "force_rls": false
+    },
+    {
+      "schema_name": "nosok",
+      "table_name": "workflow_events",
+      "rls_enabled": true,
+      "force_rls": false
+    }
+  ],
+  "04_public_base_table_guard": {
+    "decision": "PUBLIC_BASE_TABLE_CREATION_BLOCKED_EXISTING_ONLY",
+    "public_hajj_base_tables": 0,
+    "public_nosok_base_tables": 0,
+    "public_umrah_base_tables": 0,
+    "new_public_service_base_tables_detected": false
+  },
+  "05_final_gate": {
+    "decision": "NOSOK_V31_POST_APPLY_OBJECTS_AND_RLS_DETECTED_REQUIRES_NEGATIVE_UAT",
+    "read_only": true,
+    "production_approved": false,
+    "ddl_executed_by_this_script": false,
+    "dml_executed_by_this_script": false,
+    "create_table_public_authorized": false,
+    "waqf_assets_mutation_authorized": false,
+    "controlled_apply_certified_by_this_script": false
+  }
+}

@@ -1,0 +1,20 @@
+-- NOSOK v38 SCHEMA/RLS/RPC DRAFT — COMMENTED ONLY
+-- Do not execute before actual PalWakf merge and explicit Supabase sandbox approval.
+--
+-- CREATE SCHEMA IF NOT EXISTS nosok;
+-- CREATE TABLE nosok.seasons (...);
+-- CREATE TABLE nosok.applications (...);
+-- CREATE TABLE nosok.applicants (...);
+-- CREATE TABLE nosok.companions (...);
+-- CREATE TABLE nosok.documents (...);
+-- CREATE TABLE nosok.companies (...);
+-- CREATE TABLE nosok.campaigns (...);
+-- CREATE TABLE nosok.lottery_policies (...);
+-- CREATE TABLE nosok.lgu_quota_snapshots (...);
+-- CREATE TABLE nosok.lottery_draw_runs (...);
+-- CREATE TABLE nosok.lottery_draw_results (...);
+-- CREATE TABLE nosok.lottery_committee_decisions (...);
+-- CREATE TABLE nosok.lottery_objections (...);
+-- CREATE TABLE nosok.lottery_audit_events (...);
+--
+-- RLS/RPC definitions are intentionally withheld from execution until platform merge.

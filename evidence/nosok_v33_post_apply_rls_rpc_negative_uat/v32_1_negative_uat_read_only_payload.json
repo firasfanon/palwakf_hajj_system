@@ -1,0 +1,10 @@
+{
+  "decision": "NOSOK_V32_1_RLS_PRESENT_POLICY_NEGATIVE_UAT_REQUIRES_BROWSER_AND_ROLE_EVIDENCE",
+  "nosok_present": true,
+  "expected_tables_present": true,
+  "rls_enabled_on_8_tables": true,
+  "anon_deny_policies_present": true,
+  "new_public_service_base_tables_detected": false,
+  "production_approved": false,
+  "waqf_assets_mutation_authorized": false
+}

@@ -1,0 +1,19 @@
+Windows PowerShell
+PS C:\Users\DELL\StudioProjects\nosok> flutter clean
+Deleting build...                                                   25ms
+Deleting .dart_tool...                                               9ms
+Deleting .flutter-plugins-dependencies...                            1ms
+PS C:\Users\DELL\StudioProjects\nosok> flutter pub get
+Got dependencies!
+26 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+PS C:\Users\DELL\StudioProjects\nosok> dart format .
+Formatted 275 files (19 changed) in 0.75 seconds.
+PS C:\Users\DELL\StudioProjects\nosok> flutter analyze
+Analyzing nosok...
+No issues found! (ran in 12.1s)
+PS C:\Users\DELL\StudioProjects\nosok> flutter run -d chrome
+Launching lib\main.dart on Chrome in debug mode...
+Debug service listening on ws://127.0.0.1:62708/PUOmCYWAQ6M=/ws
+Starting application from main method in: org-dartlang-app:/web_entrypoint.dart.
+supabase.supabase_flutter: INFO: ***** Supabase init completed *****

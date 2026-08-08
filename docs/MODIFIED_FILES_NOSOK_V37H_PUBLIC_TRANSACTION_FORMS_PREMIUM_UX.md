@@ -1,0 +1,15 @@
+# MODIFIED FILES — Nosok v37H
+
+```text
+lib/features/nosok_system/presentation/pages/public/nosok_apply_page.dart
+lib/features/nosok_system/presentation/pages/public/nosok_application_status_page.dart
+lib/features/nosok_system/presentation/pages/public/nosok_lottery_results_page.dart
+lib/features/nosok_system/presentation/pages/public/nosok_waiting_list_page.dart
+lib/features/nosok_system/presentation/pages/public/nosok_lottery_objections_page.dart
+lib/features/nosok_system/presentation/widgets/pwf_sis_nosok_components.dart
+docs/BASELINE_CHANGELOG_NOSOK_V37H_PUBLIC_TRANSACTION_FORMS_PREMIUM_UX.md
+docs/SESSION_HANDOFF_NOSOK_V37H_PUBLIC_TRANSACTION_FORMS_PREMIUM_UX.md
+docs/UAT_MATRIX_NOSOK_V37H_PUBLIC_TRANSACTION_FORMS_PREMIUM_UX.md
+docs/ERROR_RECORD_NOSOK_V37H_PUBLIC_TRANSACTION_FORMS_PREMIUM_UX.md
+docs/MODIFIED_FILES_NOSOK_V37H_PUBLIC_TRANSACTION_FORMS_PREMIUM_UX.md
+```

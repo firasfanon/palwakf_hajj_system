@@ -1,0 +1,8 @@
+lib/features/nosok_system/system_routes.dart
+lib/features/nosok_system/system_navigation.dart
+lib/features/nosok_system/presentation/routes/nosok_routes.dart
+lib/features/nosok_system/presentation/pages/public/nosok_public_home_page.dart
+lib/features/nosok_system/presentation/pages/public/nosok_hajj_page.dart
+lib/features/nosok_system/presentation/pages/public/nosok_requirements_page.dart
+lib/features/nosok_system/presentation/pages/public/nosok_contact_page.dart
+lib/features/nosok_system/presentation/pages/public/nosok_company_portal_page.dart

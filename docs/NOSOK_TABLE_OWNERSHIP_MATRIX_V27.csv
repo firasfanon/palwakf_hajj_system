@@ -1,0 +1,10 @@
+proposed_object,owner_schema,status,public_surface,core_reference_rule,execution_gate
+nosok schema,nosok,create-after-authorization,none,n/a,blocked until explicit guarded staging SQL authorization
+nosok.campaigns,nosok,create-candidate,public.v_nosok_campaigns_public_v1 later,unit_id references core.org_units if needed,requires owner schema DDL pack + RLS matrix
+nosok.applications,nosok,create-candidate,public.rpc_nosok_application_submit_v1 guarded later,lgu_id/governorate_id reference core ids,requires privacy/RLS/storage UAT before writes
+nosok.application_documents,nosok,create-candidate,none or guarded RPC,metadata only; storage owns files,requires storage bucket + RLS + file policy
+nosok.eligibility_rules,nosok,create-candidate,public.v_nosok_requirements_public_v1 later,no core duplication,requires ministry approval workflow
+nosok.quota_rules / nosok.lgu_quotas,nosok,create-candidate,none before legal approval,LGU read from core.core_lgus only,requires legal quota algorithm contract
+nosok.lottery_runs / nosok.lottery_entries,nosok,defer-create,results surface only after approval,eligible applications reference nosok + core LGU,blocked until algorithm/audit/legal approval
+nosok.workflow_events / nosok.audit_events,nosok,create-candidate,none,actor/unit from platform_access/core references,requires append-only/audit design
+public.* base table,public,reject,views/RPC only,n/a,permanently blocked by platform contract

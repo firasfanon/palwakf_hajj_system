@@ -1,0 +1,21 @@
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  exclude:
+    # These directories are integration/proposal overlays for the full PalWakf repository.
+    # They are intentionally kept in the package for handoff, but they are not part of
+    # the standalone Nosok preview host and must not be analyzed in this package.
+    - platform_merge_patch/**
+    - platform_finalization_proposals/**
+    - platform_real_merge_pack/**
+  errors:
+    deprecated_member_use: ignore
+    deprecated_member_use_from_same_package: ignore
+
+linter:
+  rules:
+    # Runtime preview keeps these as style debt, not blockers.
+    prefer_const_constructors: false
+    prefer_const_literals_to_create_immutables: false
+    prefer_const_declarations: false
+    curly_braces_in_flow_control_structures: false

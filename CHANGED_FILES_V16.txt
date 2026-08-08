@@ -1,0 +1,16 @@
+lib/features/nosok_system/system_routes.dart
+lib/features/nosok_system/system_permissions.dart
+lib/features/nosok_system/system_navigation.dart
+lib/features/nosok_system/presentation/routes/nosok_routes.dart
+lib/features/nosok_system/presentation/widgets/nosok_admin_system_shell.dart
+lib/features/nosok_system/presentation/pages/public/nosok_service_guide_page.dart
+lib/features/nosok_system/presentation/pages/public/nosok_citizen_journey_page.dart
+lib/features/nosok_system/presentation/pages/admin/nosok_admin_workflow_workbench_page.dart
+lib/features/nosok_system/presentation/pages/admin/nosok_admin_season_command_page.dart
+lib/features/nosok_system/presentation/pages/admin/nosok_admin_service_desk_page.dart
+lib/features/nosok_system/presentation/pages/admin/nosok_admin_visual_governance_page.dart
+sql/14_nosok_v16_government_ux_admin_productivity.sql
+docs/BASELINE_CHANGELOG_NOSOK_V16.md
+docs/ERROR_RECORD_NOSOK_V16.md
+docs/SESSION_HANDOFF_NOSOK_V16.md
+docs/PALWAKF_PLATFORM_COMPREHENSIVE_GUIDE_NOSOK_APPENDIX_V16.md

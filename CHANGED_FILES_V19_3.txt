@@ -1,0 +1,7 @@
+lib/features/nosok_system/presentation/widgets/nosok_public_system_shell.dart
+docs/BASELINE_CHANGELOG_NOSOK_V19_3.md
+docs/ERROR_RECORD_NOSOK_V19_3.md
+docs/SESSION_HANDOFF_NOSOK_V19_3.md
+docs/PALWAKF_PLATFORM_COMPREHENSIVE_GUIDE_NOSOK_APPENDIX_V19_3.md
+CHANGED_FILES_V19_3.txt
+PATCH_SUMMARY.md

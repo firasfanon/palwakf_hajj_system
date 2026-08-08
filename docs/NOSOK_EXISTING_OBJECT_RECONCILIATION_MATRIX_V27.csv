@@ -1,0 +1,9 @@
+object,current_owner,proposed_nosok_use,decision,risk,reason
+core.org_units / core.v_org_units,core,read-only wrapper/reference,reuse_existing_core_object,P0,"org unit, slug, unit hierarchy are sovereign reference data"
+core.core_lgus / core.v_lgus,core,quota/address reference,reuse_existing_core_object,P0,LGU is sovereign reference; nosok may store lgu_id only
+core.core_governorates / core.v_governorates,core,governorate/address reference,reuse_existing_core_object,P0,governorates are not rebuilt inside nosok or public
+public.org_units / public.org_units_cache / public.pwf_org_units_cache,public compatibility/cache,do not treat as source of truth,blocked_as_owner_source,P0,duplicate names exist; core remains owner
+billing_system.*,billing_system,payment bridge and payment-status reference,reuse_existing_billing_system,P0,avoid duplicate e-payment tables; production payment requires separate financial UAT
+platform_access.*,platform_access,RBAC and access profile provider override,reuse_platform_access_owner,P0,Nosok does not build login/password/forbidden or raw RBAC
+public.* base tables,public existing only,none,new_public_table_creation_blocked,P0,public is views/RPC compatibility only
+waqf.waqf_assets / awqaf_system.*,waqf + awqaf_system,none,blocked_out_of_scope,P0,outside Nosok; no mutation to waqf_assets

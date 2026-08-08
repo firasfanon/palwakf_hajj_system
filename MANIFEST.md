@@ -1,0 +1,10 @@
+# Manifest
+
+- README.md
+- docs/NOSOK_V35_1_WRAPPER_RPC_APPLY_RESULT_INTAKE.md
+- docs/NOSOK_V35_1_REPOSITORY_BINDING_PREFLIGHT_DECISION.md
+- docs/NOSOK_V35_1_PRODUCTION_GATE_DECISION.md
+- sql/34_nosok_v35_1_wrapper_rpc_browser_role_uat_read_only.sql
+- evidence/NOSOK_V35_1_USER_RESULT_SUMMARY.md
+- handoff/NEXT_STEP.md
+- CHECKSUMS_SHA256.txt

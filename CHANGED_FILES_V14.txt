@@ -1,0 +1,8 @@
+lib/features/nosok_system/presentation/pages/public/nosok_public_home_page.dart
+lib/features/nosok_system/presentation/pages/admin/nosok_admin_dashboard_page.dart
+docs/BASELINE_CHANGELOG_NOSOK_V14.md
+docs/SESSION_HANDOFF_NOSOK_V14.md
+docs/ERROR_RECORD_NOSOK_V14.md
+docs/PALWAKF_PLATFORM_COMPREHENSIVE_GUIDE_NOSOK_APPENDIX_V14.md
+CHANGED_FILES_V14.txt
+PATCH_SUMMARY.md

@@ -1,0 +1,14 @@
+# MODIFIED FILES — Nosok v37G
+
+```text
+lib/features/nosok_system/presentation/pages/public/nosok_apply_page.dart
+docs/BASELINE_CHANGELOG_NOSOK_V37G_APPLY_STEPPER_RUNTIME_FIX.md
+docs/SESSION_HANDOFF_NOSOK_V37G_APPLY_STEPPER_RUNTIME_FIX.md
+docs/UAT_MATRIX_NOSOK_V37G_APPLY_STEPPER_RUNTIME_FIX.md
+docs/ERROR_RECORD_NOSOK_V37G_APPLY_STEPPER_RUNTIME_FIX.md
+docs/ROUTES_SUMMARY_NOSOK_V37G_APPLY_STEPPER_RUNTIME_FIX.md
+docs/MODIFIED_FILES_NOSOK_V37G_APPLY_STEPPER_RUNTIME_FIX.md
+docs/NEXT_SESSION_PROMPT_NOSOK_V37G_APPLY_STEPPER_RUNTIME_FIX.md
+evidence/v37g_apply_stepper_runtime_fix/local_runtime_log_before_v37g.txt
+evidence/v37g_apply_stepper_runtime_fix/apply_blank_page_screenshot_before_v37g.png
+```

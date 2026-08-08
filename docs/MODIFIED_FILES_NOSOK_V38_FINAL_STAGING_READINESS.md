@@ -1,0 +1,20 @@
+# Modified Files — Nosok v38
+
+```text
+lib/features/nosok_system/system_routes.dart
+lib/features/nosok_system/system_navigation.dart
+lib/features/nosok_system/system_manifest.dart
+lib/features/nosok_system/presentation/routes/nosok_routes.dart
+lib/features/nosok_system/presentation/pages/admin/nosok_admin_v38_readiness_consolidation_page.dart
+docs/BASELINE_CHANGELOG_NOSOK_V38_FINAL_STAGING_READINESS.md
+docs/SESSION_HANDOFF_NOSOK_V38_FINAL_STAGING_READINESS.md
+docs/UAT_MATRIX_NOSOK_V38_FINAL_STAGING_READINESS.md
+docs/ERROR_RECORD_NOSOK_V38_FINAL_STAGING_READINESS.md
+docs/ROUTES_SUMMARY_NOSOK_V38_FINAL_STAGING_READINESS.md
+docs/NEXT_SESSION_PROMPT_NOSOK_V38_FINAL_STAGING_READINESS.md
+docs/PALWAKF_PLATFORM_COMPREHENSIVE_GUIDE_NOSOK_APPENDIX_V38.md
+schema_creation_pack_final/NOSOK_SCHEMA_CREATION_PACK_V38.md
+schema_creation_pack_final/NOSOK_SCHEMA_RLS_RPC_DRAFT_COMMENTED.sql
+sql/38_nosok_final_staging_readiness_read_only.sql
+evidence/v38/LOCAL_RETEST_RESULT_INTAKE.md
+```

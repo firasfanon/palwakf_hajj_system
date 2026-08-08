@@ -1,0 +1,90 @@
+-- Nosok v38D — Dynamic Pages + Sections Builder Contract
+-- Development / preparation only. Do NOT run as production DDL.
+-- This file documents the future schema/RPC contract required after Nosok is hosted by PalWakf.
+-- It intentionally ends with ROLLBACK.
+
+BEGIN;
+
+-- Future schema design only:
+-- 1) nosok.page_registry
+--    - id uuid primary key
+--    - page_key text unique
+--    - slug text unique
+--    - route_pattern text
+--    - page_type text check in ('public_content','season_content','company_content','admin_workspace')
+--    - template_key text
+--    - title_ar text not null
+--    - intro_ar text
+--    - audience_scope text check in ('public','citizen','company','employee','admin','superuser')
+--    - required_permission_key text null
+--    - unit_scope_mode text default 'none'
+--    - season_key text null
+--    - is_published boolean default false
+--    - published_from timestamptz null
+--    - published_to timestamptz null
+--    - display_order int default 100
+--    - metadata jsonb default '{}'::jsonb
+--    - created_by uuid, updated_by uuid
+--    - created_at timestamptz, updated_at timestamptz
+--
+-- 2) nosok.page_sections
+--    - id uuid primary key
+--    - page_id uuid references nosok.page_registry(id)
+--    - section_key text
+--    - component_type text
+--    - title_ar text
+--    - body_ar text
+--    - icon_key text null
+--    - tone_key text check in ('info','success','warning','error','neutral')
+--    - route_path text null
+--    - cta_label_ar text null
+--    - display_order int default 100
+--    - is_published boolean default false
+--    - metadata jsonb default '{}'::jsonb
+--
+-- 3) nosok.page_actions
+--    - id uuid primary key
+--    - page_id uuid references nosok.page_registry(id)
+--    - section_id uuid references nosok.page_sections(id)
+--    - label_ar text
+--    - route_path text
+--    - action_type text check in ('internal_route','external_allowed','download','disabled')
+--    - required_permission_key text null
+--    - is_enabled boolean default true
+--
+-- 4) nosok.page_templates
+--    - template_key text primary key
+--    - template_name_ar text
+--    - allowed_section_types text[]
+--    - allowed_audience_scopes text[]
+--    - is_active boolean default true
+--
+-- 5) nosok.page_audit_events
+--    - id uuid primary key
+--    - page_id uuid null
+--    - event_key text
+--    - reason_ar text
+--    - actor_id uuid
+--    - event_at timestamptz default now()
+--    - payload jsonb default '{}'::jsonb
+
+-- Future RPC contract only:
+-- public.rpc_nosok_public_dynamic_page_get_v1(p_slug text)
+--   Returns published public-safe page and published sections only.
+-- public.rpc_nosok_admin_dynamic_pages_list_v1(...)
+--   RBAC-protected admin list.
+-- public.rpc_nosok_admin_dynamic_page_upsert_v1(...)
+--   RBAC + reserved route validation + audit.
+-- public.rpc_nosok_admin_dynamic_page_transition_v1(...)
+--   draft/review/publish/archive transitions with audit.
+
+-- Security guardrails:
+-- - No arbitrary HTML/script fields.
+-- - No direct public table exposure.
+-- - Public surface must be published-only.
+-- - Admin pages require required_permission_key and PalWakf AccessProfile binding.
+-- - Slugs cannot collide with fixed Nosok public/admin routes.
+-- - External links require allowlist.
+-- - Audit events are mandatory before production.
+
+ROLLBACK;

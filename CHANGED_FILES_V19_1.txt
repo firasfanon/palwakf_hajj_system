@@ -1,0 +1,10 @@
+lib/features/nosok_system/system_navigation.dart
+lib/features/nosok_system/application/nosok_followup_inbox_controller.dart
+lib/features/nosok_system/presentation/pages/admin/nosok_admin_followup_inbox_page.dart
+lib/features/nosok_system/presentation/pages/admin/nosok_admin_application_details_page.dart
+lib/features/nosok_system/system_permissions.dart
+docs/BASELINE_CHANGELOG_NOSOK_V19_1.md
+docs/ERROR_RECORD_NOSOK_V19_1.md
+docs/SESSION_HANDOFF_NOSOK_V19_1.md
+docs/PALWAKF_PLATFORM_COMPREHENSIVE_GUIDE_NOSOK_APPENDIX_V19_1.md
+CHANGED_FILES_V19_1.txt

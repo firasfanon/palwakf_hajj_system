@@ -1,0 +1,9 @@
+schema_name,table_name,rls_enabled,force_rls,certification_note
+nosok,application_documents,True,False,RLS detected enabled by post-apply read-only census; force_rls not yet enabled.
+nosok,applications,True,False,RLS detected enabled by post-apply read-only census; force_rls not yet enabled.
+nosok,audit_events,True,False,RLS detected enabled by post-apply read-only census; force_rls not yet enabled.
+nosok,campaigns,True,False,RLS detected enabled by post-apply read-only census; force_rls not yet enabled.
+nosok,eligibility_rules,True,False,RLS detected enabled by post-apply read-only census; force_rls not yet enabled.
+nosok,lgu_quotas,True,False,RLS detected enabled by post-apply read-only census; force_rls not yet enabled.
+nosok,quota_rules,True,False,RLS detected enabled by post-apply read-only census; force_rls not yet enabled.
+nosok,workflow_events,True,False,RLS detected enabled by post-apply read-only census; force_rls not yet enabled.

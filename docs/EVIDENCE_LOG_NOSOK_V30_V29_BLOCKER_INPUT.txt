@@ -1,0 +1,1095 @@
+أنت مطور Flutter Web خبير في بناء واجهات حكومية حديثة، وتعمل على مشروع نسك Nosok، وهو نظام شبه مستقل لإدارة خدمات الحج والعمرة والرحلات الدينية، ويجب تطوير واجهاته وفق نظام الواجهات السيادي الخاص بمنصة PalWakf:
+
+PWF-SIS — PalWakf Sovereign Interface System
+
+المطلوب تنفيذ دفعة تطوير كبيرة ومتكاملة بعنوان:
+
+Mega Batch Nosok UI —
+Public Service Portal + Internal Operations Console
++ PWF-SIS Compliance
++ Responsive Anti-Overload UX
++ Role-Based UI Separation
++ PalWakf Integration Readiness
+
+==================================================
+1. الهدف العام
+==================================================
+
+تطوير واجهات استخدام نظام نسك بحيث يصبح جاهزًا بصريًا وتشغيليًا للاندماج مع منصة PalWakf، مع الحفاظ على كونه نظامًا شبه مستقل وظيفيًا.
+
+يجب أن يحتوي نسك على واجهتين واضحتين:
+
+1. واجهة المواطن / الجمهور:
+   Nosok Public Service Portal
+
+2. واجهة الموظف / الإدارة:
+   Nosok Internal Operations Console
+
+نفس النظام ونفس البيانات الخلفية، لكن واجهتان مختلفتان حسب نوع المستخدم والدور والصلاحيات.
+
+القاعدة الحاكمة:
+
+شاشة المواطن = رحلة خدمة Service Journey
+شاشة الموظف = مساحة تشغيل Operational Workflow
+والبيانات وسير العمل مشتركة خلفيًا
+
+==================================================
+2. الالتزام بـ PWF-SIS
+==================================================
+
+يجب أن تلتزم كل واجهات نسك بنظام PWF-SIS.
+
+PWF-SIS يعني:
+
+1. هوية بصرية موحدة مع PalWakf.
+2. ألوان منضبطة:
+   - الأزرق السيادي.
+   - الذهبي الوقفي.
+   - الأحمر الملكي #B22222.
+   - الأخضر للنجاح.
+   - البنفسجي/الرمادي للمحتوى المقيد.
+3. RTL كامل.
+4. دعم Dark Mode.
+5. دعم Visual Identity Admin / Published Overrides.
+6. Contrast Governance:
+   - لا نص فاتح فوق خلفية فاتحة.
+   - لا نص ضعيف فوق Hero أو صور.
+   - أي تدرج أو صورة تحتاج طبقة قراءة Scrim.
+7. Runtime States موحدة.
+8. Anti-Overload UX.
+9. Responsive حقيقي حتى الموبايل.
+10. لا تصميم خاص منفصل لنسك خارج هوية PalWakf.
+
+ممنوع:
+- اختراع ألوان جديدة خارج PWF-SIS.
+- إنشاء شكل مستقل لكل صفحة.
+- تصميم أزرار أو جداول أو بطاقات خارج النظام.
+- الاعتماد على شاشة desktop فقط.
+- عرض أخطاء backend خام للمستخدم.
+- استخدام legacy.dart في الملفات الجديدة.
+
+استخدم flutter_riverpod.dart في الملفات الجديدة.
+
+==================================================
+3. طبيعة نسك كنظام شبه مستقل
+==================================================
+
+نسك يجب أن يبقى نظامًا شبه مستقل وظيفيًا، لكنه بصريًا وتشغيليًا منضبط داخل PalWakf.
+
+يعني:
+
+Nosok owns:
+- بيانات الحج والعمرة.
+- الطلبات.
+- الحملات.
+- المجموعات.
+- المرفقات.
+- المراسلات.
+- المتابعة.
+- Workflow الخاص بالخدمة.
+
+PalWakf/PWF-SIS owns:
+- الهوية البصرية.
+- Shell.
+- Runtime States.
+- البطاقات.
+- الجداول.
+- النماذج.
+- التباين.
+- Responsive.
+- Anti-overload.
+- قواعد الصلاحيات البصرية.
+
+==================================================
+4. تقسيم الواجهات
+==================================================
+
+يجب بناء نسك كالتالي:
+
+Nosok System
+├── Public Service Portal
+│   ├── الصفحة العامة للخدمات
+│   ├── تقديم طلب
+│   ├── متابعة طلب
+│   ├── المتطلبات والتعليمات
+│   ├── الأسئلة الشائعة
+│   └── مساعدة عامة
+│
+└── Internal Operations Console
+    ├── لوحة الموظف
+    ├── الطلبات
+    ├── المراجعة
+    ├── الحملات
+    ├── المجموعات
+    ├── الوثائق
+    ├── المراسلات
+    ├── التقارير
+    └── الإعدادات والصلاحيات
+
+==================================================
+5. المسارات المقترحة
+==================================================
+
+اعتمد هذه المسارات أو ما يعادلها حسب بنية المشروع الحالية.
+
+Public Routes:
+
+/services/nosok
+/services/nosok/hajj
+/services/nosok/umrah
+/services/nosok/apply
+/services/nosok/track
+/services/nosok/requirements
+/services/nosok/faq
+
+Internal Routes:
+
+/admin/systems/nosok
+/admin/systems/nosok/requests
+/admin/systems/nosok/review
+/admin/systems/nosok/campaigns
+/admin/systems/nosok/groups
+/admin/systems/nosok/documents
+/admin/systems/nosok/messages
+/admin/systems/nosok/reports
+/admin/systems/nosok/settings
+
+إن كانت مسارات موجودة سابقًا، لا تكسرها. أضف routing compatibility أو redirects عند الحاجة.
+
+==================================================
+6. واجهة المواطن — Public Nosok Portal
+==================================================
+
+المواطن لا يجب أن يرى شاشة الموظف.
+
+واجهة المواطن يجب أن تكون بسيطة، خدمية، واضحة، قليلة التعقيد.
+
+المواطن يريد:
+- معرفة الخدمة.
+- تقديم طلب.
+- رفع المرفقات.
+- متابعة الطلب.
+- معرفة النواقص.
+- قراءة التعليمات.
+- الحصول على مساعدة.
+
+--------------------------------------------------
+6.1 الصفحة العامة
+--------------------------------------------------
+
+المسار:
+
+/services/nosok
+
+المكونات المطلوبة:
+
+1. Public Service Hero
+
+العنوان:
+خدمات نسك للحج والعمرة
+
+الوصف:
+قدّم طلبك، تابع حالته، واستكمل المرفقات المطلوبة عبر منصة PalWakf.
+
+الأزرار:
+- تقديم طلب جديد
+- متابعة طلب
+- عرض المتطلبات
+
+2. Service Cards
+
+البطاقات:
+- طلب حج
+- طلب عمرة
+- استكمال مرفقات
+- متابعة طلب
+- الاستعلام عن حملة
+- طلب مساعدة
+
+كل بطاقة تحتوي:
+- أيقونة.
+- عنوان.
+- وصف مختصر.
+- حالة إن وجدت.
+- زر إجراء.
+
+3. Requirements Preview
+
+تعرض:
+- الوثائق المطلوبة.
+- شروط الخدمة.
+- ملاحظات مهمة.
+- روابط التعليمات.
+
+4. Public Workflow Stepper
+
+المراحل:
+اختيار الخدمة
+→ تعبئة البيانات
+→ رفع المرفقات
+→ إرسال الطلب
+→ مراجعة الطلب
+→ استكمال النواقص إن وجدت
+→ الاعتماد والمتابعة
+
+5. Tracking Entry Card
+
+حقول:
+- رقم الطلب.
+- رقم الهوية أو رقم مرجعي.
+- زر متابعة.
+
+6. FAQ Accordion
+
+لا تعرض الأسئلة كقائمة طويلة.
+استخدم Accordion.
+
+7. Public Help
+
+- مساعد نسك العام.
+- دليل الاستخدام.
+- تواصل / دعم.
+
+--------------------------------------------------
+6.2 صفحة تقديم الطلب
+--------------------------------------------------
+
+المسار:
+
+/services/nosok/apply
+
+يجب أن تكون Form Wizard، لا نموذجًا طويلًا مزدحمًا.
+
+الخطوات:
+
+1. اختيار نوع الخدمة:
+   - حج
+   - عمرة
+   - استكمال مرفقات
+   - متابعة
+
+2. بيانات مقدم الطلب:
+   - الاسم
+   - رقم الهوية
+   - تاريخ الميلاد
+   - رقم الهاتف
+   - البريد إن وجد
+   - العنوان / المحافظة إن كانت مطلوبة
+
+3. بيانات الطلب:
+   - الموسم
+   - نوع الخدمة
+   - المديرية / الوحدة إن وجدت
+   - الملاحظات
+
+4. المرافقون:
+   - إضافة مرافق
+   - إزالة مرافق
+   - بطاقة لكل مرافق
+   - حقول أساسية لكل مرافق
+
+5. المرفقات:
+   - جواز سفر
+   - صورة شخصية
+   - إثباتات مطلوبة
+   - مرفقات إضافية
+   - حالة كل مرفق
+
+6. مراجعة قبل الإرسال:
+   - ملخص الطلب
+   - ملخص المرفقات
+   - تأكيد صحة البيانات
+   - تنبيه قانوني أو إداري إن لزم
+
+7. إرسال الطلب:
+   - رسالة نجاح
+   - رقم طلب
+   - رابط متابعة
+   - تنبيه لحفظ الرقم المرجعي
+
+قواعد النماذج:
+- لا تستخدم placeholder بدل label.
+- كل حقل له label واضح.
+- helper text عند الحاجة.
+- validation باللغة العربية.
+- لا تعرض أخطاء backend خام.
+- دعم RTL كامل.
+- على الموبايل: خطوة واحدة في كل شاشة.
+- استخدم Autosave/Draft إن كان موجودًا، وإلا اعرض ذلك كـ planned/disabled.
+
+--------------------------------------------------
+6.3 صفحة متابعة الطلب
+--------------------------------------------------
+
+المسار:
+
+/services/nosok/track
+
+تحتوي:
+- إدخال رقم الطلب.
+- إدخال رقم الهوية أو رمز تحقق إن وجد.
+- بطاقة حالة الطلب.
+- Timeline مبسط بلغة المواطن.
+- قائمة النواقص إن وجدت.
+- زر رفع مرفق ناقص.
+- رابط تواصل أو دعم.
+
+لغة الحالات للمواطن:
+
+submitted        = تم إرسال الطلب
+received         = تم استلام الطلب
+under_review     = قيد المراجعة
+needs_completion = مطلوب استكمال
+approved         = تم الاعتماد
+rejected         = لم يتم قبول الطلب
+assigned         = تم ربط الطلب بحملة / مجموعة
+in_followup      = قيد المتابعة
+completed        = مكتمل
+closed           = مغلق
+
+لا يظهر للمواطن:
+- audit الداخلي.
+- ملاحظات الموظفين الداخلية.
+- أسماء الموظفين إلا إذا السياسة تسمح.
+- صلاحيات النظام.
+- جداول تشغيلية.
+- بيانات طلبات أخرى.
+- أي بيانات حساسة غير تخص طلبه.
+
+==================================================
+7. واجهة الموظف — Internal Nosok Console
+==================================================
+
+واجهة الموظف ليست واجهة خدمات عامة، بل مساحة تشغيلية.
+
+الموظف يريد:
+- مراجعة الطلبات.
+- فرز النواقص.
+- تحديث الحالات.
+- إدارة الحملات.
+- إدارة المجموعات.
+- مراسلة المستفيدين.
+- متابعة الوثائق.
+- إسناد المهام.
+- استخراج التقارير.
+
+--------------------------------------------------
+7.1 الصفحة الرئيسية الداخلية
+--------------------------------------------------
+
+المسار:
+
+/admin/systems/nosok
+
+استخدم PWF-SIS Internal Operations Shell.
+
+المكونات:
+
+1. Internal System Hero
+
+العنوان:
+نظام نسك
+
+الوصف:
+إدارة طلبات الحج والعمرة والحملات والمتابعة والمراسلات والوثائق.
+
+Badges:
+- internal
+- restricted عند الحاجة
+- runtime
+- role scope
+
+2. Quick Status Strip
+
+المؤشرات:
+- الطلبات الجديدة.
+- قيد المراجعة.
+- نواقص حرجة.
+- حملات نشطة.
+- مراسلات واردة.
+- مهامي.
+
+3. Primary Action Zone
+
+الأزرار:
+- فتح الطلبات.
+- مراجعة النواقص.
+- إدارة الحملات.
+- صندوق المتابعة.
+- التقارير.
+
+4. Review Queue Preview
+
+اعرض آخر الطلبات التي تحتاج مراجعة فقط.
+لا تعرض جدولًا كاملًا في الصفحة الرئيسية.
+
+5. Operational Summary
+
+4 إلى 6 Metric Cards فقط.
+
+أمثلة:
+- طلبات جديدة.
+- قيد المراجعة.
+- نواقص حرجة.
+- حملات نشطة.
+- مراسلات واردة.
+- ملفات مكتملة.
+
+6. Workflow Preview
+
+المراحل:
+submitted
+→ received
+→ under_review
+→ needs_completion
+→ approved
+→ assigned_to_campaign
+→ in_followup
+→ completed
+→ closed
+
+7. Access-Aware Section
+
+حسب الدور:
+- Superuser: إدارة الموسم والإعدادات والصلاحيات.
+- موظف: طلباتي ومراجعاتي فقط.
+- مشرف: طلبات نطاقه.
+- Restricted: قراءة فقط أو Forbidden.
+
+8. Evidence / Governance Strip
+
+يعرض بشكل مختصر:
+- runtime source.
+- health check.
+- audit log.
+- storage status.
+- permissions status.
+
+لا تجعل الحوكمة تسيطر على الصفحة.
+
+--------------------------------------------------
+7.2 صفحة الطلبات
+--------------------------------------------------
+
+المسار:
+
+/admin/systems/nosok/requests
+
+المكونات:
+
+Filter Bar:
+- نوع الخدمة.
+- الموسم.
+- الحالة.
+- المديرية.
+- الأولوية.
+- تاريخ الطلب.
+- الموظف المسؤول.
+
+Desktop:
+- Data Table.
+
+Mobile:
+- Cards بدل الجدول.
+
+الأعمدة:
+- رقم الطلب.
+- مقدم الطلب.
+- نوع الخدمة.
+- الموسم.
+- الحالة.
+- النواقص.
+- المسؤول.
+- آخر تحديث.
+- الإجراء.
+
+Row Actions:
+- فتح.
+- مراجعة.
+- طلب استكمال.
+- تحويل.
+- إغلاق.
+- رفض مع سبب، حسب الصلاحية.
+
+--------------------------------------------------
+7.3 صفحة المراجعة
+--------------------------------------------------
+
+المسار:
+
+/admin/systems/nosok/review
+
+تحتوي:
+- Review Queue.
+- Priority badges.
+- Missing documents indicators.
+- Drawer لفتح التفاصيل.
+- Decision Panel.
+
+الإجراءات:
+- قبول أولي.
+- طلب استكمال.
+- رفض مع سبب.
+- تحويل لموظف.
+- تعليق داخلي.
+
+أي إجراء غير مصرح يجب أن يكون مخفيًا أو disabled مع سبب واضح حسب سياسة المنصة.
+
+--------------------------------------------------
+7.4 صفحة تفاصيل الطلب
+--------------------------------------------------
+
+يمكن أن تكون صفحة أو Drawer.
+
+Tabs:
+1. بيانات مقدم الطلب.
+2. المرافقون.
+3. المرفقات.
+4. المراجعات.
+5. المراسلات.
+6. سجل الحالة.
+7. Audit حسب الصلاحية.
+
+Decision Panel منفصل:
+- approve
+- request_completion
+- reject
+- assign_to_campaign
+- close
+
+يجب فصل البيانات عن القرار حتى لا تحدث أخطاء تشغيلية.
+
+--------------------------------------------------
+7.5 صفحة الحملات
+--------------------------------------------------
+
+المسار:
+
+/admin/systems/nosok/campaigns
+
+تعرض:
+- قائمة الحملات.
+- عدد المسجلين.
+- السعة.
+- الحالة.
+- المشرف.
+- تاريخ الانطلاق.
+- المجموعة المرتبطة.
+- مؤشرات الاكتمال.
+
+لا تعرض كل تفاصيل الحملة داخل البطاقة.
+افتح التفاصيل في Drawer أو صفحة Detail.
+
+--------------------------------------------------
+7.6 صفحة المجموعات
+--------------------------------------------------
+
+المسار:
+
+/admin/systems/nosok/groups
+
+تعرض:
+- اسم المجموعة.
+- الحملة.
+- عدد الأفراد.
+- المشرف.
+- حالة المجموعة.
+- ملاحظات متابعة.
+- رابط الطلبات المرتبطة.
+
+--------------------------------------------------
+7.7 صفحة الوثائق
+--------------------------------------------------
+
+المسار:
+
+/admin/systems/nosok/documents
+
+تعرض:
+- قائمة المرفقات.
+- حالة التحقق.
+- معاينة.
+- جودة الملف.
+- missing/invalid/verified badges.
+- ربط بصري مع document_intelligence إن كان متاحًا.
+
+إذا لم يكن backend متاحًا، لا تعرضه كعامل فعلي. اعرضه disabled/planned.
+
+--------------------------------------------------
+7.8 صفحة المراسلات
+--------------------------------------------------
+
+المسار:
+
+/admin/systems/nosok/messages
+
+تعرض:
+- صندوق وارد.
+- صندوق صادر.
+- رسائل مرتبطة بطلب.
+- قوالب رسائل.
+- تنبيهات استكمال.
+- سجل إرسال.
+
+--------------------------------------------------
+7.9 صفحة التقارير
+--------------------------------------------------
+
+المسار:
+
+/admin/systems/nosok/reports
+
+تعرض:
+- طلبات حسب الحالة.
+- طلبات حسب نوع الخدمة.
+- النواقص حسب النوع.
+- الحملات حسب السعة.
+- نشاط الموظفين حسب الصلاحية.
+- تقارير قابلة للتصدير إن كانت موجودة.
+
+لا تضع تقارير ثقيلة في الصفحة الرئيسية.
+
+==================================================
+8. Runtime States
+==================================================
+
+كل صفحة يجب أن تحتوي على الحالات التالية:
+
+- loading
+- empty
+- error safe
+- forbidden
+- read-only
+- maintenance
+- offline / connection issue
+- partial data
+- fallback data
+- submitted
+- under_review
+- needs_completion
+- approved
+- rejected
+- closed
+
+رسائل الخطأ يجب أن تكون عربية وواضحة.
+
+مثال جيد:
+تعذر تحميل طلبات نسك حاليًا. أعد المحاولة أو تواصل مع الدعم الفني إذا استمرت المشكلة.
+
+مثال ممنوع:
+PostgREST exception / stack trace / raw SQL error
+
+==================================================
+9. Role-Based UI
+==================================================
+
+يجب فصل الواجهات حسب الدور.
+
+الأدوار:
+
+1. زائر:
+   - يرى معلومات عامة ومتطلبات الخدمة.
+   - لا يرى الطلبات أو لوحة الموظف.
+
+2. مواطن / مستخدم عام:
+   - يرى طلبه فقط.
+   - يتابع حالته.
+   - يرفع مرفقات.
+   - يستكمل نواقصه.
+
+3. موظف نسك:
+   - يرى الطلبات المسندة له.
+   - يراجع ضمن صلاحياته.
+   - لا يرى الإعدادات العليا.
+
+4. مشرف نسك:
+   - يرى طلبات نطاقه.
+   - يدير فريقه وحملاته.
+
+5. مدير النظام:
+   - يرى الإعدادات.
+   - يرى التقارير.
+   - يدير بعض الصلاحيات.
+
+6. Superuser:
+   - يرى كل شيء مع audit.
+
+7. مستخدم مقيد:
+   - read-only أو forbidden حسب العقد.
+
+لا تعتمد على إخفاء بصري فقط.
+يجب احترام route guards وRBAC الموجودين.
+
+==================================================
+10. Anti-Overload UX
+==================================================
+
+ممنوع حشر كل شيء في شاشة واحدة.
+
+القواعد:
+
+1. الصفحة الرئيسية تعرض ملخصًا فقط.
+2. الجداول الثقيلة في صفحات منفصلة.
+3. التفاصيل داخل Drawer أو Detail Page.
+4. المرفقات داخل Tabs.
+5. Audit قابل للتوسيع.
+6. النماذج الطويلة Wizard.
+7. الصفحة لا تبدأ بالتفاصيل بل بالقرار/الحالة/الإجراء.
+8. لا تزيد الصفحة الرئيسية عن:
+   - Hero واحد.
+   - Status Strip واحد.
+   - 4–6 Metrics.
+   - 6–8 Capability Cards.
+   - Workflow واحد.
+   - Access-Aware Block واحد.
+   - Governance Strip صغير.
+
+ترتيب المعلومات:
+
+1. قرار / خطر / مانع.
+2. ملخص الحالة.
+3. مساحة العمل.
+4. التفاصيل والأدلة.
+
+==================================================
+11. Responsive Requirements
+==================================================
+
+يجب دعم:
+
+- Desktop.
+- Laptop.
+- Tablet.
+- Mobile.
+
+Desktop:
+- Sidebar / topbar.
+- table + side drawer.
+- metrics grid.
+- review queue.
+
+Tablet:
+- stacked panels.
+- reduced columns.
+- tabs.
+
+Mobile:
+- cards بدل table.
+- form wizard.
+- bottom sheet.
+- sticky primary action.
+- no overflow.
+- no tiny text.
+- no horizontal scroll إلا عند الضرورة وبشكل مضبوط.
+
+تحويلات أساسية:
+
+Data Table:
+Desktop = جدول كامل
+Tablet = أعمدة مختصرة
+Mobile = Cards + filters drawer
+
+Request Detail:
+Desktop = Drawer جانبي
+Tablet = Bottom sheet / stacked panels
+Mobile = Full-screen detail with tabs
+
+Form:
+Desktop = stepper واسع
+Mobile = خطوة واحدة في الشاشة
+
+Documents:
+Desktop = Viewer + side panel
+Mobile = Tabs: ملف / بيانات / ملاحظات
+
+Kanban إن وجد:
+Desktop = أعمدة
+Mobile = tabs حسب الحالة
+
+==================================================
+12. Visual Identity Admin Compatibility
+==================================================
+
+يجب ألا تكسر واجهات نسك نظام إدارة الهوية البصرية الموجود.
+
+القواعد:
+
+1. استخدم ThemeData وThemeExtensions المعتمدة.
+2. لا hardcode ألوان خارج PWF-SIS.
+3. دعم published overrides.
+4. دعم dark mode.
+5. احترام contrast gate.
+6. أي system accent لنسك يكون override محدودًا.
+7. لا تجعل نسك يبدو كنظام منفصل بصريًا.
+8. لا تنشئ Design System خاصًا بنسك.
+
+نموذج الوراثة:
+
+Platform Default
+→ Unit Override
+→ System Override
+→ Page Context Override
+→ Published Runtime Theme
+
+نسك يمكن أن يملك:
+- شعار/أيقونة.
+- Hero treatment محدود.
+- accent محدود.
+- صور سياقية.
+
+لكنه لا يملك:
+- أزرار مستقلة.
+- جداول مستقلة.
+- بطاقات مستقلة.
+- ألوان مستقلة.
+- نظام حالات منفصل.
+
+==================================================
+13. التكامل مع الأنظمة الأخرى
+==================================================
+
+جهز واجهات تكامل بصرية فقط مع الأنظمة التالية، دون اختراع backend غير موجود:
+
+1. document_intelligence:
+   - تحليل المرفقات.
+   - جودة الوثائق.
+   - تصنيف الوثيقة.
+
+2. tasks:
+   - إنشاء مهمة متابعة.
+   - إسناد لموظف.
+
+3. assistant:
+   - مساعد نسك العام للمواطن.
+   - مساعد نسك الداخلي للموظف.
+
+4. billing_system:
+   - رسوم أو مدفوعات إن كانت موجودة.
+
+5. media_center:
+   - إعلانات الحج والعمرة.
+
+6. service_center:
+   - ربط طلبات الجمهور.
+
+أي تكامل غير موجود backend يجب أن يظهر كـ:
+- disabled
+- planned
+- unavailable
+وليس كمكوّن يعمل وهميًا.
+
+==================================================
+14. تنظيم الملفات المقترح
+==================================================
+
+إذا لم تكن البنية موجودة، اعتمد تنظيمًا قريبًا من:
+
+lib/features/nosok_system/
+  application/
+    nosok_access_contract.dart
+    nosok_public_service_controller.dart
+    nosok_internal_dashboard_controller.dart
+    nosok_request_review_controller.dart
+    nosok_tracking_controller.dart
+
+  domain/
+    nosok_request_status.dart
+    nosok_service_type.dart
+    nosok_user_role_scope.dart
+    nosok_campaign_status.dart
+    nosok_document_status.dart
+
+  data/
+    nosok_public_repository.dart
+    nosok_internal_repository.dart
+    nosok_tracking_repository.dart
+
+  presentation/
+    public/
+      nosok_public_home_page.dart
+      nosok_apply_page.dart
+      nosok_track_page.dart
+      nosok_requirements_page.dart
+      nosok_faq_page.dart
+
+    internal/
+      nosok_internal_dashboard_page.dart
+      nosok_requests_page.dart
+      nosok_review_page.dart
+      nosok_campaigns_page.dart
+      nosok_groups_page.dart
+      nosok_documents_page.dart
+      nosok_messages_page.dart
+      nosok_reports_page.dart
+      nosok_settings_page.dart
+
+    widgets/
+      nosok_service_card.dart
+      nosok_request_status_badge.dart
+      nosok_request_timeline.dart
+      nosok_review_queue_panel.dart
+      nosok_campaign_card.dart
+      nosok_document_panel.dart
+      nosok_tracking_card.dart
+      nosok_public_workflow_stepper.dart
+
+لا تستخدم legacy.dart في الملفات الجديدة.
+
+==================================================
+15. PWF-SIS Components المطلوبة
+==================================================
+
+استخدم أو أنشئ مكونات متوافقة مع PWF-SIS:
+
+Public:
+- PwfSisPublicServiceShell
+- PwfSisServiceHero
+- PwfSisServiceCard
+- PwfSisRequirementsPanel
+- PwfSisFormWizard
+- PwfSisTrackingCard
+- PwfSisPublicWorkflowStepper
+- PwfSisFAQAccordion
+- PwfSisPublicHelpCard
+
+Internal:
+- PwfSisSystemHero
+- PwfSisMetricCard
+- PwfSisStatusBadge
+- PwfSisNotice
+- PwfSisRuntimeState
+- PwfSisAdaptiveWorkspace
+- PwfSisDataTable
+- PwfSisReviewQueue
+- PwfSisDecisionPanel
+- PwfSisTimeline
+- PwfSisDocumentPreview
+- PwfSisMessageThread
+- PwfSisAuditPanel
+
+إن كانت هذه المكونات غير موجودة في مشروع نسك، ابنِ equivalents محلية قابلة لاحقًا للمطابقة مع PalWakf.
+
+==================================================
+16. UAT المطلوب
+==================================================
+
+بعد التنفيذ شغّل:
+
+flutter clean
+flutter pub get
+dart format .
+flutter analyze
+flutter run -d chrome
+
+ثم اختبر المسارات:
+
+Public:
+- /services/nosok
+- /services/nosok/apply
+- /services/nosok/track
+- /services/nosok/requirements
+- /services/nosok/faq
+
+Internal:
+- /admin/systems/nosok
+- /admin/systems/nosok/requests
+- /admin/systems/nosok/review
+- /admin/systems/nosok/campaigns
+- /admin/systems/nosok/groups
+- /admin/systems/nosok/documents
+- /admin/systems/nosok/messages
+- /admin/systems/nosok/reports
+
+Responsive:
+- desktop
+- tablet
+- mobile
+
+Roles:
+- visitor
+- citizen/general user
+- nosok employee
+- nosok supervisor
+- system admin
+- superuser
+- restricted user
+
+Browser console:
+- لا توجد render/layout errors.
+- لا توجد overflow errors.
+- لا توجد hit test errors.
+- لا توجد raw backend errors ظاهرة للمستخدم.
+
+==================================================
+17. Acceptance Criteria
+==================================================
+
+تُقبل الدفعة فقط إذا تحقق التالي:
+
+1. المواطن لا يرى واجهة الموظف.
+2. الموظف لا يرى أكثر من صلاحياته.
+3. Public Portal يعمل كرحلة خدمة واضحة.
+4. Internal Console يعمل كمساحة تشغيلية.
+5. لا يوجد overflow على mobile.
+6. النماذج الطويلة تعمل كـ wizard.
+7. الجداول تتحول إلى cards على mobile.
+8. التفاصيل لا تزاحم الشاشة وتظهر كـ drawer/tabs.
+9. لا توجد أخطاء analyzer.
+10. Chrome startup ناجح.
+11. لا توجد raw backend errors.
+12. لا توجد ألوان أو مكونات خارج PWF-SIS.
+13. Visual Identity Admin overrides لا تنكسر.
+14. لا SQL إنتاجي غير مصرح.
+15. لا waqf_assets mutation.
+16. تم تحديث:
+    - baseline changelog
+    - SESSION_HANDOFF
+    - UAT matrix
+    - Error Record
+    - routes summary
+    - modified files list
+
+==================================================
+18. التسليم النهائي
+==================================================
+
+سلّم في نهاية الدفعة:
+
+1. ZIP baseline محدث.
+2. BASELINE_CHANGELOG.
+3. SESSION_HANDOFF شامل.
+4. NEXT_SESSION_PROMPT.
+5. UAT_MATRIX.
+6. ERROR_RECORD.
+7. ROUTES_SUMMARY.
+8. MODIFIED_FILES_LIST.
+9. Browser UAT notes.
+10. الحكم النهائي.
+
+الحكم المتوقع:
+
+staging-stable /
+nosok-public-internal-ui-separated /
+pwf-sis-compliant /
+responsive-uat-pending-or-passed /
+role-based-ui-pending-or-passed /
+chrome-startup-passed-or-pending /
+production-not-approved /
+no-waqf-assets-mutation
+
+==================================================
+19. ملاحظات حاكمة
+==================================================
+
+- لا تجعل الصفحة العامة للمواطن Dashboard.
+- لا تجعل صفحة الموظف صفحة خدمات عامة.
+- لا تخلط مصطلحات المواطن بمصطلحات الموظف.
+- لا تعرض كل شيء في الصفحة الرئيسية.
+- لا تكرر المكونات.
+- لا تكسر RTL.
+- لا تكسر Dark Mode.
+- لا تعتمد إنتاجيًا دون UAT.
+- لا تعرض بيانات حساسة للمواطن.
+- لا تستخدم legacy.dart في الملفات الجديدة.
+- لا تلمس waqf_assets.
+- لا تنفذ SQL إنتاجي دون تصريح صريح.
