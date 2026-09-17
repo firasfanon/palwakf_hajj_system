@@ -87,6 +87,9 @@ import '../pages/admin/nosok_admin_v36_repository_binding_controlled_adapter_pag
 import '../pages/admin/nosok_admin_v37_browser_evidence_result_intake_page.dart';
 import '../pages/admin/nosok_admin_v37_production_gate_redecision_page.dart';
 import '../pages/admin/nosok_admin_v37_public_repository_binding_runtime_switch_candidate_page.dart';
+import '../pages/admin/nosok_admin_v38_public_runtime_evidence_page.dart';
+import '../pages/admin/nosok_admin_v38_final_production_gate_page.dart';
+import '../pages/admin/nosok_admin_v39_tawaf_reality_gap_page.dart';
 import '../pages/admin/nosok_admin_workflow_workbench_page.dart';
 import '../pages/admin/nosok_internal_campaigns_page.dart';
 import '../pages/admin/nosok_internal_documents_page.dart';
@@ -602,6 +605,27 @@ class NosokRoutes {
                 path: 'standalone-supabase-development',
                 redirect: (context, state) =>
                     NosokSystemRoutes.adminV24SupabaseRuntimeUat),
+            GoRoute(
+                path: 'v38-public-runtime-evidence',
+                builder: (context, state) => const NosokAccessGate(
+                        requiredPermissions: {
+                          NosokPermissionKeys.redecideNosokProductionGate
+                        },
+                        child: NosokAdminV38PublicRuntimeEvidencePage())),
+            GoRoute(
+                path: 'v38-final-production-gate',
+                builder: (context, state) => const NosokAccessGate(
+                        requiredPermissions: {
+                          NosokPermissionKeys.redecideNosokProductionGate
+                        },
+                        child: NosokAdminV38FinalProductionGatePage())),
+            GoRoute(
+                path: 'v39-tawaf-reality-gap',
+                builder: (context, state) => const NosokAccessGate(
+                        requiredPermissions: {
+                          NosokPermissionKeys.redecideNosokProductionGate
+                        },
+                        child: NosokAdminV39TawafRealityGapPage())),
             GoRoute(
                 path: 'v38i-standalone-supabase-development',
                 redirect: (context, state) =>

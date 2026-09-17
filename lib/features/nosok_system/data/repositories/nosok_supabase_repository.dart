@@ -532,63 +532,15 @@ class NosokSupabaseRepository implements NosokRepository {
   Future<NosokApplication> submitApplication(
       NosokApplicationDraft draft) async {
     try {
-      final rows = await _client.rpc('rpc_nosok_public_submit_application_v1',
-          params: draft.toRpcParams());
+      final rows = await _client.rpc(
+        'rpc_nosok_public_submit_application_v1',
+        params: draft.toRpcParams(),
+      );
       return _singleFromRpc(rows, NosokApplication.fromMap);
     } catch (_) {
-      final applicationNo = 'NSK-${DateTime.now().millisecondsSinceEpoch}';
-      final row = await _client
-          .schema('nosok')
-          .from('applications')
-          .insert(draft.toFallbackInsertMap(applicationNo: applicationNo))
-          .select()
-          .single();
-      final application = NosokApplication.fromMap(row);
-      if (draft.companions.isNotEmpty) {
-        final companionRows = draft.companions
-            .map((item) => <String, dynamic>{
-                  ...item.toMap(),
-                  'application_id': application.id
-                })
-            .toList();
-        await _client
-            .schema('nosok')
-            .from('application_companions')
-            .insert(companionRows);
-      }
-      if (draft.documents.isNotEmpty) {
-        final documentRows =
-            await Future.wait(draft.documents.map((item) async {
-          final payload = await _prepareDocumentPayload(item);
-          payload['application_id'] = application.id;
-          return payload;
-        }));
-        await _client
-            .schema('nosok')
-            .from('application_documents')
-            .insert(documentRows);
-      }
-      if (draft.payments.isNotEmpty) {
-        final paymentRows = draft.payments
-            .map((item) => <String, dynamic>{
-                  ...item.toUpsertMap(),
-                  'application_id': application.id
-                })
-            .toList();
-        await _client
-            .schema('nosok')
-            .from('application_payments')
-            .insert(paymentRows);
-      }
-      await _client
-          .schema('nosok')
-          .from('application_reviews')
-          .insert(<String, dynamic>{
-        'application_id': application.id,
-        'review_action': 'submit',
-        'review_reason': 'Public submission fallback path',
-      });
-      return application;
+      throw StateError(
+        'تعذر إرسال طلب نسك عبر public submit RPC الآمن. لا يوجد fallback مباشر إلى nosok.* من واجهة المواطن.',
+      );
     }
   }
 
@@ -609,19 +561,10 @@ class NosokSupabaseRepository implements NosokRepository {
       if (mapped.isNotEmpty) {
         return mapped.first;
       }
-    } catch (_) {}
-
-    final row = await _client
-        .schema('nosok')
-        .from('applications')
-        .select(
-            'id,season_id,program_id,application_no,tracking_token,tracking_token_issued_at,service_type,applicant_full_name,national_id,application_status,eligibility_status,phone,mobile,email,submitted_at,reviewed_at')
-        .eq('tracking_token', normalized)
-        .maybeSingle();
-    if (row == null) {
+      return null;
+    } catch (_) {
       return null;
     }
-    return NosokApplication.fromMap(row);
   }
 
   @override

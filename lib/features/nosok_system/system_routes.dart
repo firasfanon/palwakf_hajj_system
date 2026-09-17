@@ -118,6 +118,12 @@ class NosokSystemRoutes {
       '/admin/systems/nosok/public-responsive-uat';
   static const adminStandaloneSupabaseDevelopment =
       '/admin/systems/nosok/standalone-supabase-development';
+  static const adminV38PublicRuntimeEvidence =
+      '/admin/systems/nosok/v38-public-runtime-evidence';
+  static const adminV38FinalProductionGate =
+      '/admin/systems/nosok/v38-final-production-gate';
+  static const adminV39TawafRealityGap =
+      '/admin/systems/nosok/v39-tawaf-reality-gap';
   static const adminV38IStandaloneSupabaseDevelopment =
       '/admin/systems/nosok/v38i-standalone-supabase-development';
   static const adminSupabaseBindingDiscovery =

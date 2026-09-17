@@ -581,6 +581,18 @@ class NosokSystemNavigation {
         route: NosokSystemRoutes.adminV37ProductionGateRedecision,
         icon: Icons.gpp_maybe_outlined,
         permissionKeys: {NosokPermissionKeys.redecideNosokV37ProductionGate}),
+    NosokSystemNavItem(
+        key: 'v38_final_production_gate',
+        titleAr: 'قرار v38 النهائي',
+        route: NosokSystemRoutes.adminV38FinalProductionGate,
+        icon: Icons.privacy_tip_outlined,
+        permissionKeys: {NosokPermissionKeys.redecideNosokProductionGate}),
+    NosokSystemNavItem(
+        key: 'v39_tawaf_reality_gap',
+        titleAr: 'فجوات Tawaf v39',
+        route: NosokSystemRoutes.adminV39TawafRealityGap,
+        icon: Icons.travel_explore_outlined,
+        permissionKeys: {NosokPermissionKeys.redecideNosokProductionGate}),
   ];
 
   static List<NosokSystemNavItem> visibleAdminItems(
