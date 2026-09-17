@@ -49,3 +49,14 @@ flutter run -d chrome
 | Chrome debug runtime | PENDING_RUNTIME_EVIDENCE | first retry no longer produced the missing v38-page compile error, but debug-service connection did not complete during the observed run |
 
 Current production decision remains unchanged: `PRODUCTION_APPROVAL = NO`.
+
+## Repository contamination cleanup verification — 2026-09-17
+
+| Gate | Result | Evidence |
+|---|---|---|
+| Foreign Awqaf feature roots removed | PASS | `lib/features/awqaf_system` and `lib/features/waqf_assets` absent |
+| Dedicated Awqaf docs/sandbox removed | PASS | `docs/awqaf7_user_screens` and dedicated SQL probe absent |
+| Deleted-path references | PASS | no remaining tracked path references |
+| Whole-repository analyzer | PASS | `flutter analyze --no-pub` → No issues found |
+| Web debug build | PASS | `flutter build web --debug --no-pub` → built `build/web` |
+| Main merge | NO | cleanup remains task-branch WIP |

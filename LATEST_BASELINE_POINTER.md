@@ -22,3 +22,9 @@ Git state:
 Next:
 
 `Nosok v39 — Browser Route Evidence + Negative Role/Network No-External-Call Evidence Intake`
+
+## Post-baseline WIP cleanup — 2026-09-17
+
+Foreign `awqaf_system` / `waqf_assets` implementation leftovers were removed on `task/NOSOK-REMOVE-AWQAF-WAQF-ASSETS-LEFTOVERS-V1`.
+
+This cleanup is `BUILT_NOT_INTEGRATED` and does not change the sovereign baseline pointer by itself. Whole-repository analyzer and Web debug build pass after removal. Main merge, baseline promotion, and production remain unauthorized/not performed.

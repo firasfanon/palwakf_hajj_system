@@ -47,3 +47,17 @@ Primary files:
 - `CHECKSUMS_NOSOK_V39_TAWAF_PUBLIC_REALITY_GAP_ADAPTER_SHA256.txt`
 
 Boundary: no external integration, no scraping, no Captcha bypass, no private data extraction, no DDL/DML/GRANT/REVOKE, no service_role, no production approval, no waqf_assets mutation.
+
+---
+
+## Repository contamination cleanup — 2026-09-17
+
+Foreign Awqaf implementation leftovers removed from HAJJ_SYSTEM:
+- `lib/features/awqaf_system/` — removed
+- `lib/features/waqf_assets/` — removed
+- `docs/awqaf7_user_screens/` — removed
+- `sql_sandbox/awqaf7_user_screens_read_only/` — removed
+- `ERROR_RECORD_NOSOK_REPOSITORY_CONTAMINATION_CLEANUP_20260917.md` — added
+- `CHANGED_FILES_NOSOK_REPOSITORY_CONTAMINATION_CLEANUP_20260917.txt` — added
+
+Read-only schema census artifacts are preserved. Integration/baseline/production are not implied.

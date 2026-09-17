@@ -76,3 +76,21 @@ WHOLE_REPO_ANALYZE = FAIL_OUT_OF_SCOPE_DRIFT
 The original Chrome compile failure was caused by an incomplete local artifact overlay: three v38 public-runtime dependency files existed in the v39 ZIP but were absent locally. They were restored from the v39 artifact, then formatted and verified through Nosok-scoped analyze and Web build.
 
 Do not classify this repair as GitHub integration, main merge, baseline promotion, or production approval until a separate authorized decision and post-push readback are completed.
+
+## Repository cleanup update — 2026-09-17
+
+`awqaf_system` / `waqf_assets` source contamination was removed on a dedicated WIP branch after authority reconciliation.
+
+```text
+CLEANUP_BRANCH=task/NOSOK-REMOVE-AWQAF-WAQF-ASSETS-LEFTOVERS-V1
+CLEANUP_BASE=5389ecb85cb6e89ed97f9a0f691ec4953d13cc21
+FOREIGN_FEATURE_ROOTS=REMOVED
+DEDICATED_AWQAF_DOCS_SANDBOX=REMOVED
+WHOLE_REPO_ANALYZE=PASS
+WEB_BUILD=PASS
+MAIN_MERGE=NO
+BASELINE_PROMOTION=NO
+PRODUCTION_APPROVAL=NO
+```
+
+Read-only schema census/evidence mentioning external Awqaf/Waqf authorities is preserved intentionally.
