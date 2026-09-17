@@ -8,6 +8,8 @@ class NosokUnitScope {
     this.publicIntroAr,
     this.activeSeasonId,
     this.notes,
+    this.unitType,
+    this.governorateId,
   });
 
   final String unitId;
@@ -18,17 +20,25 @@ class NosokUnitScope {
   final String? publicIntroAr;
   final String? activeSeasonId;
   final String? notes;
+  final String? unitType;
+  final String? governorateId;
 
   factory NosokUnitScope.fromMap(Map<String, dynamic> map) {
     return NosokUnitScope(
-      unitId: (map['unit_id'] ?? '').toString(),
-      unitSlug: (map['unit_slug'] ?? '').toString(),
-      unitNameAr: (map['unit_name_ar'] ?? map['name_ar'] ?? '').toString(),
-      isEnabled: (map['is_enabled'] as bool?) ?? false,
+      unitId: (map['unit_id'] ?? map['id'] ?? '').toString(),
+      unitSlug: (map['unit_slug'] ?? map['slug'] ?? '').toString(),
+      unitNameAr: (map['unit_name_ar'] ?? map['name_ar'] ?? map['nameAr'] ?? '')
+          .toString(),
+      isEnabled: (map['is_enabled'] as bool?) ??
+          (map['is_active'] as bool?) ??
+          (map['isActive'] as bool?) ??
+          false,
       publicTitleAr: map['public_title_ar']?.toString(),
       publicIntroAr: map['public_intro_ar']?.toString(),
       activeSeasonId: map['active_season_id']?.toString(),
       notes: map['notes']?.toString(),
+      unitType: (map['unit_type'] ?? map['unitType'])?.toString(),
+      governorateId: map['governorate_id']?.toString(),
     );
   }
 
@@ -42,6 +52,8 @@ class NosokUnitScope {
       'public_intro_ar': publicIntroAr,
       'active_season_id': activeSeasonId,
       'notes': notes,
+      'unit_type': unitType,
+      'governorate_id': governorateId,
     };
   }
 }

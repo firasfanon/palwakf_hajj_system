@@ -47,7 +47,7 @@ class NosokAdminPlatformIntegrationReadinessPage extends StatelessWidget {
               _IntegrationRow(
                   area: 'Units',
                   contract:
-                      'core.org_units مصدر الوحدات، nosok.unit_service_scopes سطح خدمة فقط',
+                      'core.org_units مصدر الوحدات؛ نسك يستهلكه عبر RPC ولا يفوض عبر slug محلي',
                   status: 'جاهز للتطبيق'),
               _IntegrationRow(
                   area: 'Billing',

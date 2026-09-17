@@ -60,7 +60,7 @@ class NosokPublicUnitPage extends ConsumerWidget {
                           _PolicyLine(
                               icon: Icons.hub_outlined,
                               text:
-                                  'سطح الخدمة الخاص بنسك: nosok.unit_service_scopes.'),
+                                  'سطح نسك يعتمد سياسة عرض فوق الوحدة المركزية ولا ينشئ مصدر وحدات مستقلًا.'),
                           _PolicyLine(
                               icon: Icons.security_outlined,
                               text:
@@ -257,7 +257,7 @@ class _UnitVisualCard extends StatelessWidget {
             const _UnitVisualLine(
                 label: 'المصدر السيادي', value: 'core.org_units'),
             const _UnitVisualLine(
-                label: 'سطح نسك', value: 'unit_service_scopes'),
+                label: 'سطح نسك', value: 'policy over core.org_units'),
             const _UnitVisualLine(
                 label: 'العمليات المحمية', value: 'AccessProfile + RBAC'),
           ],

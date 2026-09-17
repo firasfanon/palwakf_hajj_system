@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../application/access/nosok_access_profile.dart';
+import '../../../application/nosok_administrative_unit_scope_controller.dart';
 import '../../../system_routes.dart';
 import '../../widgets/nosok_page_scaffold.dart';
 import '../../widgets/nosok_section_card.dart';
 
-class NosokAdminUnitPage extends StatelessWidget {
+class NosokAdminUnitPage extends ConsumerWidget {
   const NosokAdminUnitPage({
     super.key,
     required this.unitId,
@@ -14,7 +17,23 @@ class NosokAdminUnitPage extends StatelessWidget {
   final String unitId;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final profile = ref.watch(nosokAccessProfileProvider);
+    final resolutionAsync =
+        ref.watch(nosokAdministrativeUnitScopeProvider(unitId));
+    if (!profile.canAccessUnit(unitId: unitId)) {
+      return NosokPageScaffold(
+        title: 'خارج نطاق الوحدة',
+        subtitle: 'الحساب الحالي لا يملك نطاق تشغيل لهذه الوحدة.',
+        children: [
+          NosokSectionCard(
+            title: 'وصول مرفوض حسب نطاق الوحدة',
+            child: Text('unit=$unitId • source=${profile.source}'),
+          ),
+        ],
+      );
+    }
+
     return NosokPageScaffold(
       title: 'إدارة وحدة نسك',
       subtitle:
@@ -27,6 +46,21 @@ class NosokAdminUnitPage extends StatelessWidget {
         ),
       ],
       children: [
+        resolutionAsync.when(
+          loading: () => const LinearProgressIndicator(),
+          error: (error, stack) => const NosokSectionCard(
+            title: 'مرجع الوحدة الإدارية',
+            child: Text(
+                'تعذر حل الوحدة من المرجع المركزي. الوصول يبقى fail-closed.'),
+          ),
+          data: (resolution) => NosokSectionCard(
+            title: 'مرجع الوحدة الإدارية',
+            child: Text(resolution == null
+                ? 'الوحدة غير موجودة في المرجع المركزي.'
+                : 'orgUnitId=${resolution.unitId} • slug=${resolution.canonicalSlug} • governorateId=${resolution.governorateId ?? 'none'} • LGU=${resolution.lguScopeStatus}'),
+          ),
+        ),
+        const SizedBox(height: 12),
         Wrap(
           spacing: 12,
           runSpacing: 12,
@@ -46,7 +80,7 @@ class NosokAdminUnitPage extends StatelessWidget {
                 leading: Icon(Icons.visibility_outlined),
                 title: Text('ظهور الصفحة العامة'),
                 subtitle: Text(
-                    'يتحكم بها nosok.unit_service_scopes وhomepage/system surface governance.'),
+                    'يعتمد الظهور على سياسة سطح نسك، بينما تبقى هوية الوحدة من core.org_units عبر RPC معتمد.'),
               ),
               ListTile(
                 leading: Icon(Icons.rule_outlined),

@@ -37,7 +37,7 @@ class NosokAdminRbacProviderOverridePage extends StatelessWidget {
               _ContractRow(
                 title: 'المخرج',
                 body:
-                    'NosokAccessProfile(isAuthenticated, isSuperuser, permissionKeys, roleKeys, unitIds, unitSlugs, source=palwakf)',
+                    'NosokAccessProfile(isAuthenticated, isSuperuser, permissionKeys, roleKeys, unitIds, governorateIds, lguIds, unitSlugs=displayOnly, source=palwakf)',
               ),
               _ContractRow(
                 title: 'القاعدة',

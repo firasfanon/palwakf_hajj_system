@@ -75,8 +75,7 @@ class NosokAdminUnitsPage extends ConsumerWidget {
                                           : scope.unitNameAr,
                                       isEnabled: scope.isEnabled,
                                       canAccess: profile.canAccessUnit(
-                                          unitId: scope.unitId,
-                                          unitSlug: scope.unitSlug),
+                                          unitId: scope.unitId),
                                       profileSource: profile.source,
                                     ),
                                   )
@@ -100,7 +99,7 @@ class NosokAdminUnitsPage extends ConsumerWidget {
                   leading: Icon(Icons.account_tree_outlined),
                   title: Text('الوحدات من core.org_units'),
                   subtitle: Text(
-                      'نسك يحتفظ بسطح خدمة فقط عبر nosok.unit_service_scopes.')),
+                      'نسك يستهلك الوحدات عبر RPC معتمد من core.org_units ولا ينشئ قاموس وحدات محليًا.')),
               ListTile(
                   leading: Icon(Icons.verified_user_outlined),
                   title: Text('الصلاحيات من PalWakf'),
@@ -204,8 +203,8 @@ class _UnitGovernanceVisual extends StatelessWidget {
                 subtitle: Text('مصدر الوحدات')),
             ListTile(
                 leading: Icon(Icons.hub_outlined),
-                title: Text('nosok.unit_service_scopes'),
-                subtitle: Text('سطح الخدمة')),
+                title: Text('Nosok service-surface policy'),
+                subtitle: Text('سياسة عرض فقط وليست مصدر وحدة')),
             ListTile(
                 leading: Icon(Icons.lock_outline),
                 title: Text('AccessProfile'),
@@ -334,7 +333,7 @@ class _UnitScopeCard extends StatelessWidget {
                     child: const Text('فتح العام')),
                 OutlinedButton(
                     onPressed: () => context.go(
-                        '${NosokSystemRoutes.adminUnitQueues}?unitSlug=$unitSlug'),
+                        '${NosokSystemRoutes.adminUnitQueues}?unitId=$unitId'),
                     child: const Text('الطابور')),
               ]),
             ],

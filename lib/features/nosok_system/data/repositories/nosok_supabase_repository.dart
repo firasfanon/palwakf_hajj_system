@@ -75,22 +75,24 @@ class NosokSupabaseRepository implements NosokRepository {
   @override
   Future<List<NosokSeason>> listSeasons({bool publicOnly = false}) async {
     if (publicOnly) {
-      try {
-        final rows = await _client.rpc('rpc_nosok_public_seasons_list_v1');
-        return _mapList(rows, NosokSeason.fromMap);
-      } catch (_) {
-        final rows = await _client
-            .schema('nosok')
-            .from('seasons')
-            .select()
-            .eq('is_publicly_visible', true)
-            .eq('status', 'open')
-            .order('gregorian_year', ascending: false)
-            .order('registration_start_at', ascending: false);
-        return rows
-            .map<NosokSeason>((row) => NosokSeason.fromMap(row))
-            .toList();
-      }
+      final rows = await _client.rpc('rpc_nosok_campaigns_public_list_v1');
+      return _mapList(rows, (map) {
+        final status = (map['status'] ?? '').toString();
+        return NosokSeason(
+          id: (map['id'] ?? '').toString(),
+          seasonCode: (map['campaign_code'] ?? '').toString(),
+          titleAr:
+              (map['title_ar'] ?? '\u062d\u0645\u0644\u0629 \u0646\u0633\u0643')
+                  .toString(),
+          serviceType: (map['service_type'] ?? 'hajj').toString(),
+          gregorianYear: (map['season_year'] as num?)?.toInt(),
+          registrationStartAt: _parseDateTimeValue(map['application_open_at']),
+          registrationEndAt: _parseDateTimeValue(map['application_close_at']),
+          status: status == 'published' ? 'open' : status,
+          isPubliclyVisible: status == 'published',
+          notes: 'compatibility-adapter: campaign-based-runtime',
+        );
+      });
     }
 
     final rows = await _client
@@ -152,33 +154,34 @@ class NosokSupabaseRepository implements NosokRepository {
     String? serviceType,
   }) async {
     if (publicOnly) {
-      try {
-        final rows = await _client.rpc(
-          'rpc_nosok_public_programs_list_v1',
-          params: <String, dynamic>{
-            'p_season_id': _nullIfBlank(seasonId),
-            'p_service_type': _nullIfBlank(serviceType),
-          },
-        );
-        return _mapList(rows, NosokServiceProgram.fromMap);
-      } catch (_) {
-        var builder = _client
-            .schema('nosok')
-            .from('service_programs')
-            .select()
-            .eq('is_publicly_visible', true)
-            .eq('status', 'active');
-        if (_hasValue(seasonId)) {
-          builder = builder.eq('season_id', seasonId!);
-        }
-        if (_hasValue(serviceType)) {
-          builder = builder.eq('service_type', serviceType!);
-        }
-        final rows = await builder.order('title_ar');
-        return rows
-            .map<NosokServiceProgram>((row) => NosokServiceProgram.fromMap(row))
-            .toList();
-      }
+      final rows = await _client.rpc('rpc_nosok_campaigns_public_list_v1');
+      final campaigns = _mapList<Map<String, dynamic>>(
+        rows,
+        (map) => Map<String, dynamic>.from(map),
+      );
+      return campaigns
+          .where((map) =>
+              !_hasValue(seasonId) || (map['id'] ?? '').toString() == seasonId)
+          .where((map) =>
+              !_hasValue(serviceType) ||
+              (map['service_type'] ?? '').toString() == serviceType)
+          .map((map) => NosokServiceProgram(
+                id: (map['campaign_code'] ?? '').toString(),
+                seasonId: (map['id'] ?? '').toString(),
+                code: (map['campaign_code'] ?? '').toString(),
+                titleAr: (map['title_ar'] ??
+                        '\u062d\u0645\u0644\u0629 \u0646\u0633\u0643')
+                    .toString(),
+                serviceType: (map['service_type'] ?? 'hajj').toString(),
+                registrationStartAt:
+                    _parseDateTimeValue(map['application_open_at']),
+                registrationEndAt:
+                    _parseDateTimeValue(map['application_close_at']),
+                status: 'active',
+                isPubliclyVisible: true,
+                description: 'compatibility-adapter: campaign-based-runtime',
+              ))
+          .toList(growable: false);
     }
 
     var builder = _client.schema('nosok').from('service_programs').select();
@@ -531,16 +534,54 @@ class NosokSupabaseRepository implements NosokRepository {
   @override
   Future<NosokApplication> submitApplication(
       NosokApplicationDraft draft) async {
+    final campaignCode = draft.programId.trim();
+    if (campaignCode.isEmpty) {
+      throw StateError('لم يتم تحديد رمز حملة صالح للتقديم.');
+    }
+    if (_hasUncertifiedPiiSubmission(draft)) {
+      throw StateError(
+        'إرسال البيانات الحساسة متوقف حتى اعتماد عقد PII آمن ومخصص داخل RPC.',
+      );
+    }
     try {
       final rows = await _client.rpc(
-        'rpc_nosok_public_submit_application_v1',
-        params: draft.toRpcParams(),
+        'rpc_nosok_application_submit_v1',
+        params: <String, dynamic>{
+          'p_campaign_code': campaignCode,
+          'p_applicant_display_name': draft.applicantFullName,
+          'p_lgu_id': null,
+          'p_governorate_id': _nullIfBlank(draft.governorateId),
+          'p_unit_id': null,
+          'p_metadata': <String, dynamic>{
+            'service_type': draft.serviceType,
+            'runtime_contract': 'campaign-based-v39',
+            'pii_contract': 'not-collected-in-metadata',
+          },
+        },
       );
-      return _singleFromRpc(rows, NosokApplication.fromMap);
+      final list = _mapList(rows, (map) => map);
+      if (list.isEmpty) throw StateError('لم يعد RPC نتيجة طلب.');
+      final row = list.first;
+      final trackingCode = (row['tracking_code'] ?? '').toString();
+      return NosokApplication(
+        id: (row['application_id'] ?? '').toString(),
+        applicationNo: trackingCode,
+        applicantFullName: draft.applicantFullName,
+        nationalId: draft.nationalId,
+        serviceType: draft.serviceType,
+        applicationStatus: (row['status'] ?? 'submitted').toString(),
+        seasonId: draft.seasonId,
+        programId: draft.programId,
+        mobile: draft.mobile,
+        phone: draft.phone,
+        email: draft.email,
+        submittedAt: DateTime.now(),
+        trackingToken: trackingCode,
+        eligibilityStatus: (row['eligibility_status'] ?? 'pending').toString(),
+      );
     } catch (_) {
       throw StateError(
-        'تعذر إرسال طلب نسك عبر public submit RPC الآمن. لا يوجد fallback مباشر إلى nosok.* من واجهة المواطن.',
-      );
+          'تعذر إرسال طلب نسك عبر public campaign submit RPC الآمن. لا يوجد fallback مباشر إلى nosok.* من واجهة المواطن.');
     }
   }
 
@@ -548,20 +589,28 @@ class NosokSupabaseRepository implements NosokRepository {
   Future<NosokApplication?> lookupApplicationByTrackingToken(
       String trackingToken) async {
     final normalized = trackingToken.trim().toUpperCase();
-    if (normalized.isEmpty) {
-      return null;
-    }
-
+    if (normalized.isEmpty) return null;
     try {
       final rows = await _client.rpc(
-        'rpc_nosok_public_application_status_by_token_v1',
-        params: <String, dynamic>{'p_tracking_token': normalized},
+        'rpc_nosok_application_track_v1',
+        params: <String, dynamic>{'p_tracking_code': normalized},
       );
-      final mapped = _mapList(rows, NosokApplication.fromMap);
-      if (mapped.isNotEmpty) {
-        return mapped.first;
-      }
-      return null;
+      final list = _mapList(rows, (map) => map);
+      if (list.isEmpty) return null;
+      final row = list.first;
+      final code = (row['tracking_code'] ?? '').toString();
+      if (code.isEmpty) return null;
+      return NosokApplication(
+        id: '',
+        applicationNo: code,
+        applicantFullName: '',
+        nationalId: '',
+        serviceType: (row['service_type'] ?? '').toString(),
+        applicationStatus: (row['status'] ?? '').toString(),
+        trackingToken: code,
+        eligibilityStatus: row['eligibility_status']?.toString(),
+        submittedAt: _parseDateTimeValue(row['submitted_at']),
+      );
     } catch (_) {
       return null;
     }
@@ -852,46 +901,50 @@ class NosokSupabaseRepository implements NosokRepository {
   @override
   Future<List<NosokUnitScope>> listUnitScopes() async {
     try {
-      final rows = await _client.rpc('rpc_nosok_admin_unit_scopes_v1');
-      return _mapList(rows, NosokUnitScope.fromMap);
+      final rows = await _client.rpc(
+        'rpc_org_units_core_lookup_v1',
+        params: const <String, dynamic>{
+          'p_unit_ids': null,
+          'p_only_active': true,
+          'p_query': null,
+        },
+      );
+      final all = _mapList(rows, NosokUnitScope.fromMap);
+      const administrativeTypes = <String>{
+        'ministry',
+        'general_directorate',
+        'directorate',
+      };
+      return all
+          .where((item) => administrativeTypes.contains(item.unitType))
+          .toList(growable: false);
     } catch (_) {
-      try {
-        final rows = await _client
-            .schema('nosok')
-            .from('unit_service_scopes')
-            .select()
-            .order('unit_slug');
-        return rows
-            .map<NosokUnitScope>((row) => NosokUnitScope.fromMap(row))
-            .toList();
-      } catch (_) {
-        return const <NosokUnitScope>[];
-      }
+      return const <NosokUnitScope>[];
     }
   }
 
   @override
   Future<NosokUnitScope?> getPublicUnitScope(String unitSlug) async {
+    final normalized = unitSlug.trim();
+    if (normalized.isEmpty) return null;
     try {
       final rows = await _client.rpc(
-        'rpc_nosok_public_unit_surface_v1',
-        params: <String, dynamic>{'p_unit_slug': unitSlug},
+        'rpc_org_units_core_lookup_v1',
+        params: <String, dynamic>{
+          'p_unit_ids': null,
+          'p_only_active': true,
+          'p_query': normalized,
+        },
       );
       final list = _mapList(rows, NosokUnitScope.fromMap);
-      return list.isEmpty ? null : list.first;
-    } catch (_) {
-      try {
-        final row = await _client
-            .schema('nosok')
-            .from('unit_service_scopes')
-            .select()
-            .eq('unit_slug', unitSlug)
-            .eq('is_enabled', true)
-            .maybeSingle();
-        return row == null ? null : NosokUnitScope.fromMap(row);
-      } catch (_) {
-        return null;
+      for (final item in list) {
+        if (item.unitSlug.toLowerCase() == normalized.toLowerCase()) {
+          return item;
+        }
       }
+      return null;
+    } catch (_) {
+      return null;
     }
   }
 
@@ -1780,8 +1833,29 @@ class NosokSupabaseRepository implements NosokRepository {
   }
 }
 
+bool _hasUncertifiedPiiSubmission(NosokApplicationDraft draft) =>
+    draft.nationalId.trim().isNotEmpty ||
+    draft.birthDate != null ||
+    _hasValue(draft.gender) ||
+    _hasValue(draft.phone) ||
+    _hasValue(draft.mobile) ||
+    _hasValue(draft.email) ||
+    _hasValue(draft.governorateId) ||
+    _hasValue(draft.communityId) ||
+    _hasValue(draft.addressText) ||
+    _hasValue(draft.maritalStatus) ||
+    _hasValue(draft.notes) ||
+    draft.companions.isNotEmpty ||
+    draft.documents.isNotEmpty ||
+    draft.payments.isNotEmpty;
+
 bool _hasValue(String? value) => (value ?? '').trim().isNotEmpty;
 String? _nullIfBlank(String? value) => _hasValue(value) ? value!.trim() : null;
+
+DateTime? _parseDateTimeValue(dynamic value) {
+  if (value == null) return null;
+  return DateTime.tryParse(value.toString());
+}
 
 List<T> _mapList<T>(dynamic rows, T Function(Map<String, dynamic>) factory) {
   if (rows is! List) {

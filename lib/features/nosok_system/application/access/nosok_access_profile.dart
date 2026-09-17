@@ -11,6 +11,8 @@ class NosokAccessProfile {
     required this.permissionKeys,
     this.unitIds = const <String>{},
     this.unitSlugs = const <String>{},
+    this.governorateIds = const <String>{},
+    this.lguIds = const <String>{},
     this.source = 'unbound',
   });
 
@@ -19,7 +21,11 @@ class NosokAccessProfile {
   final Set<String> roleKeys;
   final Set<String> permissionKeys;
   final Set<String> unitIds;
+
+  /// Compatibility/display aliases only. Never authorize from slug alone.
   final Set<String> unitSlugs;
+  final Set<String> governorateIds;
+  final Set<String> lguIds;
   final String source;
 
   bool get isPlatformBound => source != 'unbound';
@@ -36,16 +42,25 @@ class NosokAccessProfile {
     return hasAnyPermission(required);
   }
 
-  bool canAccessUnit({String? unitId, String? unitSlug}) {
+  bool canAccessUnit({String? unitId}) {
     if (isSuperuser) return true;
-    if (unitId != null && unitId.trim().isNotEmpty && unitIds.contains(unitId))
-      return true;
-    if (unitSlug != null &&
-        unitSlug.trim().isNotEmpty &&
-        unitSlugs.contains(unitSlug)) return true;
-    return unitIds.isEmpty &&
-        unitSlugs.isEmpty &&
-        hasAnyPermission({NosokPermissionKeys.manageNosokUnits});
+    final normalizedId = unitId?.trim();
+    if (normalizedId == null || normalizedId.isEmpty) return false;
+    return unitIds.contains(normalizedId);
+  }
+
+  bool canAccessGovernorate(String? governorateId) {
+    if (isSuperuser) return true;
+    final normalized = governorateId?.trim();
+    if (normalized == null || normalized.isEmpty) return false;
+    return governorateIds.contains(normalized);
+  }
+
+  bool canAccessLgu(String? lguId) {
+    if (isSuperuser) return true;
+    final normalized = lguId?.trim();
+    if (normalized == null || normalized.isEmpty) return false;
+    return lguIds.contains(normalized);
   }
 
   static const unbound = NosokAccessProfile(
@@ -61,8 +76,6 @@ class NosokAccessProfile {
     isSuperuser: true,
     roleKeys: <String>{'standaloneSuperuser'},
     permissionKeys: NosokSystemPermissionsProposal.admin,
-    unitIds: <String>{'home', 'bethlehem', 'hebron', 'jerusalem'},
-    unitSlugs: <String>{'home', 'bethlehem', 'hebron', 'jerusalem'},
     source: 'standalone-preview',
   );
 
@@ -73,6 +86,8 @@ class NosokAccessProfile {
     Set<String>? permissionKeys,
     Set<String>? unitIds,
     Set<String>? unitSlugs,
+    Set<String>? governorateIds,
+    Set<String>? lguIds,
     String? source,
   }) {
     return NosokAccessProfile(
@@ -82,6 +97,8 @@ class NosokAccessProfile {
       permissionKeys: permissionKeys ?? this.permissionKeys,
       unitIds: unitIds ?? this.unitIds,
       unitSlugs: unitSlugs ?? this.unitSlugs,
+      governorateIds: governorateIds ?? this.governorateIds,
+      lguIds: lguIds ?? this.lguIds,
       source: source ?? this.source,
     );
   }

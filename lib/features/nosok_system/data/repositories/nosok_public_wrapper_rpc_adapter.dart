@@ -74,9 +74,11 @@ class NosokPublicRequirementDto {
       titleAr:
           (map['title_ar'] ?? map['label_ar'] ?? map['title'] ?? 'متطلب نسك')
               .toString(),
-      requirementType:
-          (map['requirement_type'] ?? map['type'] ?? map['rule_key'] ?? 'general')
-              .toString(),
+      requirementType: (map['requirement_type'] ??
+              map['type'] ??
+              map['rule_key'] ??
+              'general')
+          .toString(),
       descriptionAr: map['description_ar']?.toString() ??
           map['help_text_ar']?.toString() ??
           _safeRuleBodyDescription(map['rule_body']),
@@ -103,9 +105,12 @@ class NosokPublicSubmitResult {
 
   factory NosokPublicSubmitResult.fromMap(Map<String, dynamic> map) {
     return NosokPublicSubmitResult(
-      accepted: map['accepted'] == true || map['ok'] == true,
+      accepted: map['accepted'] == true ||
+          map['ok'] == true ||
+          (map['application_id']?.toString().isNotEmpty ?? false),
       applicationId: map['application_id']?.toString(),
-      applicationNo: map['application_no']?.toString(),
+      applicationNo:
+          map['application_no']?.toString() ?? map['tracking_code']?.toString(),
       trackingCode:
           map['tracking_code']?.toString() ?? map['tracking_token']?.toString(),
       safeMessageAr:
@@ -137,12 +142,16 @@ class NosokPublicTrackingResult {
 
   factory NosokPublicTrackingResult.fromMap(Map<String, dynamic> map) {
     return NosokPublicTrackingResult(
-      found: map['found'] == true || map['exists'] == true,
-      applicationNo: map['application_no']?.toString(),
+      found: map['found'] == true ||
+          map['exists'] == true ||
+          (map['tracking_code']?.toString().isNotEmpty ?? false),
+      applicationNo:
+          map['application_no']?.toString() ?? map['tracking_code']?.toString(),
       serviceType: map['service_type']?.toString(),
       statusAr: map['status_ar']?.toString() ??
           map['application_status_ar']?.toString() ??
-          map['application_status']?.toString(),
+          map['application_status']?.toString() ??
+          map['status']?.toString(),
       eligibilityStatusAr: map['eligibility_status_ar']?.toString() ??
           map['eligibility_status']?.toString(),
       safeMessageAr:
@@ -191,7 +200,7 @@ class NosokPublicWrapperRpcAdapter {
       Map<String, dynamic> payload) async {
     try {
       final response = await _client.rpc(
-        'rpc_nosok_public_submit_application_v1',
+        'rpc_nosok_application_submit_v1',
         params: payload,
       );
       return NosokPublicSubmitResult.fromMap(_firstMap(response));
@@ -205,8 +214,8 @@ class NosokPublicWrapperRpcAdapter {
     final normalized = trackingCode.trim().toUpperCase();
     try {
       final response = await _client.rpc(
-        'rpc_nosok_public_application_status_by_token_v1',
-        params: <String, dynamic>{'p_tracking_token': normalized},
+        'rpc_nosok_application_track_v1',
+        params: <String, dynamic>{'p_tracking_code': normalized},
       );
       return NosokPublicTrackingResult.fromMap(_firstMap(response));
     } catch (_) {
@@ -218,8 +227,9 @@ class NosokPublicWrapperRpcAdapter {
     String fn, {
     Map<String, dynamic>? params,
   }) async {
-    final response =
-        params == null ? await _client.rpc(fn) : await _client.rpc(fn, params: params);
+    final response = params == null
+        ? await _client.rpc(fn)
+        : await _client.rpc(fn, params: params);
     if (response is List) {
       return response
           .whereType<Map>()

@@ -94,3 +94,19 @@ PRODUCTION_APPROVAL=NO
 ```
 
 Read-only schema census/evidence mentioning external Awqaf/Waqf authorities is preserved intentionally.
+
+## Administrative Unit Scope Reconciliation — 2026-09-17
+
+`NOSOK_V39_ADMINISTRATIVE_UNIT_SCOPE_RECONCILED_PRODUCTION_DEFERRED`
+
+The unit-scope model was reconciled against live Supabase reality. `core.org_units.id` is now the authorization identity and `slug` is display/navigation compatibility only. Runtime unit discovery uses `public.rpc_org_units_core_lookup_v1`; the legacy `nosok.unit_service_scopes` path is no longer used by the live Supabase repository.
+
+Canonical evidence:
+
+- Bethlehem Directorate: `1b39cc65-dc74-401f-a431-1fbf78cfbd0e`, slug `bth`, governorate `17b45c86-a439-47a0-9ca7-085a1f5e75d4`.
+- Hebron Directorate: `8e0238db-2e20-49d4-8cf2-db7c376d512b`.
+- Wrong-scope browser UAT: Bethlehem ALLOW; Hebron DENY.
+- Governorate is derived from the canonical org unit.
+- LGU authorization is fail-closed until an explicit authoritative Unit→LGU mapping exists.
+
+Full analyzer PASS. Web release evidence build PASS. Production remains deferred; no main merge or baseline promotion is authorized by this handoff.

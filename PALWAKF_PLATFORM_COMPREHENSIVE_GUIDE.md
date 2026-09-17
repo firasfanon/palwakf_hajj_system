@@ -52,3 +52,15 @@ Applied as a pre-join Nosok hardening batch under PalWakf governance:
 **Rules preserved:** no scraping, no Captcha bypass, no private citizen data extraction, no third-party credentials/sessions, no DDL/DML/GRANT/REVOKE, no service_role, no platformHosted switch, no direct citizen Flutter read from `nosok.*`, no public base table creation, and no mutation on `waqf_assets`, `waqf`, or `awqaf_system`.
 
 **Next:** `Nosok v39 — Local Flutter Analyzer + Browser Route Evidence + Negative Role/Network No-External-Call Evidence Intake`.
+
+---
+
+## Nosok v39 — Administrative Unit Scope Reconciliation — 2026-09-17
+
+**Decision:** `NOSOK_V39_ADMINISTRATIVE_UNIT_SCOPE_RECONCILED_PRODUCTION_DEFERRED`
+
+Nosok administrative-unit authorization now uses canonical `core.org_units.id` through the safe public lookup RPC. `unitSlug` is not an authority key and remains only a navigation/display alias. The previous standalone value `bethlehem` was corrected against live data to canonical slug `bth` for org unit `1b39cc65-dc74-401f-a431-1fbf78cfbd0e`.
+
+Governorate scope may be derived from the canonical org unit. LGU scope may not be expanded from governorate alone; where no explicit Unit→LGU mapping exists, Nosok fails closed. This prevents over-authorization in governorates such as Hebron where multiple directorates coexist.
+
+Browser UAT proved Bethlehem canonical UUID ALLOW and Hebron canonical UUID DENY. Production remains deferred pending explicit LGU mapping, operational unit-queue backend, successful submit evidence/PII contract, and external authority/provider integrations.

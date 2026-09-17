@@ -20,7 +20,7 @@ class NosokAdminUnitScopeAccessPage extends ConsumerWidget {
             description:
                 'تجهيز عقد دخول الموظفين بحسب slug/وحدة إدارية. موظف مديرية بيت لحم مثلًا يجب أن يفتح على سجلات تجمعات بيت لحم فقط عند التسجيل أو التعديل أو المراجعة، وفق AccessProfile الحقيقي في PalWakf لاحقًا.',
             badges: [
-              'unitSlug-scope',
+              'orgUnitId-scope',
               'LGU-filtering',
               'RBAC-required',
               'pre-join-contract'
@@ -99,8 +99,8 @@ class NosokAdminUnitScopeAccessPage extends ConsumerWidget {
                 'المثال يوضح سلوك ما قبل الانضمام كعقد واجهة لا كفلترة إنتاجية.',
             child: PwfSisTimeline(
               items: [
-                'الموظف يسجل الدخول عبر PalWakf لاحقًا ويحمل AccessProfile فيه unitSlug=bethlehem أو org_unit_id خاص بالمديرية.',
-                'نسك يترجم unitSlug إلى قائمة LGUs مسموحة عبر core.org_units / قاموس LGU المعتمد.',
+                'الموظف يحمل AccessProfile فيه org_unit_id canonical من core.org_units؛ slug يبقى alias للعرض والتنقل فقط.',
+                'نسك يشتق المحافظة من org_unit_id، أما LGU فلا يُشتق تلقائيًا دون mapping صريح؛ عند غيابه يكون النطاق fail-closed.',
                 'صفحات الطلبات والمراجعة والتعديل تعرض فقط طلبات المواطنين الذين عنوان بطاقتهم الشخصية ضمن LGUs المسموحة.',
                 'أي محاولة فتح طلب خارج النطاق تعطي Forbidden أو read-only حسب السياسة، وليس إخفاءً بصريًا فقط.',
                 'أي تعديل بعد إغلاق التسجيل يخضع لقواعد registration governance ولا يتم إلا عبر استثناء موثق.',
@@ -111,7 +111,7 @@ class NosokAdminUnitScopeAccessPage extends ConsumerWidget {
           const PwfSisNotice(
             title: 'متطلب قبل الانضمام للمنصة',
             message:
-                'يجب أن توفر PalWakf عند الاستضافة خريطة unitSlug/org_units/LGU، وصلاحيات الدور، وسلوك forbidden/read-only. نسك يجهز العقد والواجهات فقط في هذا المسار.',
+                'يجب أن توفر PalWakf عند الاستضافة orgUnitId canonical وصلاحيات الدور وأي allowedLguIds صريحة. slug لا يستخدم للتفويض.',
             tone: PwfSisNoticeTone.info,
           ),
         ],

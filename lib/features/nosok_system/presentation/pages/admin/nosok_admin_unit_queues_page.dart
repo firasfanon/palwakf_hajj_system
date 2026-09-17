@@ -19,12 +19,12 @@ class NosokAdminUnitQueuesPage extends ConsumerStatefulWidget {
 
 class _NosokAdminUnitQueuesPageState
     extends ConsumerState<NosokAdminUnitQueuesPage> {
-  final _unitSlugController = TextEditingController();
+  final _unitIdController = TextEditingController();
   String? _status;
 
   @override
   void dispose() {
-    _unitSlugController.dispose();
+    _unitIdController.dispose();
     super.dispose();
   }
 
@@ -53,9 +53,9 @@ class _NosokAdminUnitQueuesPageState
               SizedBox(
                 width: 260,
                 child: TextField(
-                  controller: _unitSlugController,
+                  controller: _unitIdController,
                   decoration: const InputDecoration(
-                      labelText: 'unitSlug اختياري',
+                      labelText: 'orgUnitId اختياري',
                       border: OutlineInputBorder()),
                   onSubmitted: (_) => _applyFilter(),
                 ),
@@ -84,7 +84,7 @@ class _NosokAdminUnitQueuesPageState
               ),
               TextButton.icon(
                 onPressed: () {
-                  _unitSlugController.clear();
+                  _unitIdController.clear();
                   setState(() => _status = null);
                   ref.read(nosokUnitQueueFilterProvider.notifier).state =
                       const NosokUnitQueueFilter();
@@ -118,10 +118,10 @@ class _NosokAdminUnitQueuesPageState
   }
 
   void _applyFilter() {
-    final unitSlug = _unitSlugController.text.trim();
+    final unitId = _unitIdController.text.trim();
     ref.read(nosokUnitQueueFilterProvider.notifier).state =
         NosokUnitQueueFilter(
-      unitSlug: unitSlug.isEmpty ? null : unitSlug,
+      unitId: unitId.isEmpty ? null : unitId,
       status: _status,
     );
   }

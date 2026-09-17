@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../system_routes.dart';
+import '../../../application/nosok_v38_public_runtime_controller.dart';
+import '../../../data/repositories/nosok_public_wrapper_rpc_adapter.dart';
 import '../../widgets/pwf_sis_nosok_components.dart';
 
-class NosokPublicHomePage extends StatelessWidget {
+class NosokPublicHomePage extends ConsumerWidget {
   const NosokPublicHomePage({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final publicRuntime = ref.watch(nosokV38PublicRuntimeControllerProvider);
     return PwfSisPublicServiceShell(
       children: [
         PwfSisPremiumPublicHero(
@@ -54,6 +58,12 @@ class NosokPublicHomePage extends StatelessWidget {
         const SizedBox(height: 12),
         const _SeasonalLandingBanner(),
         const SizedBox(height: 14),
+        publicRuntime.when(
+          data: (state) => _PublicCampaignsRuntimePanel(state: state),
+          loading: () => const _PublicRuntimeLoadingPanel(),
+          error: (error, stackTrace) => const _PublicRuntimeSafeErrorPanel(),
+        ),
+        const SizedBox(height: 14),
         _PrimaryServices(context: context),
         const SizedBox(height: 14),
         _SecondaryServices(context: context),
@@ -70,6 +80,132 @@ class NosokPublicHomePage extends StatelessWidget {
         _CompactAdminEntry(
             onAdmin: () => context.go(NosokSystemRoutes.adminHome)),
       ],
+    );
+  }
+}
+
+class _PublicCampaignsRuntimePanel extends StatelessWidget {
+  const _PublicCampaignsRuntimePanel({required this.state});
+
+  final NosokV38PublicRuntimeState state;
+
+  @override
+  Widget build(BuildContext context) {
+    return PwfSisPanel(
+      title: 'الحملات العامة النشطة',
+      subtitle: state.safeMessageAr,
+      actions: [
+        PwfSisStatusBadge(
+          label: state.loadedFromLiveRpc ? 'RPC مباشر' : 'معاينة آمنة',
+          icon: state.loadedFromLiveRpc
+              ? Icons.cloud_done_outlined
+              : Icons.preview_outlined,
+          tone: state.loadedFromLiveRpc
+              ? PwfSisNoticeTone.success
+              : PwfSisNoticeTone.warning,
+        ),
+        PwfSisStatusBadge(
+          label: state.directNosokTableAccessUsed
+              ? 'direct table access'
+              : 'no direct nosok.*',
+          icon: Icons.storage_outlined,
+          tone: state.directNosokTableAccessUsed
+              ? PwfSisNoticeTone.error
+              : PwfSisNoticeTone.success,
+        ),
+      ],
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Wrap(
+            spacing: 8,
+            runSpacing: 8,
+            children: [
+              PwfSisStatusBadge(
+                label: state.campaignsRpcName,
+                icon: Icons.api_outlined,
+                tone: PwfSisNoticeTone.info,
+              ),
+              PwfSisStatusBadge(
+                label: state.requirementsRpcName,
+                icon: Icons.fact_check_outlined,
+                tone: PwfSisNoticeTone.info,
+              ),
+              PwfSisStatusBadge(
+                label: state.productionDecision,
+                icon: Icons.lock_clock_outlined,
+                tone: PwfSisNoticeTone.warning,
+              ),
+            ],
+          ),
+          const SizedBox(height: 12),
+          if (!state.hasCampaigns)
+            const PwfSisNotice(
+              title: 'لا توجد حملات منشورة حاليًا',
+              message:
+                  'سيبقى التسجيل العام معطلًا حتى تنشر الوزارة حملة عامة عبر RPC wrapper.',
+              tone: PwfSisNoticeTone.warning,
+            )
+          else
+            PwfSisAdaptiveWorkspace(
+              minTileWidth: 260,
+              children: [
+                for (final campaign in state.campaigns.take(4))
+                  PwfSisServiceCard(
+                    icon: _campaignIcon(campaign.serviceType),
+                    title: campaign.titleAr,
+                    description: _campaignDescription(campaign),
+                    actionLabel: 'عرض المتطلبات ←',
+                    onPressed: () => context.go(NosokSystemRoutes.requirements),
+                  ),
+              ],
+            ),
+        ],
+      ),
+    );
+  }
+
+  IconData _campaignIcon(String serviceType) {
+    return serviceType == 'umrah'
+        ? Icons.travel_explore_outlined
+        : Icons.mosque_outlined;
+  }
+
+  String _campaignDescription(NosokPublicCampaignDto campaign) {
+    final parts = <String>[
+      campaign.descriptionAr ?? 'حملة منشورة عبر السطح العام الآمن.',
+      'الحالة: ${campaign.status}',
+    ];
+    if (campaign.seasonYear != null) {
+      parts.add('السنة: ${campaign.seasonYear}');
+    }
+    return parts.join(' • ');
+  }
+}
+
+class _PublicRuntimeLoadingPanel extends StatelessWidget {
+  const _PublicRuntimeLoadingPanel();
+
+  @override
+  Widget build(BuildContext context) {
+    return const PwfSisPanel(
+      title: 'تحميل الحملات العامة',
+      subtitle: 'يتم فحص RPC wrappers العامة دون قراءة مباشرة من جداول نسك.',
+      child: LinearProgressIndicator(),
+    );
+  }
+}
+
+class _PublicRuntimeSafeErrorPanel extends StatelessWidget {
+  const _PublicRuntimeSafeErrorPanel();
+
+  @override
+  Widget build(BuildContext context) {
+    return const PwfSisNotice(
+      title: 'تعذر تحميل الحملات العامة',
+      message:
+          'تم حجب تفاصيل الخطأ الخام عن الواجهة العامة. راجع Network/RPC evidence من لوحة الإدارة.',
+      tone: PwfSisNoticeTone.warning,
     );
   }
 }

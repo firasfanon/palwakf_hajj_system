@@ -6,10 +6,9 @@ final nosokV39TawafRealityGapContractProvider =
     Provider<NosokV39TawafRealityGapContract>((ref) {
   return const NosokV39TawafRealityGapContract(
     version: 'v39-tawaf-public-reality-gap',
-    decision:
-        'TAWAF_PUBLIC_REALITY_GAP_ADAPTER_AND_EVIDENCE_MATRIX_PREPARED_PRODUCTION_NOT_APPROVED_NO_EXTERNAL_INTEGRATION',
+    decision: 'NOSOK_V39_ADMINISTRATIVE_UNIT_SCOPE_RECONCILED_PRODUCTION_DEFERRED',
     summaryAr:
-        'تم تحويل فجوات الواقع العام المرصودة من موقع الطواف/نسك الرسمي إلى Adapter عقدي داخل نسك. هذه الدفعة لا تسحب بيانات خاصة، ولا تتصل بالسجل المدني أو SMS أو الدفع أو بوابة الشركات أو Captcha أو القرعة الرسمية. الناتج هو مصفوفة أدلة وتشغيل تمنع اعتماد الإنتاج قبل إغلاق كل تبعية سيادية بدليل فعلي.',
+        'تم إغلاق أدلة الحملات والمتطلبات والتتبع العام عبر RPC الحية، ومصالحة نطاق الوحدة الإدارية على canonical orgUnitId مع governorate مشتقة وLGU fail-closed. التقديم الحي ما زال مؤجلًا: لا توجد حملة مفتوحة، وعقد تخزين PII غير معتمد. كما بقي drift إداري قديم في seasons/programs، وbackend طابور الوحدات غير متاح، والتكاملات السيادية الخارجية غير منفذة.',
     observedPublicSources: [
       NosokV39ObservedPublicSource(
         sourceKey: 'TWF_SRC_001',
@@ -96,8 +95,7 @@ final nosokV39TawafRealityGapContractProvider =
             'قبول الطلب بعد دفع 1000 دينار، نسخ رمز الدفع، الدفع عبر بنك أو eSadad، ورسالة قبول بعد الدفع.',
         nosokV38StateAr:
             'جسر الدفع موجود كتصور/إدارة داخلية، وليس تسوية دفع رسمية.',
-        adapterDecisionAr:
-            'تعريف Payment Reconciliation Matrix لا تكامل دفع.',
+        adapterDecisionAr: 'تعريف Payment Reconciliation Matrix لا تكامل دفع.',
         evidenceRequiredAr:
             'payment-code generation، bank/eSadad callback contract، idempotency، refund semantics، reconciliation report.',
       ),
@@ -155,7 +153,8 @@ final nosokV39TawafRealityGapContractProvider =
         surface: '/services/nosok/apply',
         expectedSignalAr:
             'لا ينجح إرسال الطلب بعناوين غير مطابقة لمصدر رسمي أو خارج allowed registry scope.',
-        negativeProbeAr: 'عنوان غير موجود / تجمع مفقود / محافظة لا تطابق هوية صاحب الطلب.',
+        negativeProbeAr:
+            'عنوان غير موجود / تجمع مفقود / محافظة لا تطابق هوية صاحب الطلب.',
         status: 'matrix-ready-authority-integration-required',
         acceptanceEvidenceAr:
             'لقطة Network/RPC تظهر رفضًا masked وآمنًا دون كشف بيانات سجل مدني.',
@@ -166,7 +165,8 @@ final nosokV39TawafRealityGapContractProvider =
         surface: '/services/nosok/apply',
         expectedSignalAr:
             'الهوية المقدسية تتطلب مرفقًا، والهوية الفلسطينية لا تكشف صورة أو document URL في التتبع العام.',
-        negativeProbeAr: 'هوية مقدسية دون مرفق / ملف نوعه غير مسموح / حجم غير مقبول.',
+        negativeProbeAr:
+            'هوية مقدسية دون مرفق / ملف نوعه غير مسموح / حجم غير مقبول.',
         status: 'matrix-ready-storage-policy-required',
         acceptanceEvidenceAr:
             'Storage policy + Network proof لغياب signed URL من public track.',
@@ -177,7 +177,8 @@ final nosokV39TawafRealityGapContractProvider =
         surface: '/services/nosok/apply',
         expectedSignalAr:
             'طلب OTP وتحقق OTP يتمان عبر provider/RPC آمن مع expiry/retry limit.',
-        negativeProbeAr: 'رمز خاطئ / رمز منتهي / رمز مستخدم سابقًا / رقم هاتف غير صالح.',
+        negativeProbeAr:
+            'رمز خاطئ / رمز منتهي / رمز مستخدم سابقًا / رقم هاتف غير صالح.',
         status: 'matrix-ready-provider-required',
         acceptanceEvidenceAr:
             'provider receipt آمن + عدم ظهور OTP في logs أو client payload بعد التحقق.',
@@ -188,7 +189,8 @@ final nosokV39TawafRealityGapContractProvider =
         surface: '/services/nosok/apply + payment bridge',
         expectedSignalAr:
             'إنشاء رمز دفع ثم قبول الطلب بعد تسوية bank/eSadad فقط.',
-        negativeProbeAr: 'callback مكرر / مبلغ ناقص / رمز دفع غير معروف / محاولة قبول دون دفع.',
+        negativeProbeAr:
+            'callback مكرر / مبلغ ناقص / رمز دفع غير معروف / محاولة قبول دون دفع.',
         status: 'matrix-ready-payment-provider-required',
         acceptanceEvidenceAr:
             'payment reconciliation report + idempotency proof + safe SMS acceptance proof.',
@@ -199,7 +201,8 @@ final nosokV39TawafRealityGapContractProvider =
         surface: '/services/nosok/companies',
         expectedSignalAr:
             'الدليل العام للشركات يستند إلى source snapshot بنسخة وتاريخ، لا بيانات hardcoded بلا مصدر.',
-        negativeProbeAr: 'شركة مكررة / فرع بلا parent / رقم هاتف placeholder / محافظة غير معروفة.',
+        negativeProbeAr:
+            'شركة مكررة / فرع بلا parent / رقم هاتف placeholder / محافظة غير معروفة.',
         status: 'matrix-ready-import-versioning-required',
         acceptanceEvidenceAr:
             'import manifest + checksum + diff report بين المصدر العام والنسخة المعروضة.',
@@ -207,7 +210,8 @@ final nosokV39TawafRealityGapContractProvider =
       NosokV39EvidenceCase(
         caseKey: 'V39_AUTH_001',
         domainAr: 'Company Portal + Captcha',
-        surface: '/services/nosok/company-login أو /admin/systems/nosok/companies',
+        surface:
+            '/services/nosok/company-login أو /admin/systems/nosok/companies',
         expectedSignalAr:
             'لا يوجد ادعاء تكافؤ مع بوابة الشركات الرسمية قبل إثبات Captcha/session/auth.',
         negativeProbeAr:
@@ -229,15 +233,75 @@ final nosokV39TawafRealityGapContractProvider =
             'rate limit proof + response masking + audit trail للقرعة أو source result feed.',
       ),
       NosokV39EvidenceCase(
+        caseKey: 'V39_RPC_001',
+        domainAr: 'Public RPC Runtime',
+        surface: '/services/nosok + /services/nosok/requirements',
+        expectedSignalAr:
+            'campaigns/requirements عبر RPC عامة فقط دون direct table REST.',
+        negativeProbeAr:
+            'إعادة تحميل كاملة مع Network capture وفحص absence of direct nosok table calls.',
+        status: 'pass-network-200-no-direct-table',
+        acceptanceEvidenceAr:
+            'POST campaigns=200 وrequirements=200، direct-table=0، external-authority=0، browser exceptions=0.',
+      ),
+      NosokV39EvidenceCase(
+        caseKey: 'V39_TRACK_001',
+        domainAr: 'Track Privacy',
+        surface: '/services/nosok/track',
+        expectedSignalAr:
+            'rpc_nosok_application_track_v1 فقط وباستجابة عامة غير حساسة.',
+        negativeProbeAr:
+            'رمز تتبع غير موجود مع منع أي fallback إلى nosok.applications.',
+        status: 'pass-network-200-no-direct-table',
+        acceptanceEvidenceAr:
+            'POST track=200، direct applications REST=0، external calls=0، والـRPC يعيد tracking/campaign/service/status فقط.',
+      ),
+      NosokV39EvidenceCase(
+        caseKey: 'V39_SUBMIT_001',
+        domainAr: 'Submit Runtime',
+        surface: '/services/nosok/apply',
+        expectedSignalAr:
+            'rpc_nosok_application_submit_v1 مع campaign contract معتمد وPII storage contract صريح.',
+        negativeProbeAr:
+            'campaign غير مفتوحة + تحقق من عدم زيادة nosok.applications.',
+        status: 'partial-negative-pass-success-blocked',
+        acceptanceEvidenceAr:
+            'الـRPC موجود وممنوح للـanon/authenticated؛ negative submit رجع HTTP 400 وعدد التطبيقات بقي 0. لا successful submit لعدم وجود حملة مفتوحة، وPII metadata محظور محليًا.',
+      ),
+      NosokV39EvidenceCase(
+        caseKey: 'V39_SCOPE_001',
+        domainAr: 'RBAC / Unit Scope',
+        surface:
+            '/admin/systems/nosok/v39-tawaf-reality-gap + /admin/systems/nosok/units/:unitId',
+        expectedSignalAr:
+            'anonymous/no-role/wrong-permission denied؛ التفويض بالـcanonical orgUnitId يسمح لمديرية بيت لحم ويرفض مديرية الخليل، والـslug alias فقط.',
+        negativeProbeAr:
+            'فتح الروابط مباشرة عبر URL دون الاعتماد على إخفاء زر الواجهة.',
+        status: 'pass-canonical-org-unit-negative-uat-lgu-fail-closed',
+        acceptanceEvidenceAr:
+            'canonical Bethlehem orgUnitId=1b39cc65-dc74-401f-a431-1fbf78cfbd0e ALLOW، Hebron orgUnitId=8e0238db-2e20-49d4-8cf2-db7c376d512b DENY؛ slug=bth alias فقط؛ governorate مشتقة من core؛ LGU fail-closed لحين mapping صريح.',
+      ),
+      NosokV39EvidenceCase(
+        caseKey: 'V39_ADMIN_DRIFT_001',
+        domainAr: 'Admin Schema Alignment',
+        surface: '/admin/systems/nosok/*',
+        expectedSignalAr:
+            'Admin adapters تعتمد campaign/core.org_units الحالية ولا تعيد seasons/service_programs/unit_service_scopes legacy.',
+        negativeProbeAr: 'تشغيل admin surfaces ومراقبة 404/direct fallback.',
+        status: 'blocked-legacy-schema-drift',
+        acceptanceEvidenceAr:
+            'ما زالت rpc_nosok_admin_unit_scopes_v1 وunit_service_scopes legacy تعيدان 404، وأجزاء Admin seasons/programs مرتبطة بنموذج قديم.',
+      ),
+      NosokV39EvidenceCase(
         caseKey: 'V39_PROD_001',
         domainAr: 'Production Gate',
         surface: '/admin/systems/nosok/v39-tawaf-reality-gap',
         expectedSignalAr:
             'الصفحة تعرض أن v39 contract/evidence فقط وأن الإنتاج غير معتمد.',
         negativeProbeAr: 'anonymous/no-role/wrong-scope لا يرى لوحة v39.',
-        status: 'code-added-browser-evidence-required',
+        status: 'browser-role-scope-evidence-pass-production-deferred',
         acceptanceEvidenceAr:
-            'flutter analyze + browser route + role denial evidence.',
+            'flutter analyze PASS + Browser RBAC matrix PASS + unit-scope denial PASS؛ Production مؤجل لبقية blockers.',
       ),
     ],
     productionGateItems: [
