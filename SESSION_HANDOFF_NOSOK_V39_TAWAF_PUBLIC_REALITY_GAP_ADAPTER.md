@@ -110,3 +110,18 @@ Canonical evidence:
 - LGU authorization is fail-closed until an explicit authoritative Unit→LGU mapping exists.
 
 Full analyzer PASS. Web release evidence build PASS. Production remains deferred; no main merge or baseline promotion is authorized by this handoff.
+
+## Unit→LGU authority dataset review — 2026-09-18
+
+`NOSOK_V39_UNIT_LGU_DATASET_REVIEW_PARTIAL_AUTHORITY_GAP_BLOCKS_DATA_LOAD`
+
+- Migration 45 schema exists in Supabase; policy rows remain 0.
+- Current official Hajj instructions establish that each address belongs to an Awqaf directorate, but the public site does not expose a complete current Directorate→LGU roster.
+- `core.org_units` + `core.core_lgus` produce 722 active LGUs in governorates 1–11.
+- 569 rows are deterministic single-directorate candidates.
+- 153 Hebron rows remain unresolved because Hebron has four active directorates.
+- Historical 2018 Awqaf-source locality groupings are supporting evidence only, not current production authority.
+- `AUTHORITY_VERIFIED_ROWS=0`; therefore data load is not ready and not authorized.
+- New read-only artifacts: SQL 47 candidate dataset review and SQL 48 data-load preflight.
+
+Next required evidence: current Ministry of Awqaf Directorate→address/LGU roster/export, followed by row-by-row reconciliation and a separate data-load authorization.
