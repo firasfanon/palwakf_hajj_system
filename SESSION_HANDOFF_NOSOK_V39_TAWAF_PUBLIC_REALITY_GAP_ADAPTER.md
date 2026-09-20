@@ -226,3 +226,14 @@ Next required evidence: current Ministry of Awqaf Directorate→address/LGU rost
 - Prepared a controlled authority-review pack for exactly 120 current non-verified LGUs (17 supporting + 103 unresolved).
 - The review pack accepts only canonical Core directorate UUIDs and requires authority reference/effective date/reviewer metadata before any row can become load-eligible.
 - No policy insert, DB data load, main merge, baseline promotion, or production action occurred.
+
+## Hebron Unit→LGU authority technical pre-review — 2026-09-20
+
+- Fresh reconciliation confirmed task head 06f43133d1444398b40e25d87daa8040bcfebb64, clean worktree, Migration 45 applied, policy rows 0.
+- Prepared technical pre-review for all 120 current non-verified LGUs.
+- 17 supporting candidates resolve cleanly to canonical Core directorate UUIDs; 103 have no canonical directorate candidate.
+- All 120 authority decisions remain NEEDS_REVIEW; APPROVED_ROWS=0; AMBIGUOUS_APPROVED_ROWS=0; LOAD_ELIGIBLE_ROWS=0.
+- No authority field was populated from software inference.
+- Technical pre-review SHA256: 34A93C87BA0043B2650EBA78C4B139039CC8104F092C9AD72EE2DE0143B8CF58.
+- Authority-review execution doc SHA256: D2BDEFEA4344C714BDA8FC6230B714AB322362A97AADC6B060F6D643AC1699F5.
+- Separate DATA LOAD authorization is not ready until an authorized organizational reviewer completes the authority decisions.
