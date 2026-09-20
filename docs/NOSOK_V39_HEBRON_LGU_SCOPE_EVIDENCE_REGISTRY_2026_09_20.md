@@ -253,3 +253,42 @@ EXCLUDED_NON_CURRENT_ROWS=20
 STATUS_REVIEW_REQUIRED_ROWS=1
 POLICY_LOAD_READY=NO
 ```
+
+## Targeted Evidence Expansion — Batch 03 (2026-09-20)
+
+### SRC_SH_HAJJ_WINNERS_2026
+
+LGUs promoted:
+- خرسا → South Hebron.
+- دير رازح → South Hebron.
+- فقيقيس → South Hebron.
+
+Evidence: a current Hajj-winners post explicitly labels the listed places as “المناطق التابعة لمديرية اوقاف جنوب الخليل” and then enumerates, among others, دير رازح، فقيقيس، خرسا. This is directly relevant to Nosok because it is an Awqaf operational jurisdiction statement in the Hajj-registration context itself.
+
+Public mirror:
+- https://t.me/s/DuraCity?before=33550
+
+Classification for the three exact-name matches: `HIGH / AUTHORITY_VERIFIED`.
+Reason: exact current Core LGU names are present in a current Hajj jurisdiction list tied explicitly to South Hebron Awqaf.
+
+### SRC_SH_HAJJ_WINNERS_2026_KHIRBET_SALAMA_ALIAS_PENDING
+
+Candidate LGU: سلامه → South Hebron.
+
+Evidence source uses the label `خربة سلامة`, while current Core LGU row is named `سلامه` and does not expose an authoritative alias field proving exact identity.
+
+Classification: `MEDIUM / SUPPORTING_EVIDENCE_ONLY`.
+Reason: probable match is insufficient for authorization; alias reconciliation is required before promotion.
+
+## Batch-03 gate
+
+```text
+TOTAL_MATRIX_ROWS=153
+CURRENT_OPERATIONAL_ROWS=132
+AUTHORITY_VERIFIED_ROWS=11
+SUPPORTING_EVIDENCE_ONLY_ROWS=18
+UNRESOLVED_FAIL_CLOSED_ROWS=103
+EXCLUDED_NON_CURRENT_ROWS=20
+STATUS_REVIEW_REQUIRED_ROWS=1
+POLICY_LOAD_READY=NO
+```

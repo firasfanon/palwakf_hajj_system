@@ -179,3 +179,14 @@ Next required evidence: current Ministry of Awqaf Directorate→address/LGU rost
 - Current matrix: 153 total / 132 current operational / 8 verified / 17 supporting / 107 unresolved / 20 excluded non-current / 1 status-review.
 - Live read-only SQL count parity with CSV classification: PASS.
 - No policy insert, DB data load, main merge, baseline promotion, or production action occurred.
+
+## Targeted Hebron LGU evidence expansion — Batch 03 — 2026-09-20
+
+- Hajj-specific current jurisdiction evidence found for South Hebron Awqaf.
+- Newly authority-verified exact Core LGU matches: Kharsa→South Hebron, Deir Razah→South Hebron, Faqiqis→South Hebron.
+- Salama→South Hebron remains SUPPORTING_EVIDENCE_ONLY because the source says “Khirbet Salama” while Core says “Salama”; no canonical alias currently proves exact identity.
+- Current matrix: 153 total / 132 current operational / 11 verified / 18 supporting / 103 unresolved / 20 excluded non-current / 1 status-review.
+- Matrix SHA256: ACC7A9F2D0E1E58AFF77F6C3EFC3823915168D35AEFC6DD7132A443E013B84CC.
+- Registry SHA256: 920A3EC6A1CDFFD87CAA9A1F7F738274D231AC53D0F8FEC04B641F054CFD1C1F.
+- SQL52 SHA256: BF5E4215A6B05B77B8AD5FCB2B71DC449FCD89FCA59F7D6FF7194F8A9B74E495.
+- No policy insert, DB data load, main merge, baseline promotion, or production action occurred.
