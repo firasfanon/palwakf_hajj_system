@@ -134,3 +134,85 @@ EXCLUDED_NON_CURRENT_ROWS=20
 STATUS_REVIEW_REQUIRED_ROWS=1
 POLICY_LOAD_READY=NO
 ```
+
+## Targeted Evidence Expansion — Batch 01 (2026-09-20)
+
+This batch supersedes the earlier 3-row verified count.
+
+### SRC_NH_KHARAS_2025_GOV_REPORT
+
+LGU: خاراس → North Hebron.
+
+Evidence: the Palestinian Government Communication Center weekly report, published by WAFA, states under the Ministry of Awqaf section that in North Hebron the directorate organized an iftar for Qur'an-course students in Kharas.
+
+URL: https://wafa.ps/Pages/Details/117999
+
+Classification: `HIGH / AUTHORITY_VERIFIED`.
+
+### SRC_NH_BEIT_ULA_2025_AYYAM
+
+LGU: بيت أولا → North Hebron.
+
+Evidence: Al-Ayyam reported in November 2025 that the North Hebron Awqaf Directorate honored Qur'an students in al-Jab'a and Beit Ula, with the Awqaf director and department heads present.
+
+URL: https://www.al-ayyam.ps/public/pdfs/2025/11/03/all/all.pdf
+
+Classification: `HIGH / AUTHORITY_VERIFIED`.
+
+### SRC_NH_BEIT_UMMAR_2023_DIRECTORATE_ACTION
+
+LGU: بيت أمر → North Hebron.
+
+Evidence: a 2023 report records North Hebron Awqaf Directorate action concerning the khatib/imam of Beit Ummar Grand Mosque, directly tying the town's mosque administration to the directorate.
+
+URL: https://shahed.cc/archives/63739
+
+Classification: `HIGH / AUTHORITY_VERIFIED` for current operational scope, with source-quality note: secondary local media reporting direct directorate action.
+
+### SRC_SH_DHAHIRIYA_2025_DIRECTORATE_POST
+
+LGU: الظاهرية → South Hebron.
+
+Evidence: a 2025 post from the South Hebron Awqaf Directorate, mirrored by FindGlocal, records the directorate's manager honoring volunteers for cleaning six cemeteries in al-Dhahiriya.
+
+URL: https://www.findglocal.com/IL/Hebron/619365621570283/%D9%85%D8%AF%D9%8A%D8%B1%D9%8A%D8%A9-%D8%A7%D9%88%D9%82%D8%A7%D9%81-%D8%AC%D9%86%D9%88%D8%A8-%D8%A7%D9%84%D8%AE%D9%84%D9%8A%D9%84
+
+Classification: `HIGH / AUTHORITY_VERIFIED` for current operational scope, with source-quality note: mirror of directorate-originated content rather than the ministry domain itself.
+
+### SRC_HEBRON_TARQUMIYA_2015_MOSQUE_OPENING
+
+LGU: ترقوميا → Hebron candidate.
+
+Evidence: a 2015 report states that the Hebron Awqaf Directorate opened Khalid ibn al-Walid Mosque in Tarqumiya.
+
+URL: https://www.maannews.net/news/774318.html
+
+Classification: `MEDIUM / SUPPORTING_EVIDENCE_ONLY`.
+Reason: direct but historical; it is not sufficient by itself to prove the current 2026 jurisdiction after later organizational changes.
+
+## Batch-01 gate
+
+```text
+TOTAL_MATRIX_ROWS=153
+CURRENT_OPERATIONAL_ROWS=132
+AUTHORITY_VERIFIED_ROWS=7
+SUPPORTING_EVIDENCE_ONLY_ROWS=16
+UNRESOLVED_FAIL_CLOSED_ROWS=109
+EXCLUDED_NON_CURRENT_ROWS=20
+STATUS_REVIEW_REQUIRED_ROWS=1
+POLICY_LOAD_READY=NO
+```
+
+No policy row may be inserted solely from the supporting-only set.
+
+### SRC_SH_PREACHER_SCHEDULE_2025_08_01
+
+Evidence: public Dura City Telegram post dated 2025-08-01 explicitly labels an image as “Friday preachers schedule for mosques affiliated with the South Hebron / Dura Awqaf Directorate”.
+
+URL: https://t.me/DuraCity/28370
+
+Locally downloaded evidence SHA256 during review:
+`79B4CC5F9B569C66F78361818F5A8A72880863FAFCEEF1F26172E422360BCE24`
+
+Classification: `HIGH SOURCE / NO ROW PROMOTION YET`.
+Reason: the image itself could not be read with sufficient certainty in the available toolchain, and no Arabic OCR was installed. No LGU was inferred from neighboring channel posts or from geographic proximity.

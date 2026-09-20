@@ -161,3 +161,13 @@ Next required evidence: current Ministry of Awqaf Directorate→address/LGU rost
 - Evidence registry SHA256: 325B7401B6EAFF437D2FB47DFCE391B71106E8F29E99B0596C769E04CCD5E864.
 - SQL52 SHA256: 766F44886E4721BB8A232507329C16454EBF917A614491213078A321EB1547B0.
 - POLICY_LOAD_READY=NO; no database mutation performed.
+
+## Targeted Hebron LGU evidence expansion — Batch 01 — 2026-09-20
+
+- Authority-verified rows increased from 3 to 7.
+- Newly verified: Kharas→North Hebron, Beit Ula→North Hebron, Beit Ummar→North Hebron, al-Dhahiriya→South Hebron.
+- Tarqumiya→Hebron received direct historical evidence but remains SUPPORTING_EVIDENCE_ONLY because the evidence is from 2015.
+- Current matrix: 153 total / 132 current operational / 7 verified / 16 supporting / 109 unresolved / 20 excluded non-current / 1 status-review.
+- SQL52 and CSV classification counts match exactly.
+- A 2025-08-01 public preacher-schedule image explicitly belongs to South Hebron / Dura Awqaf. Its local review SHA256 was 79B4CC5F9B569C66F78361818F5A8A72880863FAFCEEF1F26172E422360BCE24, but no LGU was promoted from it because the image text could not be read with sufficient certainty and Arabic OCR was unavailable.
+- No policy insert, DB data load, main merge, baseline promotion, or production action occurred.
