@@ -38,7 +38,7 @@ with base as (
       when b.lgu_name_ar='مزرعه عناب الصغيره' then 'SRC_SH_ENNAB_AL_SAGHIRA_2025_DIRECTORATE_VISIT'
       when b.lgu_name_ar='الخليل' then 'SRC_CORE_HEBRON_PROFILE'
       when b.lgu_name_ar='ترقوميا' then 'SRC_HEBRON_TARQUMIYA_2015_MOSQUE_OPENING'
-      when b.lgu_name_ar='نوبا' then 'SRC_NH_KHARAS_NUBA_2025_GOV_REPORT'
+      when b.lgu_name_ar='نوبا' then 'SRC_NH_NUBA_GOVERNMENT_AWQAF_REPORT_2025'
       when b.lgu_name_ar in ('صوريف','سعير','بني نعيم','الشيوخ', E'\tشيوخ العروب','اذنا','بيت كاحل','تفوح') then 'SRC_NH_SERVICE_COUNCIL_OR_DIRECT_RELATION_SUPPORT'
       when b.lgu_name_ar='حتا' then 'SRC_NH_WATER_COUNCIL_2018'
       when b.lgu_name_ar in ('ابو العسجا','رابود','كرزه') then 'SRC_SH_LOCAL_COUNCILS_EVENT_2017'
@@ -75,7 +75,7 @@ select
 from classified c
 order by c.lgus_no,c.lgu_name_ar;
 
--- Expected Batch-03 summary:
+-- Expected Batch-04 summary:
 -- TOTAL_MATRIX_ROWS=153
 -- CURRENT_OPERATIONAL_ROWS=132
 -- AUTHORITY_VERIFIED_ROWS=11

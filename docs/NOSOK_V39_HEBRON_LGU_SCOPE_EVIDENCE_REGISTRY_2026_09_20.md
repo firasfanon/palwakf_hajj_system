@@ -292,3 +292,42 @@ EXCLUDED_NON_CURRENT_ROWS=20
 STATUS_REVIEW_REQUIRED_ROWS=1
 POLICY_LOAD_READY=NO
 ```
+
+## Targeted Evidence Expansion — Batch 04 (2026-09-20)
+
+Batch 04 tightened evidence quality without inflating the authority-verified count.
+
+### SRC_NH_NUBA_GOVERNMENT_AWQAF_REPORT_2025
+
+LGU: نوبا → North Hebron candidate.
+
+Evidence: the Palestinian Government Communication Center weekly report, under the Ministry of Awqaf section, places the Nuba Quran-house activity in the same North Hebron Awqaf intervention paragraph that directly identifies the directorate's activity in Kharas.
+
+Source: WAFA / Government Communication Center, 29-03-2025.
+
+Classification: `HIGH / SUPPORTING_EVIDENCE_ONLY`.
+Reason: this is current government evidence in an Awqaf context, but it does not explicitly state that Nuba is administratively assigned to the directorate.
+
+### SRC_NH_SURIF_MUNICIPAL_DIRECT_RELATION_2018
+
+LGU: صوريف → North Hebron candidate.
+
+Evidence: Surif Municipality records an official municipal visit to the Director of North Hebron Awqaf to discuss matters of public interest.
+
+Classification: `MEDIUM / SUPPORTING_EVIDENCE_ONLY`.
+Reason: direct institutional relation is established, but territorial jurisdiction is not explicitly stated.
+
+### Batch-04 no-promotion rule
+
+Current South Hebron search also found multiple current service/health/regional references for Deir Samet, Beit Awwa, ar-Rihiya and other Dura-area localities. These were not used to authorize Awqaf scope because another ministry's regional boundary is not proof of Awqaf jurisdiction.
+
+```text
+TOTAL_MATRIX_ROWS=153
+CURRENT_OPERATIONAL_ROWS=132
+AUTHORITY_VERIFIED_ROWS=11
+SUPPORTING_EVIDENCE_ONLY_ROWS=18
+UNRESOLVED_FAIL_CLOSED_ROWS=103
+EXCLUDED_NON_CURRENT_ROWS=20
+STATUS_REVIEW_REQUIRED_ROWS=1
+POLICY_LOAD_READY=NO
+```

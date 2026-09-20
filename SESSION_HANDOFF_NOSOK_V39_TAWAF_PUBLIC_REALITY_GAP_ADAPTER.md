@@ -190,3 +190,12 @@ Next required evidence: current Ministry of Awqaf Directorate→address/LGU rost
 - Registry SHA256: 920A3EC6A1CDFFD87CAA9A1F7F738274D231AC53D0F8FEC04B641F054CFD1C1F.
 - SQL52 SHA256: BF5E4215A6B05B77B8AD5FCB2B71DC449FCD89FCA59F7D6FF7194F8A9B74E495.
 - No policy insert, DB data load, main merge, baseline promotion, or production action occurred.
+
+## Targeted Hebron LGU evidence expansion — Batch 04 — 2026-09-20
+
+- Evidence quality improved for Nuba and Surif without promoting either row.
+- Nuba now uses a current Palestinian Government Communication Center / WAFA Awqaf-intervention source; remains SUPPORTING_EVIDENCE_ONLY because jurisdiction is not explicit.
+- Surif now uses a direct Surif Municipality relation with the Director of North Hebron Awqaf; remains SUPPORTING_EVIDENCE_ONLY because jurisdiction is not explicit.
+- South Hebron regional-health/service evidence for Deir Samet, Beit Awwa, ar-Rihiya and related localities was explicitly rejected as authorization proof because another ministry's regional boundary does not establish Awqaf jurisdiction.
+- Counts remain: 153 total / 132 current / 11 verified / 18 supporting / 103 unresolved / 20 excluded / 1 status-review.
+- No policy insert, DB data load, main merge, baseline promotion, or production action occurred.
