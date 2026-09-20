@@ -37,7 +37,7 @@ with base as (
       when b.lgu_name_ar='سلامه' then 'SRC_SH_HAJJ_WINNERS_2026_KHIRBET_SALAMA_ALIAS_PENDING'
       when b.lgu_name_ar='مزرعه عناب الصغيره' then 'SRC_SH_ENNAB_AL_SAGHIRA_2025_DIRECTORATE_VISIT'
       when b.lgu_name_ar='الخليل' then 'SRC_CORE_HEBRON_PROFILE'
-      when b.lgu_name_ar='ترقوميا' then 'SRC_HEBRON_TARQUMIYA_2015_MOSQUE_OPENING'
+      when b.lgu_name_ar='ترقوميا' then 'SRC_HEBRON_TARQUMIYA_2022_DIRECTORATE_RESTORATION'
       when b.lgu_name_ar='نوبا' then 'SRC_NH_NUBA_GOVERNMENT_AWQAF_REPORT_2025'
       when b.lgu_name_ar in ('صوريف','سعير','بني نعيم','الشيوخ', E'\tشيوخ العروب','اذنا','بيت كاحل','تفوح') then 'SRC_NH_SERVICE_COUNCIL_OR_DIRECT_RELATION_SUPPORT'
       when b.lgu_name_ar='حتا' then 'SRC_NH_WATER_COUNCIL_2018'
@@ -52,12 +52,12 @@ with base as (
       when e.city_status in ('مزاله','مهجره') then 'NONE'
       when e.city_status='<NULL>' then 'NONE'
       when e.lgu_name_ar in ('حلحول','خاراس','بيت اولا','بيت امر','يطا','دورا','الظاهريه','السموع','خرسا','دير رازح','فقيقيس','مزرعه عناب الصغيره') then 'HIGH'
-      when e.lgu_name_ar='ترقوميا' then 'MEDIUM'
+      when e.lgu_name_ar='ترقوميا' then 'HIGH'
       when e.candidate_directorate is not null then 'MEDIUM'
       else 'NONE'
     end as confidence,
     case
-      when e.lgu_name_ar in ('حلحول','خاراس','بيت اولا','بيت امر','يطا','دورا','الظاهريه','السموع','خرسا','دير رازح','فقيقيس')
+      when e.lgu_name_ar in ('حلحول','خاراس','بيت اولا','بيت امر','يطا','دورا','الظاهريه','السموع','خرسا','دير رازح','فقيقيس','ترقوميا')
         and e.city_status='موجوده' then true
       else false
     end as authority_verified
@@ -75,11 +75,11 @@ select
 from classified c
 order by c.lgus_no,c.lgu_name_ar;
 
--- Expected Batch-04 summary:
+-- Expected Batch-06 summary:
 -- TOTAL_MATRIX_ROWS=153
 -- CURRENT_OPERATIONAL_ROWS=132
--- AUTHORITY_VERIFIED_ROWS=11
--- SUPPORTING_EVIDENCE_ONLY_ROWS=18
+-- AUTHORITY_VERIFIED_ROWS=12
+-- SUPPORTING_EVIDENCE_ONLY_ROWS=17
 -- UNRESOLVED_FAIL_CLOSED_ROWS=103
 -- EXCLUDED_NON_CURRENT_ROWS=20
 -- STATUS_REVIEW_REQUIRED_ROWS=1

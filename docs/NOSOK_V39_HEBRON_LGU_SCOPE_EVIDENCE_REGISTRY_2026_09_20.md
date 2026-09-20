@@ -380,3 +380,54 @@ STATUS_REVIEW_REQUIRED_ROWS=1
 FALSE_PROMOTIONS=0
 POLICY_LOAD_READY=NO
 ```
+
+## Targeted Evidence Expansion — Batch 06 (2026-09-20)
+
+### SRC_HEBRON_TARQUMIYA_2022_DIRECTORATE_RESTORATION
+
+LGU: ترقوميا → Hebron.
+
+Evidence: a 2022 report quotes the Directorate of Awqaf Hebron directly regarding ongoing restoration work at Maqam Nabi Salih in Tarqumiya. This is direct operational control by the named directorate over an Awqaf religious property in the current Core LGU.
+
+Source:
+- https://snd.ps/post/73236/%D8%A5%D8%AE%D8%B7%D8%A7%D8%B1%D8%A7%D8%AA-%D8%A8%D9%88%D9%82%D9%81-%D8%A3%D8%B9%D9%85%D8%A7%D9%84-%D8%A7%D9%84%D8%AA%D8%B1%D9%85%D9%8A%D9%85-%D9%81%D9%8A-%D9%85%D9%82%D8%A7%D9%85-%D8%A7%D9%84%D9%86%D8%A8%D9%8A-%D8%B5%D8%A7%D9%84%D8%AD
+
+Corroboration: 2015 and 2016 records also document Directorate of Awqaf Hebron activity in Tarqumiya.
+
+Classification: `HIGH / AUTHORITY_VERIFIED`.
+
+### NORTH_HEBRON_14_LGU_COMPOSITE — rejected for authorization
+
+The 2014 inauguration of North Hebron Awqaf states that the directorate serves a region of 14 local authorities and more than 120 mosques.
+
+A Halhul Municipality North Hebron joint-service list contains 15 names. Exactly 14 of those names resolve to active current `core.core_lgus`; `الدير` does not resolve as a current independent LGU.
+
+This numerical/name alignment is strong composite evidence, but it is NOT promoted to authorization evidence.
+
+Reason: Tarqumiya is one of those 14 current LGU matches, while direct 2022 Awqaf evidence assigns active Awqaf operational control in Tarqumiya to Directorate of Awqaf Hebron. Therefore public-service-region boundaries demonstrably do not equal Awqaf jurisdiction boundaries.
+
+Decision:
+`NORTH_HEBRON_SERVICE_COUNCIL_BOUNDARY_MUST_NOT_AUTHORIZE_NOSOK`.
+
+### SRC_BANI_NAIM_HEBRON_AWQAF_2013_PRE_NORTH_DIRECTORATE
+
+LGU: بني نعيم.
+
+Evidence: Bani Na'im Municipality received a Directorate of Awqaf Hebron engineering delegation in 2013 regarding town mosques.
+
+Classification: `MEDIUM / SUPPORTING_EVIDENCE_ONLY`.
+Reason: the evidence predates the 2014 creation/opening of North Hebron Awqaf, so it is historical organizational evidence and cannot establish current jurisdiction.
+
+## Batch-06 gate
+
+```text
+TOTAL_MATRIX_ROWS=153
+CURRENT_OPERATIONAL_ROWS=132
+AUTHORITY_VERIFIED_ROWS=12
+SUPPORTING_EVIDENCE_ONLY_ROWS=17
+UNRESOLVED_FAIL_CLOSED_ROWS=103
+EXCLUDED_NON_CURRENT_ROWS=20
+STATUS_REVIEW_REQUIRED_ROWS=1
+SERVICE_REGION_AS_AWQAF_SCOPE=REJECTED
+POLICY_LOAD_READY=NO
+```

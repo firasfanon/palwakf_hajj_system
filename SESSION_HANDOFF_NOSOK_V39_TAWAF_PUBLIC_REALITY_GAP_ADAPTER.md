@@ -208,3 +208,12 @@ Next required evidence: current Ministry of Awqaf Directorate→address/LGU rost
 - Yatta Municipality development evidence confirms Awqaf Yatta manages Hajj/religious affairs in Yatta city and environs, but does not enumerate the unresolved LGUs sufficiently for authorization.
 - Counts remain 153 total / 132 current / 11 verified / 18 supporting / 103 unresolved / 20 excluded / 1 status-review.
 - No policy insert, DB data load, main merge, baseline promotion, or production action occurred.
+
+## Targeted Hebron LGU evidence expansion — Batch 06 — 2026-09-20
+
+- Tarqumiya→Hebron promoted to AUTHORITY_VERIFIED using direct 2022 Directorate of Awqaf Hebron restoration activity, corroborated by 2015/2016 records.
+- Bani Na'im historical 2013 Directorate of Awqaf Hebron evidence retained as SUPPORTING_EVIDENCE_ONLY because it predates creation of North Hebron Awqaf.
+- North Hebron 14-LGU composite model was explicitly rejected for authorization: a 2014 Awqaf source says North Hebron serves 14 local authorities, and a public-service list yields exactly 14 current Core LGU matches, but Tarqumiya is among that service-region set while direct 2022 Awqaf evidence assigns active operational control in Tarqumiya to Hebron Awqaf.
+- Therefore SERVICE_REGION_BOUNDARY != AWQAF_JURISDICTION is now evidence-backed, not merely a design assumption.
+- Counts: 153 total / 132 current / 12 verified / 17 supporting / 103 unresolved / 20 excluded / 1 status-review.
+- No policy insert, DB data load, main merge, baseline promotion, or production action occurred.
