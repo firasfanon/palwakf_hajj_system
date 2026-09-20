@@ -216,3 +216,40 @@ Locally downloaded evidence SHA256 during review:
 
 Classification: `HIGH SOURCE / NO ROW PROMOTION YET`.
 Reason: the image itself could not be read with sufficient certainty in the available toolchain, and no Arabic OCR was installed. No LGU was inferred from neighboring channel posts or from geographic proximity.
+
+## Targeted Evidence Expansion — Batch 02 (2026-09-20)
+
+### SRC_SH_AS_SAMU_2024_MUNICIPAL_TAJWEED
+
+LGU: السموع → South Hebron.
+
+Evidence: Samu Municipality documented on 21/11/2024 that five students from the town placed among the top ten in the 2024 Tajweed examination at the level of the South Hebron Awqaf Directorate.
+
+URL: https://samou.ps/content/news/223.html
+
+Classification: `HIGH / AUTHORITY_VERIFIED`.
+Reason: current municipal evidence directly ties residents of the LGU to an operational examination administered at South Hebron Awqaf directorate level.
+
+### SRC_SH_ENNAB_AL_SAGHIRA_2025_DIRECTORATE_VISIT
+
+LGU: مزرعه عناب الصغيره → South Hebron candidate.
+
+Evidence: a 2025 South Hebron Awqaf Directorate-originated post records the directorate receiving students from Ennab al-Saghira School. Core and GIS contain exactly one current Hebron LGU named `مزرعه عناب الصغيره` (lgus_no=680).
+
+URL: https://www.findglocal.com/IL/Hebron/619365621570283/%D9%85%D8%AF%D9%8A%D8%B1%D9%8A%D8%A9-%D8%A7%D9%88%D9%82%D8%A7%D9%81-%D8%AC%D9%86%D9%88%D8%A8-%D8%A7%D9%84%D8%AE%D9%84%D9%8A%D9%84
+
+Classification: `HIGH / SUPPORTING_EVIDENCE_ONLY`.
+Reason: direct institutional contact is current and the locality identity is unambiguous, but a school visit alone does not establish formal jurisdiction.
+
+## Batch-02 gate
+
+```text
+TOTAL_MATRIX_ROWS=153
+CURRENT_OPERATIONAL_ROWS=132
+AUTHORITY_VERIFIED_ROWS=8
+SUPPORTING_EVIDENCE_ONLY_ROWS=17
+UNRESOLVED_FAIL_CLOSED_ROWS=107
+EXCLUDED_NON_CURRENT_ROWS=20
+STATUS_REVIEW_REQUIRED_ROWS=1
+POLICY_LOAD_READY=NO
+```

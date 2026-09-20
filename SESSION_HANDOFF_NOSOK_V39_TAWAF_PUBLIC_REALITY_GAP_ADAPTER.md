@@ -171,3 +171,11 @@ Next required evidence: current Ministry of Awqaf Directorate→address/LGU rost
 - SQL52 and CSV classification counts match exactly.
 - A 2025-08-01 public preacher-schedule image explicitly belongs to South Hebron / Dura Awqaf. Its local review SHA256 was 79B4CC5F9B569C66F78361818F5A8A72880863FAFCEEF1F26172E422360BCE24, but no LGU was promoted from it because the image text could not be read with sufficient certainty and Arabic OCR was unavailable.
 - No policy insert, DB data load, main merge, baseline promotion, or production action occurred.
+
+## Targeted Hebron LGU evidence expansion — Batch 02 — 2026-09-20
+
+- New authority-verified row: Samu→South Hebron, based on Samu Municipality's 2024 Tajweed-exam record explicitly at South Hebron Awqaf Directorate level.
+- New supporting-only row: Ennab al-Saghira→South Hebron candidate, based on a 2025 South Hebron Awqaf Directorate visit record plus exact Core/GIS locality identity; no jurisdiction inference was promoted from the visit alone.
+- Current matrix: 153 total / 132 current operational / 8 verified / 17 supporting / 107 unresolved / 20 excluded non-current / 1 status-review.
+- Live read-only SQL count parity with CSV classification: PASS.
+- No policy insert, DB data load, main merge, baseline promotion, or production action occurred.

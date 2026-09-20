@@ -18,8 +18,8 @@ with base as (
     case
       when b.lgu_name_ar in ('حلحول','خاراس','بيت اولا','بيت امر') then 'North Hebron'
       when b.lgu_name_ar in ('صوريف','نوبا','سعير','بني نعيم','الشيوخ', E'\tشيوخ العروب','حتا','اذنا','بيت كاحل','تفوح') then 'North Hebron'
-      when b.lgu_name_ar in ('دورا','الظاهريه') then 'South Hebron'
-      when b.lgu_name_ar in ('ابو العسجا','رابود','كرزه') then 'South Hebron'
+      when b.lgu_name_ar in ('دورا','الظاهريه','السموع') then 'South Hebron'
+      when b.lgu_name_ar in ('ابو العسجا','رابود','كرزه','مزرعه عناب الصغيره') then 'South Hebron'
       when b.lgu_name_ar in ('يطا','مسافر يطا','خله الضبع-مسافر يطا') then 'Yatta'
       when b.lgu_name_ar in ('الخليل','ترقوميا') then 'Hebron'
       else null
@@ -32,6 +32,8 @@ with base as (
       when b.lgu_name_ar='يطا' then 'SRC_YATTA_PLAN_2023_2026'
       when b.lgu_name_ar='دورا' then 'SRC_SH_DURA_HQ_2019'
       when b.lgu_name_ar='الظاهريه' then 'SRC_SH_DHAHIRIYA_2025_DIRECTORATE_POST'
+      when b.lgu_name_ar='السموع' then 'SRC_SH_AS_SAMU_2024_MUNICIPAL_TAJWEED'
+      when b.lgu_name_ar='مزرعه عناب الصغيره' then 'SRC_SH_ENNAB_AL_SAGHIRA_2025_DIRECTORATE_VISIT'
       when b.lgu_name_ar='الخليل' then 'SRC_CORE_HEBRON_PROFILE'
       when b.lgu_name_ar='ترقوميا' then 'SRC_HEBRON_TARQUMIYA_2015_MOSQUE_OPENING'
       when b.lgu_name_ar='نوبا' then 'SRC_NH_KHARAS_NUBA_2025_GOV_REPORT'
@@ -47,13 +49,13 @@ with base as (
     case
       when e.city_status in ('مزاله','مهجره') then 'NONE'
       when e.city_status='<NULL>' then 'NONE'
-      when e.lgu_name_ar in ('حلحول','خاراس','بيت اولا','بيت امر','يطا','دورا','الظاهريه') then 'HIGH'
+      when e.lgu_name_ar in ('حلحول','خاراس','بيت اولا','بيت امر','يطا','دورا','الظاهريه','السموع','مزرعه عناب الصغيره') then 'HIGH'
       when e.lgu_name_ar='ترقوميا' then 'MEDIUM'
       when e.candidate_directorate is not null then 'MEDIUM'
       else 'NONE'
     end as confidence,
     case
-      when e.lgu_name_ar in ('حلحول','خاراس','بيت اولا','بيت امر','يطا','دورا','الظاهريه')
+      when e.lgu_name_ar in ('حلحول','خاراس','بيت اولا','بيت امر','يطا','دورا','الظاهريه','السموع')
         and e.city_status='موجوده' then true
       else false
     end as authority_verified
@@ -71,11 +73,11 @@ select
 from classified c
 order by c.lgus_no,c.lgu_name_ar;
 
--- Expected Batch-01 summary:
+-- Expected Batch-02 summary:
 -- TOTAL_MATRIX_ROWS=153
 -- CURRENT_OPERATIONAL_ROWS=132
--- AUTHORITY_VERIFIED_ROWS=7
--- SUPPORTING_EVIDENCE_ONLY_ROWS=16
--- UNRESOLVED_FAIL_CLOSED_ROWS=109
+-- AUTHORITY_VERIFIED_ROWS=8
+-- SUPPORTING_EVIDENCE_ONLY_ROWS=17
+-- UNRESOLVED_FAIL_CLOSED_ROWS=107
 -- EXCLUDED_NON_CURRENT_ROWS=20
 -- STATUS_REVIEW_REQUIRED_ROWS=1
