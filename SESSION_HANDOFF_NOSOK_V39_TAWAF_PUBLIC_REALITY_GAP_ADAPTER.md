@@ -199,3 +199,12 @@ Next required evidence: current Ministry of Awqaf Directorate→address/LGU rost
 - South Hebron regional-health/service evidence for Deir Samet, Beit Awwa, ar-Rihiya and related localities was explicitly rejected as authorization proof because another ministry's regional boundary does not establish Awqaf jurisdiction.
 - Counts remain: 153 total / 132 current / 11 verified / 18 supporting / 103 unresolved / 20 excluded / 1 status-review.
 - No policy insert, DB data load, main merge, baseline promotion, or production action occurred.
+
+## Targeted Hebron LGU evidence expansion — Batch 05 — 2026-09-20
+
+- No new LGU met AUTHORITY_VERIFIED threshold; FALSE_PROMOTIONS=0.
+- Current Hajj operating evidence treats Halhul, Yatta, Dura, and Hebron as distinct pilgrim regions and directs winning pilgrims to their Awqaf directorate in their own region.
+- Current South Hebron preacher schedules are explicitly labelled as mosques affiliated with South Hebron / Dura Awqaf, but individual mosque/locality rows remain image-only in the available source, so no row was inferred.
+- Yatta Municipality development evidence confirms Awqaf Yatta manages Hajj/religious affairs in Yatta city and environs, but does not enumerate the unresolved LGUs sufficiently for authorization.
+- Counts remain 153 total / 132 current / 11 verified / 18 supporting / 103 unresolved / 20 excluded / 1 status-review.
+- No policy insert, DB data load, main merge, baseline promotion, or production action occurred.

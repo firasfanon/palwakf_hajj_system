@@ -331,3 +331,52 @@ EXCLUDED_NON_CURRENT_ROWS=20
 STATUS_REVIEW_REQUIRED_ROWS=1
 POLICY_LOAD_READY=NO
 ```
+
+## Targeted Evidence Expansion — Batch 05 (2026-09-20)
+
+Batch 05 focused on direct Hajj/Awqaf jurisdiction evidence for the remaining current LGUs. No new row met the AUTHORITY_VERIFIED threshold.
+
+### Hajj operational-region identity confirmation
+
+Current Hajj operating material lists Halhul, Yatta, Dura, and Hebron separately among pilgrim travel regions. Current Hajj registration instructions also require winning pilgrims to report to Awqaf directorates, each in their own region.
+
+Sources:
+- Dura City / Ministry Hajj travel notice: https://t.me/s/DuraCity/25794
+- Dura City / 1447H-2026 registration notice: https://t.me/s/DuraCity/33612
+
+Classification: `HIGH / ORGANIZATIONAL_IDENTITY_SUPPORT`.
+This strengthens the four-region operating model but does not allocate an unresolved LGU by itself.
+
+### South Hebron direct-source search
+
+Current sources were reviewed for Beit Awwa, Deir Samet, ar-Rihiya, al-Majd, Imreish, as-Surra, Beit ar-Rush, Karma, Deir al-Asal and related Dura-area LGUs.
+
+The strongest new results were:
+- current Friday-preacher schedules explicitly labelled as mosques affiliated with South Hebron / Dura Awqaf, but the individual mosque/locality rows remain image-only in the available source;
+- current Hajj notices and South Hebron pilgrim guidance based in Dura;
+- non-Awqaf health/agriculture/service-region lists containing several of these localities.
+
+No LGU was promoted from those sources because image text was not reliably extractable and another ministry's regional boundary is not Awqaf jurisdiction evidence.
+
+### Yatta direct-source search
+
+Yatta Municipality's development plan states that the Directorate of Awqaf Yatta manages mosque, religious, cemetery, waqf-land, Quran-center and Hajj affairs in the city and its environs, with approximately 212 mosques/prayer places in the city and environs.
+
+Source:
+- https://yatta-munc.org/Images/UploadWebFiles/%D8%AA%D8%B4%D8%AE%D9%8A%D8%B5-%D8%A7%D9%84%D9%85%D8%AC%D8%A7%D9%84%D8%A7%D8%AA-%D8%A7%D9%84%D8%AA%D9%86%D9%85%D9%88%D9%8A%D8%A9-2023-%D8%A8%D8%B9%D8%AF-%D8%A7%D9%84%D8%AA%D8%B9%D8%AF%D9%8A%D9%84.pdf
+
+This supports the Yatta organizational scope concept but does not name enough individual LGUs to authorize Karmil, at-Tuwani, Umm al-Khair, Susiya or other unresolved rows.
+
+### Batch-05 gate
+
+```text
+TOTAL_MATRIX_ROWS=153
+CURRENT_OPERATIONAL_ROWS=132
+AUTHORITY_VERIFIED_ROWS=11
+SUPPORTING_EVIDENCE_ONLY_ROWS=18
+UNRESOLVED_FAIL_CLOSED_ROWS=103
+EXCLUDED_NON_CURRENT_ROWS=20
+STATUS_REVIEW_REQUIRED_ROWS=1
+FALSE_PROMOTIONS=0
+POLICY_LOAD_READY=NO
+```
