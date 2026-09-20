@@ -247,3 +247,16 @@ Next required evidence: current Ministry of Awqaf Directorate→address/LGU rost
 - Reviewed master and APPROVED-only dataset are SHA-locked.
 - Separate DATA LOAD authorization remains required; approved_by must bind to a valid active administrative UUID at execution.
 - No policy insert, main merge, baseline promotion, or production action occurred.
+
+## Session closure / comprehensive handoff — 2026-09-20
+
+This rolling v39 handoff is now superseded for next-session bootstrap by:
+`NOSOK_COMPREHENSIVE_HANDOFF_V39_UNIT_LGU_AUTHORITY_REVIEW_20260920.md`
+
+Latest substantive engineering/review head before handoff docs:
+`5e9844412f4432a3510d6f7f646bedf9c8a3a6ae`
+
+Authority review is complete: 12 APPROVED / 120 NEEDS_REVIEW / 0 EXCLUDED.
+Approved-only load dataset is ready and SHA-locked, but DATA LOAD is NOT authorized.
+Live policy rows remain 0.
+Next required gate is a separate exact-data-load authorization that also binds a valid active `approved_by uuid` required by Migration 45.
