@@ -431,3 +431,27 @@ STATUS_REVIEW_REQUIRED_ROWS=1
 SERVICE_REGION_AS_AWQAF_SCOPE=REJECTED
 POLICY_LOAD_READY=NO
 ```
+
+## Targeted Evidence Expansion — Batch 07 (2026-09-20)
+
+Batch 07 closed with no additional authority-verified LGU promotions.
+
+Key findings:
+- Current direct search for Yatta/Karmil/at-Tuwani/Umm al-Khair/Susiya and South-Hebron/Beit Awwa/Deir Samet/ar-Rihiya/al-Majd/other Dura-area LGUs did not produce an explicit current Awqaf jurisdiction statement sufficient for row authorization.
+- A 2025 WAFA report confirms South Hebron Awqaf direct operation at al-Hijra in Dura, but al-Hijra does not exist as an independent current `core.core_lgus` or `core.core_locations` row, so no new policy identity was invented.
+- The Yatta municipal development plan confirms Awqaf Yatta supervises religious/Hajj affairs in Yatta city and its environs, but does not enumerate unresolved LGUs sufficiently for authorization.
+- Public-web evidence has reached a diminishing-return threshold for the remaining 120 current rows needing final authority review.
+
+Operational response:
+- Prepared `evidence/NOSOK_V39_HEBRON_LGU_AUTHORITY_REVIEW_PACK_2026_09_20.csv` containing only the 120 current rows that are not already AUTHORITY_VERIFIED.
+- Prepared `docs/NOSOK_V39_HEBRON_LGU_AUTHORITY_REVIEW_PACK_SPEC_2026_09_20.md` defining canonical UUID choices and mandatory authority-review fields.
+
+```text
+TOTAL_MATRIX_ROWS=153
+CURRENT_OPERATIONAL_ROWS=132
+AUTHORITY_VERIFIED_ROWS=12
+AUTHORITY_REVIEW_PACK_ROWS=120
+SUPPORTING_EVIDENCE_ONLY_ROWS=17
+UNRESOLVED_FAIL_CLOSED_ROWS=103
+POLICY_LOAD_READY=NO
+```

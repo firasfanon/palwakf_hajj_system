@@ -217,3 +217,12 @@ Next required evidence: current Ministry of Awqaf Directorate→address/LGU rost
 - Therefore SERVICE_REGION_BOUNDARY != AWQAF_JURISDICTION is now evidence-backed, not merely a design assumption.
 - Counts: 153 total / 132 current / 12 verified / 17 supporting / 103 unresolved / 20 excluded / 1 status-review.
 - No policy insert, DB data load, main merge, baseline promotion, or production action occurred.
+
+## Targeted Hebron LGU evidence expansion — Batch 07 — 2026-09-20
+
+- No new row met AUTHORITY_VERIFIED threshold in direct Yatta/South-Hebron searches; false promotions remain zero.
+- Current direct South-Hebron activity at al-Hijra in Dura was not converted into a new LGU because Core has no independent al-Hijra LGU/location identity.
+- Public-web evidence is now low-yield for the remaining scope gap.
+- Prepared a controlled authority-review pack for exactly 120 current non-verified LGUs (17 supporting + 103 unresolved).
+- The review pack accepts only canonical Core directorate UUIDs and requires authority reference/effective date/reviewer metadata before any row can become load-eligible.
+- No policy insert, DB data load, main merge, baseline promotion, or production action occurred.
