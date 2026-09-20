@@ -136,3 +136,14 @@ Next required evidence: current Ministry of Awqaf Directorate→address/LGU rost
 - Recent public evidence uses North/South Hebron Awqaf labels not present in current `core.org_units`; this is an organizational drift warning, not authorization evidence.
 - No DB data load occurred.
 - New read-only artifacts: SQL 49 current LGU candidates and SQL 50 Hebron multi-directorate census.
+
+## Hebron Awqaf organizational identity reconciliation — 2026-09-20
+
+- Core UUID identities for Hebron/Dura/Yatta/Halhul are preserved as canonical authorization identities.
+- Public/current evidence supports Hebron and Yatta as current labels.
+- Halhul ↔ North Hebron is a high-confidence organizational rename/scope-label candidate.
+- Dura ↔ South Hebron is a high-confidence organizational rename/scope-label candidate.
+- These identity-lineage findings do not authorize any Core rename/update.
+- North Hebron public evidence states service coverage across 14 local authorities; South Hebron evidence includes Dura with activity in al-Dhahiriya and as-Samu.
+- Full Hebron Unit→LGU crosswalk remains incomplete and fail-closed.
+- No database mutation occurred.
