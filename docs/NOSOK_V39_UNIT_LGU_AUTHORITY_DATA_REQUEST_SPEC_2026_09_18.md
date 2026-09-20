@@ -73,3 +73,17 @@ AUTHORITY_VERIFIED_ROWS=0
 DATA_LOAD_AUTHORIZATION_READINESS=BLOCKED
 NEXT_INPUT=CURRENT_MINISTRY_OF_AWQAF_DIRECTORATE_TO_ADDRESS_LGU_ROSTER_OR_CONTROLLED_EXPORT
 ```
+
+## Supersession note — 2026-09-20
+
+The request for an external geographic roster is superseded in part.
+
+Current administrative geography is already canonical in PalWakf Core:
+
+- `core.core_governorates` — current governorate authority;
+- `core.core_lgus` — current local-authority / administrative-division authority;
+- all 722 active LGUs in governorates 1–11 match `gis.lgus_boundary` 1:1 by `lgus_no ↔ lgusb_no`.
+
+Therefore no external list of governorates, communities, or LGUs is required for Nosok.
+
+The only unresolved evidence is organizational jurisdiction where multiple Awqaf directorates exist in the same governorate, currently Hebron. Any future external evidence request must be limited to the current directorate jurisdiction boundary / Unit→LGU allocation, not the geographic registry itself.

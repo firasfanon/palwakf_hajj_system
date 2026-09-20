@@ -125,3 +125,14 @@ Full analyzer PASS. Web release evidence build PASS. Production remains deferred
 - New read-only artifacts: SQL 47 candidate dataset review and SQL 48 data-load preflight.
 
 Next required evidence: current Ministry of Awqaf Directorate→address/LGU roster/export, followed by row-by-row reconciliation and a separate data-load authorization.
+
+## Current LGU administrative scope reconciliation — 2026-09-20
+
+- Current administrative geography authority is `core.core_lgus`, not `core.core_communities`.
+- `core.core_communities` is historical/reference-only for Nosok authorization.
+- All 722 active LGUs in governorates 1–11 match `gis.lgus_boundary` 1:1 by current LGU numeric identity.
+- 569 LGUs are deterministic single-directorate candidates.
+- 153 Hebron LGUs remain fail-closed because four active Awqaf directorates share the same governorate and no canonical Unit→LGU jurisdiction table exists yet.
+- Recent public evidence uses North/South Hebron Awqaf labels not present in current `core.org_units`; this is an organizational drift warning, not authorization evidence.
+- No DB data load occurred.
+- New read-only artifacts: SQL 49 current LGU candidates and SQL 50 Hebron multi-directorate census.
