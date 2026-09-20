@@ -147,3 +147,17 @@ Next required evidence: current Ministry of Awqaf Directorate→address/LGU rost
 - North Hebron public evidence states service coverage across 14 local authorities; South Hebron evidence includes Dura with activity in al-Dhahiriya and as-Samu.
 - Full Hebron Unit→LGU crosswalk remains incomplete and fail-closed.
 - No database mutation occurred.
+
+## Hebron LGU scope evidence matrix — 2026-09-20
+
+- Matrix rows: 153.
+- Current operational rows (city_status=موجوده): 132.
+- Authority-verified rows: 3 (Halhul→North Hebron, Yatta→Yatta, Dura→South Hebron).
+- Supporting-evidence-only rows: 20.
+- Unresolved current rows: 109; all remain fail-closed.
+- Removed/displaced rows excluded from current authorization: 20.
+- One LGU has missing city_status and remains STATUS_REVIEW_REQUIRED.
+- Matrix CSV SHA256: 83C5169E111F401E420A98A7B609A15C180241FF5B906B82C1AFAB96AD058206.
+- Evidence registry SHA256: 325B7401B6EAFF437D2FB47DFCE391B71106E8F29E99B0596C769E04CCD5E864.
+- SQL52 SHA256: 766F44886E4721BB8A232507329C16454EBF917A614491213078A321EB1547B0.
+- POLICY_LOAD_READY=NO; no database mutation performed.
