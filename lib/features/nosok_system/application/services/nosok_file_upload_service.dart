@@ -17,7 +17,7 @@ class NosokFileUploadService {
   NosokFileUploadService.supabase(SupabaseClient client) : _client = client;
   NosokFileUploadService.disabled() : _client = null;
 
-  static const String publicBucket = 'nosok-public';
+  static const String privateBucket = 'nosok-private';
 
   final SupabaseClient? _client;
 
@@ -26,7 +26,7 @@ class NosokFileUploadService {
   Future<NosokStorageUploadResult?> pickAndUpload({
     required String folder,
     List<String>? allowedExtensions,
-    String bucket = publicBucket,
+    String bucket = privateBucket,
   }) async {
     final client = _client;
     if (client == null) {
@@ -66,12 +66,10 @@ class NosokFileUploadService {
           ),
         );
 
-    final publicUrl = client.storage.from(bucket).getPublicUrl(path);
-
     return NosokStorageUploadResult(
       bucket: bucket,
       path: path,
-      publicUrl: publicUrl,
+      publicUrl: '',
       originalFileName: file.name,
       mimeType: mimeType,
       fileSizeBytes: file.size,

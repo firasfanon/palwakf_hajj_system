@@ -15,6 +15,7 @@ class NosokApplicationDraft {
     this.mobile,
     this.email,
     this.governorateId,
+    this.lguId,
     this.communityId,
     this.addressText,
     this.maritalStatus,
@@ -35,6 +36,7 @@ class NosokApplicationDraft {
   final String? mobile;
   final String? email;
   final String? governorateId;
+  final String? lguId;
   final String? communityId;
   final String? addressText;
   final String? maritalStatus;
@@ -56,6 +58,7 @@ class NosokApplicationDraft {
       'p_mobile': mobile,
       'p_email': email,
       'p_governorate_id': governorateId,
+      'p_lgu_id': lguId,
       'p_community_id': communityId,
       'p_address_text': addressText,
       'p_marital_status': maritalStatus,

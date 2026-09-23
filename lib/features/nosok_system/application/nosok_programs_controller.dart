@@ -2,6 +2,15 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../data/repositories/nosok_supabase_repository.dart';
 import '../domain/models/nosok_service_program.dart';
+import '../domain/models/nosok_public_lgu_option.dart';
+
+final nosokPublicCampaignLgusProvider =
+    FutureProvider.family<List<NosokPublicLguOption>, String>(
+        (ref, campaignCode) {
+  final normalized = campaignCode.trim();
+  if (normalized.isEmpty) return const <NosokPublicLguOption>[];
+  return ref.read(nosokRepositoryProvider).listPublicCampaignLgus(normalized);
+});
 
 final nosokProgramsControllerProvider =
     AsyncNotifierProvider<NosokProgramsController, List<NosokServiceProgram>>(

@@ -4,6 +4,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 import '../../domain/models/nosok_announcement.dart';
 import '../../domain/models/nosok_billing_provider_adapter.dart';
 import '../../domain/models/nosok_public_tracking_privacy_check.dart';
+import '../../domain/models/nosok_public_lgu_option.dart';
 import '../../domain/models/nosok_production_readiness_evidence.dart';
 import '../../domain/models/nosok_application.dart';
 import '../../domain/models/nosok_application_companion.dart';
@@ -74,77 +75,73 @@ class NosokSupabaseRepository implements NosokRepository {
 
   @override
   Future<List<NosokSeason>> listSeasons({bool publicOnly = false}) async {
-    if (publicOnly) {
-      final rows = await _client.rpc('rpc_nosok_campaigns_public_list_v1');
-      return _mapList(rows, (map) {
-        final status = (map['status'] ?? '').toString();
-        return NosokSeason(
-          id: (map['id'] ?? '').toString(),
-          seasonCode: (map['campaign_code'] ?? '').toString(),
-          titleAr:
-              (map['title_ar'] ?? '\u062d\u0645\u0644\u0629 \u0646\u0633\u0643')
-                  .toString(),
-          serviceType: (map['service_type'] ?? 'hajj').toString(),
-          gregorianYear: (map['season_year'] as num?)?.toInt(),
-          registrationStartAt: _parseDateTimeValue(map['application_open_at']),
-          registrationEndAt: _parseDateTimeValue(map['application_close_at']),
-          status: status == 'published' ? 'open' : status,
-          isPubliclyVisible: status == 'published',
-          notes: 'compatibility-adapter: campaign-based-runtime',
-        );
-      });
-    }
-
-    final rows = await _client
-        .schema('nosok')
-        .from('seasons')
-        .select()
-        .order('gregorian_year', ascending: false)
-        .order('registration_start_at', ascending: false);
-    return rows.map<NosokSeason>((row) => NosokSeason.fromMap(row)).toList();
+    final rows = await _client.rpc(
+      publicOnly
+          ? 'rpc_nosok_campaigns_public_list_v1'
+          : 'rpc_nosok_admin_campaigns_list_v1',
+    );
+    return _mapList(rows, (map) {
+      final status = (map['status'] ?? '').toString();
+      return NosokSeason(
+        id: (map['id'] ?? '').toString(),
+        seasonCode: (map['campaign_code'] ?? '').toString(),
+        titleAr: (map['title_ar'] ?? 'حملة نسك').toString(),
+        serviceType: (map['service_type'] ?? 'hajj').toString(),
+        gregorianYear: (map['season_year'] as num?)?.toInt(),
+        registrationStartAt: _parseDateTimeValue(map['application_open_at']),
+        registrationEndAt: _parseDateTimeValue(map['application_close_at']),
+        status: status == 'published' ? 'open' : status,
+        isPubliclyVisible: status == 'published',
+        notes: 'compatibility-adapter: campaign-based-runtime-v39',
+      );
+    });
   }
 
   @override
   Future<NosokSeason> saveSeason(NosokSeason season) async {
-    try {
-      final rows = await _client.rpc(
-        'rpc_nosok_admin_season_upsert_v1',
-        params: <String, dynamic>{
-          'p_id': season.id.trim().isEmpty ? null : season.id,
-          'p_season_code': season.seasonCode,
-          'p_title_ar': season.titleAr,
-          'p_title_en': season.titleEn,
-          'p_service_type': season.serviceType,
-          'p_hijri_year': season.hijriYear,
-          'p_gregorian_year': season.gregorianYear,
-          'p_registration_start_at':
-              season.registrationStartAt?.toIso8601String(),
-          'p_registration_end_at': season.registrationEndAt?.toIso8601String(),
-          'p_status': season.status,
-          'p_notes': season.notes,
-          'p_is_publicly_visible': season.isPubliclyVisible,
+    final status = season.isPubliclyVisible || season.status == 'open'
+        ? 'published'
+        : season.status;
+    final rows = await _client.rpc(
+      'rpc_nosok_admin_campaign_upsert_v1',
+      params: <String, dynamic>{
+        'p_campaign_code': season.seasonCode,
+        'p_title_ar': season.titleAr,
+        'p_service_type': season.serviceType,
+        'p_season_year': season.gregorianYear ?? DateTime.now().year,
+        'p_status': status,
+        'p_unit_id': null,
+        'p_application_open_at': season.registrationStartAt?.toIso8601String(),
+        'p_application_close_at': season.registrationEndAt?.toIso8601String(),
+        'p_metadata': <String, dynamic>{
+          'compatibility_source': 'NosokSeason',
+          if (_hasValue(season.notes)) 'notes': season.notes,
         },
+      },
+    );
+    return _singleFromRpc(rows, (map) {
+      final mappedStatus = (map['status'] ?? '').toString();
+      return NosokSeason(
+        id: (map['id'] ?? '').toString(),
+        seasonCode: (map['campaign_code'] ?? '').toString(),
+        titleAr: (map['title_ar'] ?? 'حملة نسك').toString(),
+        serviceType: (map['service_type'] ?? 'hajj').toString(),
+        gregorianYear: (map['season_year'] as num?)?.toInt(),
+        registrationStartAt: _parseDateTimeValue(map['application_open_at']),
+        registrationEndAt: _parseDateTimeValue(map['application_close_at']),
+        status: mappedStatus == 'published' ? 'open' : mappedStatus,
+        isPubliclyVisible: mappedStatus == 'published',
+        notes: season.notes,
       );
-      return _singleFromRpc(rows, NosokSeason.fromMap);
-    } catch (_) {
-      final row = await _client
-          .schema('nosok')
-          .from('seasons')
-          .upsert(season.toUpsertMap(), onConflict: 'id')
-          .select()
-          .single();
-      return NosokSeason.fromMap(row);
-    }
+    });
   }
 
   @override
   Future<void> deleteSeason(String id) async {
-    try {
-      await _client.rpc('rpc_nosok_admin_season_delete_v1',
-          params: <String, dynamic>{'p_id': id});
-    } catch (_) {
-      await _client.schema('nosok').from('seasons').delete().eq('id', id);
-    }
+    await _client.rpc(
+      'rpc_nosok_admin_campaign_delete_v1',
+      params: <String, dynamic>{'p_campaign_id': id},
+    );
   }
 
   @override
@@ -538,24 +535,35 @@ class NosokSupabaseRepository implements NosokRepository {
     if (campaignCode.isEmpty) {
       throw StateError('لم يتم تحديد رمز حملة صالح للتقديم.');
     }
-    if (_hasUncertifiedPiiSubmission(draft)) {
-      throw StateError(
-        'إرسال البيانات الحساسة متوقف حتى اعتماد عقد PII آمن ومخصص داخل RPC.',
-      );
-    }
+
     try {
       final rows = await _client.rpc(
-        'rpc_nosok_application_submit_v1',
+        'rpc_nosok_application_submit_v2',
         params: <String, dynamic>{
           'p_campaign_code': campaignCode,
           'p_applicant_display_name': draft.applicantFullName,
-          'p_lgu_id': null,
+          'p_lgu_id': _nullIfBlank(draft.lguId),
           'p_governorate_id': _nullIfBlank(draft.governorateId),
-          'p_unit_id': null,
+          'p_pii_payload': <String, dynamic>{
+            'national_id': draft.nationalId,
+            'birth_date': draft.birthDate?.toIso8601String(),
+            'gender': draft.gender,
+            'phone': draft.phone,
+            'mobile': draft.mobile,
+            'email': draft.email,
+            'address_text': draft.addressText,
+            'marital_status': draft.maritalStatus,
+            'notes': draft.notes,
+            'companions': draft.companions.map((item) => item.toMap()).toList(),
+            'documents':
+                draft.documents.map((item) => item.toUpsertMap()).toList(),
+            'payments':
+                draft.payments.map((item) => item.toUpsertMap()).toList(),
+          },
           'p_metadata': <String, dynamic>{
             'service_type': draft.serviceType,
             'runtime_contract': 'campaign-based-v39',
-            'pii_contract': 'not-collected-in-metadata',
+            'pii_contract': 'vault-encrypted-v1',
           },
         },
       );
@@ -581,7 +589,9 @@ class NosokSupabaseRepository implements NosokRepository {
       );
     } catch (_) {
       throw StateError(
-          'تعذر إرسال طلب نسك عبر public campaign submit RPC الآمن. لا يوجد fallback مباشر إلى nosok.* من واجهة المواطن.');
+        'تعذر إرسال طلب نسك عبر public campaign submit v2 الآمن. '
+        'لا يوجد fallback مباشر إلى nosok.* من واجهة المواطن.',
+      );
     }
   }
 
@@ -946,6 +956,18 @@ class NosokSupabaseRepository implements NosokRepository {
     } catch (_) {
       return null;
     }
+  }
+
+  @override
+  Future<List<NosokPublicLguOption>> listPublicCampaignLgus(
+      String campaignCode) async {
+    final normalized = campaignCode.trim();
+    if (normalized.isEmpty) return const <NosokPublicLguOption>[];
+    final rows = await _client.rpc(
+      'rpc_nosok_campaign_lgus_public_list_v1',
+      params: <String, dynamic>{'p_campaign_code': normalized},
+    );
+    return _mapList(rows, NosokPublicLguOption.fromMap);
   }
 
   @override
@@ -1814,40 +1836,12 @@ class NosokSupabaseRepository implements NosokRepository {
 
   Future<Map<String, dynamic>> _prepareDocumentPayload(
       NosokApplicationDocument document) async {
-    String? fileUrl = document.fileUrl;
-    if (!_hasValue(fileUrl) &&
-        _hasValue(document.storageBucket) &&
-        _hasValue(document.storagePath)) {
-      try {
-        fileUrl = _client.storage
-            .from(document.storageBucket!.trim())
-            .getPublicUrl(document.storagePath!.trim());
-      } catch (_) {
-        fileUrl = document.fileUrl;
-      }
-    }
     return <String, dynamic>{
       ...document.toUpsertMap(),
-      'file_url': fileUrl,
+      'file_url': null,
     };
   }
 }
-
-bool _hasUncertifiedPiiSubmission(NosokApplicationDraft draft) =>
-    draft.nationalId.trim().isNotEmpty ||
-    draft.birthDate != null ||
-    _hasValue(draft.gender) ||
-    _hasValue(draft.phone) ||
-    _hasValue(draft.mobile) ||
-    _hasValue(draft.email) ||
-    _hasValue(draft.governorateId) ||
-    _hasValue(draft.communityId) ||
-    _hasValue(draft.addressText) ||
-    _hasValue(draft.maritalStatus) ||
-    _hasValue(draft.notes) ||
-    draft.companions.isNotEmpty ||
-    draft.documents.isNotEmpty ||
-    draft.payments.isNotEmpty;
 
 bool _hasValue(String? value) => (value ?? '').trim().isNotEmpty;
 String? _nullIfBlank(String? value) => _hasValue(value) ? value!.trim() : null;

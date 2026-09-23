@@ -41,6 +41,7 @@ class _NosokApplyPageState extends ConsumerState<NosokApplyPage> {
   String _serviceType = 'hajj';
   String? _seasonId;
   String? _programId;
+  String? _lguId;
   String? _gender;
   String? _maritalStatus;
   DateTime? _birthDate;
@@ -74,6 +75,9 @@ class _NosokApplyPageState extends ConsumerState<NosokApplyPage> {
           serviceType: _serviceType,
         ),
       ),
+    );
+    final lgusAsync = ref.watch(
+      nosokPublicCampaignLgusProvider(_programId ?? ''),
     );
     final submitState = ref.watch(nosokApplicationSubmissionControllerProvider);
     final isSubmitting = submitState.isLoading;
@@ -132,6 +136,7 @@ class _NosokApplyPageState extends ConsumerState<NosokApplyPage> {
               context: context,
               seasons: seasons.cast<dynamic>(),
               programsAsync: programsAsync,
+              lgusAsync: lgusAsync,
               isSubmitting: isSubmitting,
             );
           },
@@ -171,6 +176,7 @@ class _NosokApplyPageState extends ConsumerState<NosokApplyPage> {
     required BuildContext context,
     required List<dynamic> seasons,
     required AsyncValue<dynamic> programsAsync,
+    required AsyncValue<dynamic> lgusAsync,
     required bool isSubmitting,
   }) {
     final theme = Theme.of(context);
@@ -219,7 +225,8 @@ class _NosokApplyPageState extends ConsumerState<NosokApplyPage> {
               switchOutCurve: Curves.easeIn,
               child: KeyedSubtree(
                 key: ValueKey<int>(_currentStep),
-                child: _buildCurrentStepContent(seasons, programsAsync),
+                child:
+                    _buildCurrentStepContent(seasons, programsAsync, lgusAsync),
               ),
             ),
             const SizedBox(height: 20),
@@ -236,11 +243,11 @@ class _NosokApplyPageState extends ConsumerState<NosokApplyPage> {
     );
   }
 
-  Widget _buildCurrentStepContent(
-      List<dynamic> seasons, AsyncValue<dynamic> programsAsync) {
+  Widget _buildCurrentStepContent(List<dynamic> seasons,
+      AsyncValue<dynamic> programsAsync, AsyncValue<dynamic> lgusAsync) {
     return switch (_currentStep) {
       0 => _buildServiceSeasonStep(seasons, programsAsync),
-      1 => _buildApplicantStep(),
+      1 => _buildApplicantStep(lgusAsync),
       2 => _buildCompanionsStep(),
       3 => _buildDocumentsStep(),
       4 => _buildPaymentsStep(),
@@ -279,6 +286,7 @@ class _NosokApplyPageState extends ConsumerState<NosokApplyPage> {
                     setState(() {
                       _serviceType = value ?? 'hajj';
                       _programId = null;
+                      _lguId = null;
                     });
                   },
                 ),
@@ -301,6 +309,7 @@ class _NosokApplyPageState extends ConsumerState<NosokApplyPage> {
                     setState(() {
                       _seasonId = value;
                       _programId = null;
+                      _lguId = null;
                     });
                   },
                 ),
@@ -332,7 +341,10 @@ class _NosokApplyPageState extends ConsumerState<NosokApplyPage> {
                             ),
                           )
                           .toList(),
-                      onChanged: (value) => setState(() => _programId = value),
+                      onChanged: (value) => setState(() {
+                        _programId = value;
+                        _lguId = null;
+                      }),
                     );
                   },
                 ),
@@ -344,7 +356,7 @@ class _NosokApplyPageState extends ConsumerState<NosokApplyPage> {
     );
   }
 
-  Widget _buildApplicantStep() {
+  Widget _buildApplicantStep(AsyncValue<dynamic> lgusAsync) {
     return Form(
       key: _formKeys[1],
       child: Column(
@@ -390,6 +402,43 @@ class _NosokApplyPageState extends ConsumerState<NosokApplyPage> {
               _formField(_emailController, 'البريد الإلكتروني',
                   keyboardType: TextInputType.emailAddress,
                   icon: Icons.email_outlined),
+              SizedBox(
+                width: 320,
+                child: lgusAsync.when(
+                  loading: () => const LinearProgressIndicator(minHeight: 46),
+                  error: (error, stack) => const Text(
+                      'تعذر تحميل الهيئات المحلية المعتمدة لهذه الحملة.'),
+                  data: (lgus) {
+                    final list = (lgus as List).cast<dynamic>();
+                    if (list.isEmpty) {
+                      return const Text(
+                          'لا يوجد نطاق LGU معتمد ومتاح لهذه الحملة.');
+                    }
+                    _lguId ??= list.first.lguId as String;
+                    return DropdownButtonFormField<String>(
+                      initialValue: list.any((item) => item.lguId == _lguId)
+                          ? _lguId
+                          : list.first.lguId as String,
+                      decoration: _premiumInputDecoration(
+                        'الهيئة المحلية / LGU',
+                        icon: Icons.location_city_outlined,
+                      ),
+                      items: list
+                          .map<DropdownMenuItem<String>>(
+                            (item) => DropdownMenuItem<String>(
+                              value: item.lguId as String,
+                              child: Text(item.lguNameAr as String),
+                            ),
+                          )
+                          .toList(),
+                      validator: (value) => value == null || value.isEmpty
+                          ? 'اختر الهيئة المحلية المعتمدة.'
+                          : null,
+                      onChanged: (value) => setState(() => _lguId = value),
+                    );
+                  },
+                ),
+              ),
               SizedBox(
                 width: 320,
                 child: DropdownButtonFormField<String>(
@@ -598,8 +647,8 @@ class _NosokApplyPageState extends ConsumerState<NosokApplyPage> {
       _showMessage('يجب الإقرار بصحة البيانات قبل الإرسال.');
       return;
     }
-    if (_seasonId == null || _programId == null) {
-      _showMessage('اختر الموسم والبرنامج قبل الإرسال.');
+    if (_seasonId == null || _programId == null || _lguId == null) {
+      _showMessage('اختر الموسم والبرنامج والهيئة المحلية قبل الإرسال.');
       return;
     }
 
@@ -607,6 +656,7 @@ class _NosokApplyPageState extends ConsumerState<NosokApplyPage> {
       seasonId: _seasonId!,
       programId: _programId!,
       serviceType: _serviceType,
+      lguId: _lguId,
       applicantFullName: _fullNameController.text.trim(),
       nationalId: _nationalIdController.text.trim(),
       birthDate: _birthDate,
@@ -663,6 +713,7 @@ class _NosokApplyPageState extends ConsumerState<NosokApplyPage> {
     setState(() {
       _currentStep = 0;
       _programId = null;
+      _lguId = null;
       _gender = null;
       _maritalStatus = null;
       _birthDate = null;
@@ -1386,7 +1437,7 @@ class _DocumentDialogState extends State<_DocumentDialog> {
       _originalNameController.text = result.originalFileName;
       _bucketController.text = result.bucket;
       _pathController.text = result.path;
-      _fileUrlController.text = result.publicUrl;
+      _fileUrlController.text = '';
       _mimeController.text = result.mimeType ?? '';
       _fileSizeBytes = result.fileSizeBytes;
       if (_titleController.text.trim().isEmpty) {
@@ -1659,7 +1710,7 @@ class _PaymentDialogState extends State<_PaymentDialog> {
         _receiptFileNameController.text = result.originalFileName;
         _receiptBucketController.text = result.bucket;
         _receiptPathController.text = result.path;
-        _receiptUrlController.text = result.publicUrl;
+        _receiptUrlController.text = '';
         _receiptMimeController.text = result.mimeType ?? '';
         _receiptFileSizeBytes = result.fileSizeBytes;
       });

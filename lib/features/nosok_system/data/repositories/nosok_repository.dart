@@ -1,6 +1,7 @@
 import '../../domain/models/nosok_announcement.dart';
 import '../../domain/models/nosok_billing_provider_adapter.dart';
 import '../../domain/models/nosok_public_tracking_privacy_check.dart';
+import '../../domain/models/nosok_public_lgu_option.dart';
 import '../../domain/models/nosok_production_readiness_evidence.dart';
 import '../../domain/models/nosok_application.dart';
 import '../../domain/models/nosok_application_companion.dart';
@@ -121,6 +122,8 @@ abstract class NosokRepository {
 
   Future<List<NosokUnitScope>> listUnitScopes();
   Future<NosokUnitScope?> getPublicUnitScope(String unitSlug);
+  Future<List<NosokPublicLguOption>> listPublicCampaignLgus(
+      String campaignCode);
 
   Future<NosokDashboardSummary> loadDashboardSummary();
 
